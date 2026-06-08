@@ -42,8 +42,7 @@
     const Htotal = span + 90;   // a little extra so the rounded end hides under the next section
     const isMobile = window.matchMedia('(max-width: 760px)').matches;
     const cx = isMobile ? 40 : 60;   // centre of the svg (px = user units, no viewBox)
-    const heroEl = document.querySelector('.hero');
-    const straight = heroEl && heroEl.dataset.variant === 'b';
+    const straight = false;
     let d;
     if (straight) {
       d = 'M ' + cx + ' 0 L ' + cx + ' ' + Htotal;   // Editorial = straight line
@@ -204,17 +203,7 @@
     }));
   }
 
-  /* ---------- hero A/B switch ---------- */
-  const hero = $('.hero');
-  function setHero(v) {
-    if (hero) hero.dataset.variant = v;
-    waveH = -1;   // force the timeline conductor to rebuild for this variant
-    $$('[data-hero-variant]').forEach((b) => b.classList.toggle('is-on', b.dataset.heroVariant === v));
-    try { localStorage.setItem('vac-hero', v); } catch (e) {}
-    setTimeout(update, 50);
-  }
-  $$('[data-hero-variant]').forEach((btn) => btn.addEventListener('click', () => setHero(btn.dataset.heroVariant)));
-  try { const saved = localStorage.getItem('vac-hero'); if (saved) setHero(saved); } catch (e) {}
+
 
   /* ---------- smooth anchor offset ---------- */
   $$('a[href^="#"]').forEach((a) => {
