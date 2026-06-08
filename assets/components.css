@@ -74,8 +74,8 @@
 .hero[data-variant="b"] .hero__stage { display: none; }
 .hero[data-variant="b"] h1 { font-size: var(--fs-mega); max-width: 16ch; }
 .hero[data-variant="b"] .hero-bandstage { display: block; }
-.hero-bandstage { display: none; position: absolute; inset: 0; z-index: 1; }
-.hero-bandstage .erizo { position: absolute; }
+.hero-bandstage { display: none; position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.hero-bandstage .erizo { position: absolute; pointer-events: auto; }
 .hero-bandstage .e1 { width: clamp(120px,15vw,235px); top: 11%; left: 3%; }
 .hero-bandstage .e2 { width: clamp(110px,13vw,205px); top: 19%; right: 5%; }
 .hero-bandstage .e3 { width: clamp(120px,15vw,235px); bottom: 9%; left: 4%; }
