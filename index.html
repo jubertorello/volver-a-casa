@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Volver a Casa — Reconstruyendo vínculos, acompañando familias</title>
+<meta name="description" content="Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Capriola&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="assets/components.css" />
+<script>document.documentElement.classList.add('fx');</script>
+<script src="assets/image-slot.js"></script>
+</head>
+<body>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" data-screen-label="Nav">
+  <a class="nav__brand" href="#top" aria-label="Volver a Casa — inicio">
+    <img class="nav__logo" src="assets/logo-volveracasa.png" alt="Volver a Casa" />
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="#proyecto">El proyecto</a>
+    <a href="#camino">El camino</a>
+    <a href="#metodo">Cómo acompañamos</a>
+    <a href="#porque">Por qué importa</a>
+    <a href="#hablemos">La infancia</a>
+    <a href="#recorrido">La experiencia</a>
+  </nav>
+  <div class="nav__cta">
+    <button type="button" class="btn" data-open-contacto aria-haspopup="dialog">Hablemos <span class="arrow">→</span></button>
+    <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#proyecto">El proyecto</a>
+  <a href="#camino">El camino</a>
+  <a href="#porque">Por qué importa</a>
+  <a href="#historias">Historias</a>
+  <a href="#hablemos">La infancia</a>
+  <a href="#recorrido">El recorrido</a>
+  <a href="#actualidad">Actualidad</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<main id="top">
+<section class="hero" data-variant="a" data-screen-label="Hero">
+  <!-- brand squiggle background -->
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="hero__kicker hablemos" data-reveal>Una infancia acompañada puede <b>cambiarlo todo</b></p>
+      <h1 data-reveal data-delay="1">Reconstruyendo <span class="accent">vínculos</span>, acompañando <span class="accent-verde">familias</span>.</h1>
+    </div>
+
+    <div class="hero__stage" data-reveal data-reveal="scale" data-delay="2">
+      <div class="erizo erizo--main float-slow" style="--rot:-2deg">
+        <img src="assets/erizos/alegria.png" alt="Erizo alegría" />
+        <span class="tag">alegría</span>
+      </div>
+      <div class="erizo erizo--2 float" style="--rot:3deg">
+        <img src="assets/erizos/ansiedad.png" alt="Erizo ansiedad" style="transform:scaleX(-1)" />
+        <span class="tag">ansiedad</span>
+      </div>
+      <div class="erizo erizo--3 float-slow" style="--rot:-4deg">
+        <img src="assets/erizos/tristeza.png" alt="Erizo tristeza" style="transform:scaleX(-1)" />
+        <span class="tag">tristeza</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- erizos for variant B -->
+  <div class="hero-bandstage">
+    <div class="erizo e2 float-slow band-erizo" style="--rot:5deg"><img src="assets/erizos/ansiedad.png" alt="Erizo ansiedad" style="transform:scaleX(-1)" /><span class="erizo-bubble">Hola, soy ansiedad</span></div>
+    <div class="erizo e3 float-slow band-erizo" style="--rot:3deg"><img src="assets/erizos/alegria.png" alt="Erizo alegría" /><span class="erizo-bubble">Hola, soy alegría</span></div>
+    <div class="erizo e4 float band-erizo" style="--rot:-5deg"><img src="assets/erizos/miedo.png" alt="Erizo miedo" style="transform:scaleX(-1)" /><span class="erizo-bubble">Hola, soy miedo</span></div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true"><span class="mouse"></span>Desliza</div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item"><span>Conexión</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Reconstrucción</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Escucha</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Tiempo</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Acompañamiento</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Familia</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Infancia</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Nuevos comienzos</span><img class="star" src="assets/sep-icon.png" alt="" /></span>
+    <span class="marquee__item"><span>Conexión</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Reconstrucción</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Escucha</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Tiempo</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Acompañamiento</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Familia</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Infancia</span><img class="star" src="assets/sep-icon.png" alt="" /><span>Nuevos comienzos</span><img class="star" src="assets/sep-icon.png" alt="" /></span>
+  </div>
+</div>
+
+<!-- ===================== 1 · EL PROYECTO ===================== -->
+<section class="section" id="proyecto" data-screen-label="01 El proyecto">
+  <div class="wrap proyecto-const">
+    <div class="proyecto-const__head">
+      <div data-reveal>
+        <p class="eyebrow">Hablemos de Volver a Casa</p>
+        <h2 class="proyecto-const__title">¿Qué es Volver a Casa?</h2>
+      </div>
+      <div class="proyecto-const__intro" data-reveal data-delay="1">
+        <p class="lead" style="font-family: Capriola; font-size: 18px">Un proyecto de innovación social que acompaña a niños, niñas y sus familias en procesos de reunificación familiar, creando las condiciones necesarias para reconstruir vínculos protectores y entornos de cuidado y bienestar.</p>
+        <p style="color: var(--ink-soft); font-family: Capriola; font-weight: 400">No se trata solo de volver, sino de hacerlo a un entorno que pueda sostener el bienestar del niño o la niña. Por eso intervenimos <strong>antes, durante y después</strong> del regreso.</p>
+      </div>
+    </div>
+    <div class="proyecto-const__body">
+      <div class="proyecto__media" data-reveal data-reveal="scale">
+        <img src="assets/foto-editorial.png" alt="Niñas y niños dibujando juntos" />
+        <div class="float-slow erizo-loose"><img src="assets/erizos/ilusion.png" alt="Erizo ilusión" /></div>
+      </div>
+      <div class="proyecto-const__pillars" data-reveal data-delay="2">
+        <div class="pcard"><span class="pcard__dot on-azul"></span><b>Apoyo psicológico</b><span class="pcard__desc">A niños, niñas y familias.</span></div>
+        <div class="pcard"><span class="pcard__dot on-verde"></span><b>Intervención social</b><span class="pcard__desc">Fortalecer capacidades parentales.</span></div>
+        <div class="pcard"><span class="pcard__dot on-naranja"></span><b>Trabajo en red</b><span class="pcard__desc">Con los sistemas de protección.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial version (variant B) -->
+  <div class="wrap proyecto-ed">
+    <div class="proyecto-ed__top">
+      <div class="proyecto-ed__head" data-reveal>
+        <p class="eyebrow">Hablemos de Volver a Casa</p>
+        <h2 class="proyecto-ed__title">¿Qué es<br>Volver a Casa?</h2>
+      </div>
+      <div class="proyecto-ed__text">
+        <p class="proyecto-ed__lead" data-reveal data-delay="1" style="font-size: 18px">Un proyecto de innovación social que acompaña a niños, niñas y sus familias en procesos de reunificación familiar, creando las condiciones necesarias para reconstruir vínculos protectores y entornos de cuidado.</p>
+        <p class="proyecto-ed__note" data-reveal data-delay="2" style="font-size: 18px">No se trata solo de volver, sino de hacerlo a un entorno que pueda sostener el bienestar del niño o la niña. Por eso intervenimos <strong>antes, durante y después</strong> del regreso.</p>
+      </div>
+    </div>
+    <div class="proyecto-ed__pillars" data-reveal data-delay="2">
+      <div class="pillar"><span class="pillar__n">01</span><b>Apoyo psicológico</b><span>A niños, niñas y familias.</span></div>
+      <div class="pillar"><span class="pillar__n">02</span><b>Intervención social</b><span>Fortalecer capacidades parentales.</span></div>
+      <div class="pillar"><span class="pillar__n">03</span><b>Trabajo en red</b><span>Con los sistemas de protección.</span></div>
+    </div>
+  </div>
+</section>
+<style>
+.mini { display:grid; gap:4px; }
+.mini__dot { width:34px;height:34px;border-radius:11px;margin-bottom:8px; }
+.mini b { font-family:var(--font-display); font-size:1.05rem; }
+.mini span { color:var(--ink-faint); font-size:var(--fs-sm); }
+.proyecto__media { }
+
+/* proyecto Constelación — redesigned */
+.proyecto-const__head { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(28px, 5vw, 72px); align-items: start; margin-bottom: clamp(32px, 4.5vw, 60px); }
+.proyecto-const__title { font-family: var(--font-display); margin-top: 14px; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.02; }
+.proyecto-const__intro { display: grid; gap: 18px; max-width: 60ch; }
+.proyecto-const__body { display: grid; grid-template-columns: 1.5fr 0.9fr; gap: clamp(20px, 2.6vw, 42px); align-items: stretch; }
+.proyecto-const .proyecto__media { position: relative; }
+.proyecto-const .proyecto__media > img { width: 100%; height: 100%; object-fit: cover; border-radius: 23px; display: block; box-shadow: var(--shadow-md); }
+.proyecto-const .erizo-loose { position: absolute; left: -30px; top: -42px; width: clamp(92px, 9vw, 124px); z-index: 2; }
+.proyecto-const .erizo-loose img { width: 100%; height: auto; display: block; }
+.proyecto-const__pillars { display: grid; gap: 14px; align-content: center; }
+.pcard { background: var(--paper); border-radius: 23px; padding: clamp(18px, 1.8vw, 26px); box-shadow: var(--shadow-sm); display: grid; gap: 4px; transition: transform .4s var(--ease), box-shadow .4s; }
+.pcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.pcard__dot { width: 34px; height: 34px; border-radius: 11px; margin-bottom: 8px; }
+.pcard b { font-family: var(--font-display); font-size: 1.12rem; color: var(--ink); }
+.pcard__desc { color: var(--ink-faint); font-size: var(--fs-sm); }
+@media (max-width: 860px) {
+  .proyecto-const__head { grid-template-columns: 1fr; gap: 18px; }
+  .proyecto-const__body { grid-template-columns: 1fr; }
+  .proyecto-const .proyecto__media > img { height: auto; }
+  .proyecto-const__pillars { grid-template-columns: 1fr; }
+}
+
+/* proyecto: variant swap (Constelación = media+cards, Editorial = typographic) */
+.proyecto-ed { display: none; }
+.hero[data-variant="b"] ~ #proyecto .proyecto-const { display: none; }
+.hero[data-variant="b"] ~ #proyecto .proyecto-ed { display: block; }
+.proyecto-ed__top { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+.proyecto-ed__title { font-family: var(--font-display); font-size: clamp(2.4rem, 5.4vw, 4.4rem); line-height: 0.98; letter-spacing: -0.01em; margin: 14px 0 0; }
+.proyecto-ed__text { display: grid; gap: clamp(20px, 2.4vw, 30px); padding-top: clamp(6px, 1.2vw, 16px); }
+.proyecto-ed__lead { font-family: Capriola; font-size: 18px; line-height: 1.4; color: var(--ink); }
+.proyecto-ed__note { font-family: Capriola; font-weight: 400; font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+.proyecto-ed__pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 56px); margin-top: clamp(48px, 6vw, 88px); }
+.pillar { border-top: 3px solid var(--ink); padding-top: 16px; display: grid; gap: 6px; }
+.pillar:nth-child(1) { border-color: var(--azul); }
+.pillar:nth-child(2) { border-color: var(--verde); }
+.pillar:nth-child(3) { border-color: var(--naranja); }
+.pillar__n { font-family: var(--font-display); font-size: 1.45rem; color: var(--ink-faint); }
+.pillar b { font-family: var(--font-display); font-size: 1.12rem; }
+.pillar span { color: var(--ink-faint); font-size: var(--fs-sm); }
+@media (max-width: 760px) { .proyecto-ed__top { grid-template-columns: 1fr; gap: 28px; } .proyecto-ed__pillars { grid-template-columns: 1fr; gap: 28px; } }
+</style>
+
+<!-- ===================== 2 · EL CAMINO (timeline) ===================== -->
+<section class="section section--tint" id="camino" data-screen-label="02 El camino">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <p class="eyebrow eyebrow--verde">Hablemos del camino</p>
+      <h2>Volver no es solo llegar.<br>Es todo lo que pasa en el camino.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">Cada reunificación es un proceso acompañado paso a paso. Así recorremos el camino junto a las familias.</p>
+    </div>
+
+    <div class="path">
+      <svg class="path__wave" preserveAspectRatio="none" aria-hidden="true"><path class="track"></path><path class="fill"></path></svg>
+      <div class="step" data-reveal><div class="step__group"><div class="step__home"><img class="step__home-img" src="assets/casita-azul.png" alt="" /><span class="step__n">1</span></div><div class="step__card"><span class="step__phase">Recepción</span><h4>Detección de la necesidad</h4><p style="font-family: Capriola; font-size: 16px">Conocemos la situación de la familia y del niño o la niña, y construimos el primer vínculo de confianza.</p></div></div></div>
+      <div class="step" data-reveal><div class="step__group"><div class="step__home"><img class="step__home-img" src="assets/casita-azul.png" alt="" /><span class="step__n">2</span></div><div class="step__card"><span class="step__phase">Valoración</span><h4>Evaluación profesional</h4><p style="font-family: Capriola; font-size: 16px">Equipo interdisciplinar que valora condiciones, recursos y posibilidades reales de retorno seguro.</p></div></div></div>
+      <div class="step" data-reveal><div class="step__group"><div class="step__home"><img class="step__home-img" src="assets/casita-azul.png" alt="" /><span class="step__n">3</span></div><div class="step__card"><span class="step__phase">Vínculo</span><h4>Inicio del acompañamiento</h4><p style="font-family: Capriola; font-size: 16px">Apoyo emocional y terapéutico para reconstruir el vínculo entre la familia y el menor.</p></div></div></div>
+      <div class="step" data-reveal><div class="step__group"><div class="step__home"><img class="step__home-img" src="assets/casita-azul.png" alt="" /><span class="step__n">4</span></div><div class="step__card"><span class="step__phase">Preparación</span><h4>Construcción de un entorno seguro</h4><p style="font-family: Capriola; font-size: 16px">Fortalecemos las capacidades parentales y preparamos un hogar protector y estable.</p></div></div></div>
+      <div class="step" data-reveal><div class="step__group"><div class="step__home"><img class="step__home-img" src="assets/casita-azul.png" alt="" /><span class="step__n">5</span></div><div class="step__card"><span class="step__phase">Retorno</span><h4>Proceso de reunificación</h4><p style="font-family: Capriola; font-size: 16px">El regreso al hogar, gradual y acompañado, cuando existen garantías de cuidado y bienestar.</p></div></div></div>
+      <div class="step" data-reveal><div class="step__group"><div class="step__home"><img class="step__home-img" src="assets/casita-azul.png" alt="" /><span class="step__n">6</span></div><div class="step__card"><span class="step__phase">Sostenibilidad</span><h4>Seguimiento y apoyo continuo</h4><p style="font-family: Capriola; font-size: 16px">Seguimos cerca para que la reunificación sea estable y sostenida en el tiempo.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3 · POR QUÉ IMPORTA (datos) ===================== -->
+<section class="section" id="porque" data-screen-label="03 Por qué importa">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow eyebrow--naranja">Hablemos de por qué importa</p>
+      <h2>Crecer en familia lo cambia todo.</h2>
+      <p class="lead" style="font-family: Capriola; font-size: 16px">La institucionalización prolongada afecta al desarrollo emocional, social y a la salud mental. Estos son los datos que mueven el proyecto y los objetivos que lo guían.</p>
+    </div>
+    <div class="porque-body grid mstack" style="grid-template-columns:0.9fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:start">
+      <div class="porque-objetivos" data-reveal data-delay="1">
+        <p class="porque-kicker">Nuestros objetivos</p>
+        <ul class="impact-list">
+          <li><span class="on-verde"></span>Reducir el tiempo que niños y niñas pasan en centros de protección.</li>
+          <li><span class="on-azul"></span>Acompañar reunificaciones seguras y sostenidas en el tiempo.</li>
+          <li><span class="on-naranja"></span>Fortalecer las capacidades parentales de las familias.</li>
+          <li><span class="on-rosa"></span>Generar conocimiento transferible al sistema de protección.</li>
+        </ul>
+      </div>
+      <div class="porque-stats" data-reveal data-delay="2">
+        <div class="card stat stat--verde"><span class="stat__num" data-count="40" data-prefix="−" data-suffix="%">−0%</span><span class="stat__label">tiempo medio en acogimiento</span><span class="provisional">Objetivo provisional</span></div>
+        <div class="card stat stat--naranja"><span class="stat__num" data-count="85" data-suffix="%">0%</span><span class="stat__label">reunificaciones estables a 12 meses</span><span class="provisional">Objetivo provisional</span></div>
+        <div class="card stat"><span class="stat__num" data-count="120">0</span><span class="stat__label">familias acompañadas</span><span class="provisional">Dato provisional</span></div>
+        <div class="card stat stat--verde"><span class="stat__num" data-count="70" data-suffix="%">0%</span><span class="stat__label">de las familias mejora con acompañamiento</span><span class="provisional">Objetivo provisional</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5 · CÓMO ACOMPAÑAMOS ===================== -->
+<section class="section section--tint" id="metodo" data-screen-label="05 Cómo acompañamos">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <p class="eyebrow eyebrow--verde">Hablemos de cómo acompañamos</p>
+      <h2>Una mirada humana y profesional.</h2>
+      <p class="lead" style="margin-inline: auto; text-align: center; font-family: Capriola; font-size: 18px">Seis principios que sostienen cada intervención: del proceso a los resultados, siempre con las personas en el centro.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card" data-reveal data-delay="1"><div class="mtd-icon"><img src="assets/erizos/alegria.png" alt="" /></div><h3 style="font-size: 26px">Acompañamiento profesional</h3><p>Intervención especializada con familias y menores para fortalecer vínculos y crear entornos seguros.</p></div>
+      <div class="card" data-reveal data-delay="2"><div class="mtd-icon"><img src="assets/erizos/miedo.png" alt="" /></div><h3>Reunificación familiar</h3><p>Que niños y niñas puedan volver con sus familias cuando exista un entorno preparado y protector.</p></div>
+      <div class="card" data-reveal data-delay="3"><div class="mtd-icon"><img src="assets/erizos/ira.png" alt="" /></div><h3>Prevención y salud mental</h3><p>Trabajamos desde la prevención temprana, porque el vínculo seguro es la base del bienestar emocional.</p></div>
+      <div class="card" data-reveal data-delay="1"><div class="mtd-icon"><img src="assets/erizos/ilusion.png" alt="" /></div><h3>Comunidad y trabajo en red</h3><p>Colaboramos con instituciones, profesionales, entidades y empresas para transformar vidas juntos.</p></div>
+      <div class="card" data-reveal data-delay="2"><div class="mtd-icon"><img src="assets/erizos/tristeza-naranja.png" alt="" /></div><h3>Proceso, no solo resultados</h3><p>Escuchamos, comprendemos, guiamos y celebramos cada pequeño avance hacia un nuevo comienzo.</p></div>
+      <div class="card" data-reveal data-delay="3"><div class="mtd-icon"><img src="assets/erizos/ansiedad.png" alt="" /></div><h3>Enfoque de derechos</h3><p>El interés superior del menor en el centro, en todas las fases de la intervención.</p></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.porque-kicker { font-family: Capriola, sans-serif; text-transform: uppercase; letter-spacing: .14em; font-size: 13px; color: var(--naranja); margin: 0 0 10px; }
+.porque-objetivos .impact-list { margin-top: 0; }
+.porque-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-content: start; }
+.porque-stats .stat { text-align: left; padding: clamp(18px, 1.6vw, 24px); }
+.porque-stats .stat .stat__num { font-size: clamp(32px, 3vw, 44px); line-height: 1; margin-bottom: 8px; }
+.porque-stats .stat .stat__label { font-size: 14px; line-height: 1.3; }
+.porque-stats .stat .provisional { margin-top: 8px; }
+@media (max-width: 820px){ .porque-body { grid-template-columns: 1fr !important; } }
+.impact-list { list-style:none; }
+.impact-list li { display:flex; gap:14px; align-items:flex-start; font-weight:600; color:var(--ink); line-height:1.4; margin-bottom:20px; }
+.impact-list li:last-child { margin-bottom:0; }
+.impact-list li span { flex:none; width:14px; height:14px; border-radius:50%; margin-top:7px; }
+</style>
+
+<!-- ===================== 9 · EL RECORRIDO ===================== -->
+<section class="section section--ink" id="recorrido" data-screen-label="09 El recorrido">
+
+  <div class="recorrido-erizo recorrido-casa float-slow" aria-hidden="true"><img src="assets/casita-blanca.png" alt="" /></div>
+
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="section-head" data-reveal style="max-width:none">
+      <p class="eyebrow eyebrow--cream">Hablemos del camino recorrido</p>
+      <h2 style="max-width:18ch">Volver a Casa no surge de la nada.</h2>
+      <p class="lead" style="color: oklch(0.974 0.013 83 / .82); max-width: 62ch; font-family: Capriola">Es el resultado de años de experiencia, investigación, prevención y aprendizaje junto a familias, profesionales y organizaciones. Este es el recorrido que lo ha hecho posible.</p>
+    </div>
+
+    <ol class="recorrido">
+      <li class="rec-step" data-c="verde" data-reveal data-delay="1">
+        <div class="rec-step__head"><span class="rec-step__num">01</span><span class="rec-step__stage">Origen · +15 años</span></div>
+        <h3>Casa Verde</h3>
+        <p>Más de 15 años trabajando con infancia, familias y salud mental para prevenir la ruptura del vínculo.</p>
+      </li>
+      <li class="rec-arrow" aria-hidden="true">→</li>
+      <li class="rec-step" data-c="naranja" data-reveal data-delay="2">
+        <div class="rec-step__head"><span class="rec-step__num">02</span><span class="rec-step__stage">Investigación</span></div>
+        <h3>Más Casa</h3>
+        <p>Investigación, aprendizaje y evaluación del modelo para comprender qué funciona y cómo generar mayor impacto.</p>
+      </li>
+      <li class="rec-arrow" aria-hidden="true">→</li>
+      <li class="rec-step rec-step--hl" data-c="azul" data-reveal data-delay="3">
+        <div class="rec-step__head"><span class="rec-step__num">03</span><span class="rec-step__stage">El proyecto · Hoy</span></div>
+        <h3>Volver a Casa</h3>
+        <p>Aplicación de ese conocimiento a los procesos de reunificación familiar y al acompañamiento especializado.</p>
+      </li>
+      <li class="rec-arrow" aria-hidden="true">→</li>
+      <li class="rec-step" data-c="cream" data-reveal data-delay="4">
+        <div class="rec-step__head"><span class="rec-step__num">04</span><span class="rec-step__stage">Red estatal</span></div>
+        <h3>Plataforma VIDAS</h3>
+        <p>Red de innovación social impulsada por el Ministerio de Derechos Sociales, de la que Volver a Casa forma parte.</p>
+      </li>
+    </ol>
+
+    <div class="recorrido__foot" data-reveal>
+      <p class="recorrido__msg">Cada paso ha sumado experiencia, evidencia y red. Volver a Casa es todo ese aprendizaje puesto al servicio de las familias.</p>
+      <a href="https://plataformavidas.gob.es/" target="_blank" rel="noopener" class="btn btn--cream">Conocer la Plataforma VIDAS <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+<style>
+.recorrido { list-style: none; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: stretch; gap: clamp(6px, 1vw, 16px); margin-bottom: clamp(40px, 5vw, 64px); }
+.rec-step { display: grid; gap: 12px; align-content: start; padding: clamp(22px, 2.2vw, 30px); border-radius: var(--r-lg); background: oklch(0.974 0.013 83 / 0.07); border: 1.5px solid oklch(1 0 0 / 0.14); transition: transform .45s var(--ease), background .4s; position: relative; }
+.rec-step:hover { transform: translateY(-6px); background: oklch(0.974 0.013 83 / 0.12); }
+.rec-step__head { display: flex; align-items: center; gap: 12px; }
+.rec-step__num { font-family: var(--font-display); font-size: 1.02rem; width: 42px; height: 42px; flex: none; border-radius: 50%; display: grid; place-items: center; color: var(--azul-deep); }
+.rec-step[data-c="verde"] .rec-step__num { background: var(--verde); color: #fff; }
+.rec-step[data-c="naranja"] .rec-step__num { background: var(--naranja); color: #fff; }
+.rec-step[data-c="azul"] .rec-step__num { background: var(--azul); color: #fff; }
+.rec-step[data-c="cream"] .rec-step__num { background: var(--cream); color: var(--azul-deep); }
+.rec-step__stage { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: oklch(0.974 0.013 83 / .7); }
+.rec-step h3 { color: var(--cream); font-size: clamp(1.35rem, 1.8vw, 1.55rem); }
+.rec-step p { color: oklch(0.974 0.013 83 / .76); font-size: var(--fs-sm); line-height: 1.5; }
+.rec-step--hl { background: var(--cream); border-color: var(--cream); box-shadow: var(--shadow-lg); }
+.rec-step--hl h3 { color: var(--azul-deep); }
+.rec-step--hl p { color: var(--ink-soft); }
+.rec-step--hl .rec-step__stage { color: var(--naranja-deep); }
+.rec-arrow { align-self: center; color: oklch(0.974 0.013 83 / .5); font-size: 1.7rem; font-weight: 700; padding: 0 2px; }
+.recorrido__foot { display: flex; align-items: center; justify-content: space-between; gap: clamp(22px, 4vw, 52px); flex-wrap: wrap; border-top: 1px solid oklch(0.974 0.013 83 / .16); padding-top: clamp(28px, 3.5vw, 44px); }
+.recorrido__msg { font-family: Capriola; color: var(--cream); font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.45; max-width: 48ch; }
+.recorrido-erizo { position: absolute; z-index: 1; top: clamp(78px, 10vw, 168px); right: clamp(10px, 5vw, 76px); width: clamp(88px, 11vw, 150px); filter: drop-shadow(0 16px 20px rgba(8,18,38,.30)); pointer-events: none; }
+.recorrido-erizo img { width: 100%; height: auto; }
+@media (max-width: 980px) {
+  .recorrido { grid-template-columns: 1fr; gap: 4px; }
+  .rec-arrow { justify-self: center; transform: rotate(90deg); padding: 8px 0; }
+  .recorrido-erizo { width: 86px; right: 16px; }
+}
+</style>
+
+<!-- ===================== 7 · HISTORIAS ===================== -->
+<section class="section section--tint" id="historias" data-screen-label="07 Historias">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow eyebrow--naranja">Hablemos de historias</p>
+      <h2>Detrás de cada proceso, una vida que vuelve a empezar.</h2>
+      <p class="lead" style="font-family: Capriola; font-size: 16px">Compartimos experiencias reales cuidando siempre la dignidad y la privacidad de los niños y las niñas. Sus voces, sin exponerles.</p>
+    </div>
+    <div class="grid mstack" style="grid-template-columns:1.2fr 0.8fr;gap:clamp(24px,4vw,48px);align-items:stretch">
+      <article class="card" data-reveal style="display:flex;flex-direction:column;justify-content:center;gap:24px;background:var(--azul);color:var(--paper)">
+        <span style="font-family:var(--font-display);font-size:4rem;line-height:.6;opacity:.5">“</span>
+        <p class="quote" style="color:var(--paper);max-width:24ch">Cuando volvió a casa, no solo regresó él. Volvimos a confiar todos.</p>
+        <p style="color:oklch(0.992 0.006 85 / .8);font-weight:700">— Testimonio de una familia acompañada<br><span style="font-weight:400;opacity:.8">Nombre protegido por privacidad.</span></p>
+      </article>
+      <div class="grid" style="gap:18px" data-reveal data-delay="2">
+        <article class="post" style="box-shadow:var(--shadow-md)">
+          <div class="post__media"><image-slot id="historia-1" shape="rect" placeholder="Ilustración / detalle (sin rostros de menores)"></image-slot></div>
+          <div class="post__body"><span class="post__cat" style="color:var(--verde-deep)">Proceso real</span><h3 style="font-size:1.15rem">El valor del seguimiento</h3><p style="font-size:var(--fs-sm);color:var(--ink-soft)">Cómo el acompañamiento continuo sostiene la reunificación.</p></div>
+        </article>
+        <a href="#" class="link-arrow" data-reveal data-delay="3" style="padding-left:4px">Ver más historias y procesos <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8 · HUB EDITORIAL ===================== -->
+<section class="section" id="hablemos" data-screen-label="08 La infancia">
+  <div class="wrap">
+    <div class="section-head" data-reveal style="max-width:64ch">
+      <p class="eyebrow">La infancia</p>
+      <h2>Un espacio para hablar de lo que importa.</h2>
+      <p class="lead" style="max-width: 60ch; font-family: Capriola; font-size: 16px">Píldoras, vídeos y recursos sobre infancia, salud mental y vínculos. Un lugar para divulgar y compartir —inspirado en el café de Manantial.</p>
+    </div>
+
+    <div class="topics" data-reveal data-delay="1" style="margin-bottom:34px">
+      <span class="topic" data-c="salud">Salud mental</span>
+      <span class="topic" data-c="crianza">Crianza</span>
+      <span class="topic" data-c="prev">Prevención</span>
+      <span class="topic" data-c="salud">Reunificación familiar</span>
+      <span class="topic" data-c="crianza">Infancia</span>
+      <span class="topic" data-c="prev">Derechos de la infancia</span>
+    </div>
+
+    <article class="post post--featured" data-reveal data-delay="2" style="margin-bottom:24px">
+      <div class="post__media"><image-slot id="post-feat" shape="rect" placeholder="Foto editorial destacada"></image-slot></div>
+      <div class="post__body" style="padding:clamp(28px,3vw,44px);gap:14px;justify-content:center">
+        <span class="post__cat" style="color:var(--azul-deep)">Salud mental · Vídeo</span>
+        <h3 style="font-size:clamp(1.5rem,2.6vw,2.2rem)">Por qué el vínculo seguro es la mejor prevención</h3>
+        <p style="color:var(--ink-soft)">Una conversación sobre cómo los primeros vínculos sostienen el desarrollo emocional de la infancia.</p>
+        <div class="post__meta"><span>▶ 8 min</span><span>·</span><span>Café de Manantial</span></div>
+        <a href="#" class="link-arrow" style="margin-top:8px">Ver el episodio <span>→</span></a>
+      </div>
+    </article>
+
+    <div class="grid cols-3">
+      <article class="post" data-reveal data-delay="1"><div class="post__media"><image-slot id="post-1" shape="rect" placeholder="Imagen artículo"></image-slot></div><div class="post__body"><span class="post__cat" style="color:var(--naranja-deep)">Crianza</span><h3>Acompañar las emociones difíciles</h3><div class="post__meta"><span>Lectura · 5 min</span></div></div></article>
+      <article class="post" data-reveal data-delay="2"><div class="post__media"><image-slot id="post-2" shape="rect" placeholder="Imagen artículo"></image-slot></div><div class="post__body"><span class="post__cat" style="color:var(--verde-deep)">Prevención</span><h3>Desinstitucionalización: hacia un nuevo modelo</h3><div class="post__meta"><span>Lectura · 7 min</span></div></div></article>
+      <article class="post" data-reveal data-delay="3"><div class="post__media"><image-slot id="post-3" shape="rect" placeholder="Imagen artículo"></image-slot></div><div class="post__body"><span class="post__cat" style="color:var(--azul-deep)">Derechos</span><h3>El interés superior del menor, en la práctica</h3><div class="post__meta"><span>Lectura · 6 min</span></div></div></article>
+    </div>
+    <div style="text-align:center;margin-top:42px" data-reveal><a href="#" class="btn btn--ghost">Ver todo «La infancia» <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<!-- ===================== 10 · ACTUALIDAD ===================== -->
+<section class="section section--tint" id="actualidad" data-screen-label="10 Actualidad">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow eyebrow--verde">Actualidad</p>
+      <h2>Lo último del proyecto.</h2>
+      <p class="lead" style="font-family: Capriola; font-size: 16px">Noticias, jornadas, hitos y participación en congresos.</p>
+    </div>
+    <div class="news news--cols" data-reveal>
+      <a href="#" class="news__item"><span class="news__date">Jun 2026</span><div><span class="news__tag">Jornada</span><h4>Presentación pública de Volver a Casa</h4></div><span class="news__arrow">→</span></a>
+      <a href="#" class="news__item"><span class="news__date">May 2026</span><div><span class="news__tag">Hito</span><h4>Primeras familias incorporadas al programa</h4></div><span class="news__arrow">→</span></a>
+      <a href="#" class="news__item"><span class="news__date">Abr 2026</span><div><span class="news__tag">Congreso</span><h4>Participación en encuentro sobre desinstitucionalización</h4></div><span class="news__arrow">→</span></a>
+      <a href="#" class="news__item"><span class="news__date">Mar 2026</span><div><span class="news__tag">Alianza</span><h4>Nuevo acuerdo de colaboración con entidades sociales</h4></div><span class="news__arrow">→</span></a>
+      <a href="#" class="news__item"><span class="news__date">Feb 2026</span><div><span class="news__tag">Formación</span><h4>Sesiones con profesionales de protección a la infancia</h4></div><span class="news__arrow">→</span></a>
+      <a href="#" class="news__item"><span class="news__date">Ene 2026</span><div><span class="news__tag">Publicación</span><h4>Primeros aprendizajes del modelo Casa Verde</h4></div><span class="news__arrow">→</span></a>
+    </div>
+
+    <div class="actualidad__more" data-reveal>
+      <a href="#" class="btn btn--ghost" style="white-space:nowrap">Ver todas las noticias <span class="arrow">→</span></a>
+    </div>
+
+    <a class="manantial-credit" href="https://www.fundacionmanantial.org/" target="_blank" rel="noopener" data-reveal>
+      <span>Volver a Casa es un proyecto de</span>
+      <img src="assets/logo-manantial.png" alt="Fundación Manantial" />
+    </a>
+  </div>
+</section>
+<style>
+.news { display:grid; gap:2px; }
+.news__item { display:flex; align-items:center; gap:20px; padding:22px 4px; border-bottom:1px solid oklch(0.3 0.03 255 / .1); transition:padding-left .3s var(--ease); }
+.news__item:hover { padding-left:14px; }
+.news__date { flex:none; width:84px; font-weight:700; color:var(--ink-faint); font-size:var(--fs-sm); }
+.news__tag { font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--verde-deep); }
+.news__item h4 { font-size:1.2rem; margin-top:4px; }
+.news__arrow { margin-left:auto; color:var(--azul); font-weight:700; transition:transform .3s var(--ease); }
+.news__item:hover .news__arrow { transform:translateX(5px); }
+.news--cols { grid-template-columns: 1fr 1fr; column-gap: clamp(28px, 4vw, 64px); }
+.news--cols .news__item:nth-child(2) .news__tag { color: var(--azul-deep); }
+.news--cols .news__item:nth-child(3) .news__tag { color: var(--naranja-deep); }
+.news--cols .news__item:nth-child(5) .news__tag { color: var(--azul-deep); }
+.news--cols .news__item:nth-child(6) .news__tag { color: var(--naranja-deep); }
+@media (max-width: 760px) { .news--cols { grid-template-columns: 1fr; } }
+.actualidad__more { display: flex; justify-content: center; margin-top: clamp(34px, 4vw, 52px); }
+.manantial-credit { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.6vw, 22px); flex-wrap: wrap; margin-top: clamp(48px, 6vw, 84px); padding-top: clamp(30px, 3.6vw, 46px); border-top: 1px solid oklch(0.3 0.03 255 / .1); }
+.manantial-credit span { font-family: Capriola; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.2rem); }
+.manantial-credit img { height: clamp(30px, 3.4vw, 42px); width: auto; transition: transform .3s var(--ease); }
+.manantial-credit:hover img { transform: translateY(-3px); }
+</style>
+
+</main>
+
+<footer class="footer" id="contacto" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand"><img class="footer__logo" src="assets/logo-volveracasa-blanco.png" alt="Volver a Casa" /></div>
+        <p style="color: oklch(0.974 0.013 83 / .72); max-width: 34ch; margin-bottom: 20px; font-family: Capriola; font-size: 12px">Reconstruyendo vínculos, acompañando familias. Un proyecto de innovación social de Fundación Manantial.</p>
+        <div class="social">
+          <a href="https://instagram.com/volveracasa" target="_blank" rel="noopener" aria-label="Instagram"><span style="font-weight:700">IG</span></a>
+          <a href="#" aria-label="LinkedIn"><span style="font-weight:700">in</span></a>
+          <a href="#" aria-label="YouTube"><span style="font-weight:700">▶</span></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="#proyecto">El proyecto</a></li>
+          <li><a href="#camino">El camino</a></li>
+          <li><a href="#porque">Por qué importa</a></li>
+          <li><a href="#hablemos">La infancia</a></li>
+          <li><a href="#actualidad">Actualidad</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+34617293880">617 293 880</a></li>
+          <li><a href="https://volveracasa.com" target="_blank" rel="noopener">volveracasa.com</a></li>
+          <li><a href="https://instagram.com/volveracasa" target="_blank" rel="noopener">@volveracasa</a></li>
+          <li><a href="#recorrido">Nuestro recorrido</a></li>
+        </ul>
+      </div>
+      <div class="footer__col" style="text-align:center">
+        <h4>¿Más info?</h4>
+        <div class="footer__qr"><image-slot id="footer-qr" shape="rounded" radius="10" placeholder="QR"></image-slot></div>
+        <span style="font-size:.74rem;color:oklch(0.974 0.013 83 / .55);display:block;margin-top:8px">Escanea el código</span>
+      </div>
+    </div>
+
+    <div class="footer__funders">
+      <span style="font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.974 0.013 83 / .5);font-weight:700;width:100%">Con el impulso y la colaboración de</span>
+      <span class="funder">Fundación Manantial</span>
+      <span class="funder">Comunidad de Madrid · D.G. de Infancia, Familia y Fomento de la Natalidad</span>
+      <span class="funder">Ministerio de Derechos Sociales, Consumo y Agenda 2030</span>
+      <span class="funder">Cofinanciado por el FSE+</span>
+      <span class="funder">Fundación Nemesio Díez</span>
+      <span class="funder">Financiado por la Unión Europea · NextGenerationEU</span>
+    </div>
+
+    <div class="footer__legal">
+      <span>© 2026 Volver a Casa · Fundación Manantial. Todos los derechos reservados.</span>
+      <span style="display:flex;gap:18px"><a href="#">Privacidad</a><a href="#">Aviso legal</a><a href="#">Accesibilidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== Contacto modal ===================== -->
+<div class="modal" id="contactoModal" aria-hidden="true">
+  <div class="modal__overlay" data-close-contacto></div>
+  <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="contactoTitle">
+    <button type="button" class="modal__close" data-close-contacto aria-label="Cerrar">×</button>
+    <p class="eyebrow">Hablemos</p>
+    <h2 id="contactoTitle" style="margin:10px 0 12px">¿Hablamos?</h2>
+    <p class="lead" style="margin-bottom:26px">Cuéntanos en qué podemos acompañarte. Estamos aquí para escucharte.</p>
+    <div class="contact-rows">
+      <a class="contact-row" href="tel:+34617293880"><span class="contact-row__ic" style="background:var(--azul)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg></span><span class="contact-row__t"><b>Teléfono</b><span>617 293 880</span></span><span class="contact-row__a">→</span></a>
+      <a class="contact-row" href="mailto:info@volveracasa.com"><span class="contact-row__ic" style="background:var(--verde)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="contact-row__t"><b>Email</b><span>info@volveracasa.com</span></span><span class="contact-row__a">→</span></a>
+      <a class="contact-row" href="https://instagram.com/volveracasa" target="_blank" rel="noopener"><span class="contact-row__ic" style="background:var(--naranja)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="#fff" stroke="none"/></svg></span><span class="contact-row__t"><b>Instagram</b><span>@volveracasa</span></span><span class="contact-row__a">↗</span></a>
+    </div>
+    <p style="margin-top:22px;font-size:var(--fs-sm);color:var(--ink-faint)">Un proyecto de <a href="https://www.fundacionmanantial.org/" target="_blank" rel="noopener" style="color:var(--azul);font-weight:700;text-decoration:underline">Fundación Manantial</a>.</p>
+  </div>
+</div>
+
+<!-- ===================== Hero direction switch ===================== -->
+<div class="hero-switch" role="group" aria-label="Dirección visual del hero">
+  <span class="hero-switch__label">Versión</span>
+  <button data-hero-variant="a" class="is-on">Constelación</button>
+  <button data-hero-variant="b">Editorial</button>
+</div>
+
+<style>
+.hero-switch { position: fixed; bottom: 18px; right: 18px; z-index: 150; display: flex; align-items: center; gap: 4px; padding: 6px 7px 6px 12px; background: oklch(0.992 0.006 85 / 0.92); backdrop-filter: blur(12px); border-radius: 999px; box-shadow: var(--shadow-md); font-size: 0.8rem; white-space: nowrap; }
+.hero-switch__label { flex: none; font-weight: 700; color: var(--ink-faint); letter-spacing: .06em; text-transform: uppercase; font-size: .64rem; }
+.hero-switch button { flex: none; padding: .45em .8em; border-radius: 999px; font-weight: 700; font-size: .74rem; color: var(--ink-soft); transition: background .25s, color .25s; white-space: nowrap; }
+.hero-switch button.is-on { background: var(--azul); color: var(--paper); }
+@media (max-width: 600px) { .hero-switch { bottom: 12px; right: 12px; } }
+</style>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
+
+<style id="__om-edit-overrides">
+#proyecto :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgba(241, 231, 207, 0.01) !important }
+#proyecto :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { background-color: rgba(241, 231, 207, 0) !important }
+#proyecto p:nth-child(4) >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { font-weight: 700 !important }
+</style>
