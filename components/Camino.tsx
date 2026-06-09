@@ -199,7 +199,7 @@ export default function Camino() {
             <div className="step__group">
               <div className="step__home">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="step__home-img" src="/assets/casita-azul.png" alt="" />
+                <img className="step__home-img" src="/assets/casita-azul.png" alt={`Ilustración de casita azul que representa la etapa ${idx + 1} del proceso de reunificación: ${step.phase}`} loading="lazy" />
                 <span className="step__n">{idx + 1}</span>
               </div>
               <div className="step__card">

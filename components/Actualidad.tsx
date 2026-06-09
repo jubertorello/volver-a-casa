@@ -78,7 +78,7 @@ export default function Actualidad() {
         >
           <span>Volver a Casa es un proyecto de</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-manantial.png" alt="Fundación Manantial" />
+          <img src="/assets/logo-manantial.png" alt="Fundación Manantial" loading="lazy" decoding="async" />
         </a>
       </div>
     </section>

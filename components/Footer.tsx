@@ -26,7 +26,9 @@ export default function Footer() {
               <img
                 className="footer__logo"
                 src="/assets/logo-volveracasa-blanco.png"
-                alt="Volver a Casa"
+                alt="Logo Volver a Casa en blanco"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p

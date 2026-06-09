@@ -27,8 +27,11 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/erizos/ansiedad.png"
-            alt="Erizo ansiedad"
+            alt="Ilustración de erizo que representa la emoción de la ansiedad"
             style={{ transform: "scaleX(-1)" }}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <span className="erizo-bubble">Hola, soy ansiedad</span>
         </div>
@@ -37,7 +40,13 @@ export default function Hero() {
           style={{ "--rot": "3deg" } as React.CSSProperties}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/erizos/alegria.png" alt="Erizo alegría" />
+          <img
+            src="/assets/erizos/alegria.png"
+            alt="Ilustración de erizo que representa la emoción de la alegría"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
           <span className="erizo-bubble">Hola, soy alegría</span>
         </div>
         <div
@@ -47,8 +56,11 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/erizos/miedo.png"
-            alt="Erizo miedo"
+            alt="Ilustración de erizo que representa la emoción del miedo"
             style={{ transform: "scaleX(-1)" }}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <span className="erizo-bubble">Hola, soy miedo</span>
         </div>

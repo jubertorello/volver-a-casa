@@ -33,7 +33,7 @@
 
 .mobile-menu {
   position: fixed; inset: 0; z-index: 99; background: var(--cream);
-  padding: 90px var(--gutter) 40px; display: flex; flex-direction: column; gap: 6px;
+  padding: 90px 0 40px; display: flex; flex-direction: column;
   transform: translateY(-100%); transition: transform .5s var(--ease); visibility: hidden;
   overflow-y: auto; overflow-x: hidden;
   scrollbar-width: none;
@@ -41,6 +41,13 @@
 }
 .mobile-menu::-webkit-scrollbar {
   display: none;
+}
+.mobile-menu__inner {
+  padding-inline: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
 }
 .mobile-menu.open { transform: none; visibility: visible; }
 @media (min-width: 961px) { .mobile-menu { display: none; } }
@@ -320,7 +327,7 @@
 
   /* Burger menu margin adjustment */
   .nav__burger {
-    margin-right: 8px;
+    margin-right: 0;
   }
 
   /* Actualidad / News items padding symmetry */

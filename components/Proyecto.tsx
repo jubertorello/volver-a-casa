@@ -25,10 +25,10 @@ export default function Proyecto() {
         <div className="proyecto-const__body">
           <div className="proyecto__media" data-reveal="" data-reveal-mode="scale">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/foto-editorial.png" alt="Niñas y niños dibujando juntos" />
+            <img src="/assets/foto-editorial.png" alt="Niñas y niños dibujando juntos" loading="lazy" decoding="async" />
             <div className="float-slow erizo-loose band-erizo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/erizos/ilusion.png" alt="Erizo ilusión" />
+              <img src="/assets/erizos/ilusion.png" alt="Ilustración de erizo que representa la emoción de la ilusión" loading="lazy" decoding="async" />
               <span className="erizo-bubble">Hola, soy ilusión</span>
             </div>
           </div>

@@ -22,6 +22,37 @@ export const metadata: Metadata = {
   title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
   description:
     "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
+  alternates: {
+    canonical: "https://volveracasa.fundacionmanantial.org",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
+    description:
+      "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
+    url: "https://volveracasa.fundacionmanantial.org",
+    siteName: "Volver a Casa",
+    locale: "es_ES",
+    type: "website",
+    images: [
+      {
+        url: "https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png",
+        width: 600,
+        height: 600,
+        alt: "Logo Volver a Casa",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
+    description:
+      "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
+    images: ["https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png"],
+  },
 };
 
 export const viewport: Viewport = {
@@ -46,6 +77,26 @@ export default function RootLayout({
             }
           `
         }} />
+        {/* JSON-LD Organization Schema for SEO structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Volver a Casa",
+              "description":
+                "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
+              "url": "https://volveracasa.fundacionmanantial.org",
+              "logo": "https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png",
+              "parentOrganization": {
+                "@type": "Organization",
+                "name": "Fundación Manantial",
+                "url": "https://www.fundacionmanantial.org",
+              },
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

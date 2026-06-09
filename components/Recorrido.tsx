@@ -102,7 +102,7 @@ export default function Recorrido() {
           >
             <span className="exp-node__dot exp-node__dot--casa">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/casita-blanca.png" alt="" />
+              <img src="/assets/casita-blanca.png" alt="Ilustración de una casita blanca que representa el regreso al hogar" loading="lazy" />
             </span>
             <div className="exp-node__card">
               <span className="exp-stage">El proyecto · Hoy</span>

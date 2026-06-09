@@ -56,7 +56,7 @@ export default function Principios() {
             <div key={idx} className="card" data-reveal="" data-delay={card.delay}>
               <div className="mtd-icon">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={card.erizo} alt="" />
+                <img src={card.erizo} alt={`Erizo ilustrado que representa el principio de ${card.title.toLowerCase()}`} loading="lazy" />
               </div>
               <h3 style={{ fontSize: "26px" }}>{card.title}</h3>
               <p>{card.description}</p>
