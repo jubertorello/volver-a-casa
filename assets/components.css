@@ -275,14 +275,34 @@
 @media (max-width: 760px) { .mstack { grid-template-columns: 1fr !important; } .blob { display: none; } }
 
 @media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    height: 100svh;
+    padding-top: 80px;
+    padding-bottom: 0;
+  }
   .porque-stats { grid-template-columns: 1fr; }
-  .hero-bandstage .e1 { width: 80px; top: 10%; left: -2%; }
-  .hero-bandstage .e2 { width: 80px; top: 10%; right: -2%; }
-  .hero-bandstage .e3 { width: 85px; bottom: 12%; left: -2%; }
-  .hero-bandstage .e4 { width: 75px; bottom: 6%; right: 0%; }
+  
+  /* Verde (alegría) -> más arriba y a la derecha */
+  .hero-bandstage .e3 { width: 105px; top: 15%; right: 0%; left: auto !important; bottom: auto !important; }
+  
+  /* Azul (miedo) -> más abajo a la izquierda */
+  .hero-bandstage .e4 { width: 86px; bottom: 16%; left: 4%; right: auto !important; top: auto !important; }
+  
+  /* Naranja (ansiedad) -> más abajo a la derecha */
+  .hero-bandstage .e2 { width: 82px; bottom: 16%; right: 0%; left: auto !important; top: auto !important; }
 }
 
 /* ===================== Wave Timeline (El recorrido) ===================== */
+
+/* Hide mobile wavy SVG on desktop */
+.exp-wave__svg-mobile { display: none; }
+
+/* Mobile wave path: flat/straight ends */
+.exp-wave__svg-mobile .exp-wave__path {
+  stroke-linecap: butt;
+  stroke-width: 12;
+}
 
 /* The wave container: full-viewport-width strip with intrinsic height from SVG */
 .exp-wave {
@@ -435,44 +455,63 @@
   max-width: 48ch;
 }
 
-/* ---- Mobile: vertical stack ---- */
+/* ---- Mobile: vertical stack con línea naranja ---- */
 @media (max-width: 820px) {
   .exp-wave {
     width: 100%;
     margin-left: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0;
     margin-top: 36px;
     margin-bottom: 44px;
+    position: relative;
   }
 
+  /* Hide desktop horizontal wave, show mobile vertical wave */
   .exp-wave__svg { display: none; }
+  .exp-wave__svg-mobile {
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 38px;
+    bottom: 44px;
+    width: 26px;
+    height: calc(100% - 82px);
+    z-index: 0;
+    overflow: visible;
+  }
 
+  /* CRITICAL: position:static anula left:var(--x) y top:var(--y) del desktop */
   .exp-node {
-    position: static;
-    transform: none;
-    display: grid;
-    grid-template-columns: auto 1fr;
+    position: static !important;
+    transform: none !important;
+    display: flex;
     align-items: center;
     gap: 16px;
+    padding: 14px 0;
   }
 
   .exp-node__dot {
+    flex: none;
+    position: relative;
+    z-index: 1;
     box-shadow: 0 6px 14px rgba(8, 18, 38, 0.4);
   }
 
+  /* CRITICAL: anula position:absolute y transform del desktop */
   .exp-node__card {
-    position: static;
-    transform: none;
+    position: static !important;
+    transform: none !important;
     width: auto;
     text-align: left;
   }
 
   .exp-node[data-pos="top"] .exp-node__card,
   .exp-node[data-pos="bottom"] .exp-node__card {
-    inset: auto;
+    top: auto;
+    bottom: auto;
   }
 
-  .exp-node__card::after { display: none; }
+  .exp-node__card::after { display: none !important; }
 }

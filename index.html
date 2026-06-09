@@ -278,6 +278,16 @@
           .proyecto-const__pillars {
             grid-template-columns: 1fr;
           }
+
+          .proyecto-const .erizo-loose {
+            left: auto;
+            right: -16px;
+            top: -36px;
+          }
+
+          .proyecto-const .erizo-loose img {
+            transform: scaleX(-1);
+          }
         }
       </style>
       <!-- ===================== 2 · EL CAMINO (timeline) ===================== -->
@@ -416,6 +426,12 @@
           <svg class="exp-wave__svg" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <path class="exp-wave__path"
               d="M 0 130 C 75 130 75 60 150 60 C 300 60 300 200 450 200 C 600 200 600 60 750 60 C 900 60 900 200 1050 200 C 1125 200 1125 130 1200 130" />
+          </svg>
+
+          <!-- Vertical wavy SVG for mobile only -->
+          <svg class="exp-wave__svg-mobile" viewBox="0 0 50 400" preserveAspectRatio="none" aria-hidden="true">
+            <path class="exp-wave__path"
+              d="M 25 0 C 25 30, 8 50, 8 80 C 8 110, 42 130, 42 160 C 42 190, 8 210, 8 240 C 8 270, 42 290, 42 320 C 42 350, 25 370, 25 400" />
           </svg>
 
           <div class="exp-node" data-pos="bottom" style="--x:12.5%;--y:23.08%">
