@@ -50,6 +50,9 @@
     <a href="#hablemos">Blog</a>
     <a href="#metodo">Principios</a>
     <a href="#historias">Historias</a>
+    <div style="margin-top: 24px;">
+      <button type="button" class="btn" data-open-contacto aria-haspopup="dialog" style="width: 100%; justify-content: center;">Hablemos <span class="arrow">→</span></button>
+    </div>
   </div>
 
   <!-- ===================== HERO ===================== -->
@@ -66,7 +69,6 @@
               class="accent-verde">familias</span>.</h1>
         </div>
 
-      </div>
       </div>
 
       <!-- erizos for variant B -->
@@ -124,7 +126,7 @@
         <div class="proyecto-const__body">
           <div class="proyecto__media" data-reveal data-reveal="scale">
             <img src="assets/foto-editorial.png" alt="Niñas y niños dibujando juntos" />
-            <div class="float-slow erizo-loose"><img src="assets/erizos/ilusion.png" alt="Erizo ilusión" /></div>
+            <div class="float-slow erizo-loose band-erizo"><img src="assets/erizos/ilusion.png" alt="Erizo ilusión" /><span class="erizo-bubble">Hola, soy ilusión</span></div>
           </div>
           <div class="proyecto-const__pillars" data-reveal data-delay="2">
             <div class="pcard"><span class="pcard__dot on-azul"></span><b>Apoyo psicológico</b><span
@@ -208,7 +210,7 @@
           position: absolute;
           left: -30px;
           top: -42px;
-          width: clamp(92px, 9vw, 124px);
+          width: clamp(110px, 11vw, 150px);
           z-index: 2;
         }
 
@@ -427,20 +429,20 @@
               impacto.</p>
           </li>
           <li class="rec-arrow" aria-hidden="true">→</li>
-          <li class="rec-step rec-step--hl" data-c="azul" data-reveal data-delay="3">
-            <div class="rec-step__head"><span class="rec-step__num">03</span><span class="rec-step__stage">El proyecto ·
-                Hoy</span></div>
-            <h3>Volver a Casa</h3>
-            <p>Aplicación de ese conocimiento a los procesos de reunificación familiar y al acompañamiento
-              especializado.</p>
-          </li>
-          <li class="rec-arrow" aria-hidden="true">→</li>
-          <li class="rec-step" data-c="cream" data-reveal data-delay="4">
-            <div class="rec-step__head"><span class="rec-step__num">04</span><span class="rec-step__stage">Red
+          <li class="rec-step" data-c="cream" data-reveal data-delay="3">
+            <div class="rec-step__head"><span class="rec-step__num">03</span><span class="rec-step__stage">Red
                 estatal</span></div>
             <h3>Plataforma VIDAS</h3>
             <p>Red de innovación social impulsada por el Ministerio de Derechos Sociales, de la que Volver a Casa forma
               parte.</p>
+          </li>
+          <li class="rec-arrow" aria-hidden="true">→</li>
+          <li class="rec-step rec-step--hl" data-c="azul" data-reveal data-delay="4">
+            <div class="rec-step__head"><span class="rec-step__num">04</span><span class="rec-step__stage">El proyecto ·
+                Hoy</span></div>
+            <h3>Volver a Casa</h3>
+            <p>Aplicación de ese conocimiento a los procesos de reunificación familiar y al acompañamiento
+              especializado.</p>
           </li>
         </ol>
 
@@ -614,7 +616,7 @@
       }
     </style>
     <!-- ===================== 10 · ACTUALIDAD ===================== -->
-    <section class="section section--tint" id="actualidad" data-screen-label="10 Actualidad">
+    <section class="section" id="actualidad" data-screen-label="10 Actualidad">
       <div class="wrap">
         <div class="section-head" data-reveal>
           <p class="eyebrow eyebrow--verde">Actualidad</p>
@@ -779,7 +781,7 @@
       }
     </style>
     <!-- ===================== 8 · HUB EDITORIAL ===================== -->
-    <section class="section" id="hablemos" data-screen-label="08 Blog">
+    <section class="section section--tint" id="hablemos" data-screen-label="08 Blog">
       <div class="wrap">
         <div class="section-head" data-reveal style="max-width:64ch">
           <p class="eyebrow">Blog</p>
@@ -842,7 +844,7 @@
       </div>
     </section>
     <!-- ===================== 5 · CÓMO ACOMPAÑAMOS ===================== -->
-    <section class="section section--tint" id="metodo" data-screen-label="05 Principios">
+    <section class="section" id="metodo" data-screen-label="05 Principios">
       <div class="wrap">
         <div class="section-head center" data-reveal>
           <p class="eyebrow eyebrow--verde">Hablemos de principios</p>
