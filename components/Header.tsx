@@ -100,27 +100,29 @@ export default function Header({ onOpenContacto }: HeaderProps) {
       </header>
 
       <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`} id="mobileMenu">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => handleAnchorClick(e, link.href)}
+        <div className="mobile-menu__inner">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleAnchorClick(e, link.href)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              setIsMenuOpen(false);
+              onOpenContacto();
+            }}
+            aria-haspopup="dialog"
+            style={{ marginTop: "24px", justifyContent: "center" }}
           >
-            {link.label}
-          </a>
-        ))}
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            setIsMenuOpen(false);
-            onOpenContacto();
-          }}
-          aria-haspopup="dialog"
-          style={{ marginTop: "24px", justifyContent: "center" }}
-        >
-          Hablemos <span className="arrow">→</span>
-        </button>
+            Hablemos <span className="arrow">→</span>
+          </button>
+        </div>
       </div>
     </>
   );
