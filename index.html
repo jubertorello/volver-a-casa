@@ -51,7 +51,8 @@
     <a href="#metodo">Principios</a>
     <a href="#historias">Historias</a>
     <div style="margin-top: 24px;">
-      <button type="button" class="btn" data-open-contacto aria-haspopup="dialog" style="width: 100%; justify-content: center;">Hablemos <span class="arrow">→</span></button>
+      <button type="button" class="btn" data-open-contacto aria-haspopup="dialog"
+        style="width: 100%; justify-content: center;">Hablemos <span class="arrow">→</span></button>
     </div>
   </div>
 
@@ -126,7 +127,8 @@
         <div class="proyecto-const__body">
           <div class="proyecto__media" data-reveal data-reveal="scale">
             <img src="assets/foto-editorial.png" alt="Niñas y niños dibujando juntos" />
-            <div class="float-slow erizo-loose band-erizo"><img src="assets/erizos/ilusion.png" alt="Erizo ilusión" /><span class="erizo-bubble">Hola, soy ilusión</span></div>
+            <div class="float-slow erizo-loose band-erizo"><img src="assets/erizos/ilusion.png"
+                alt="Erizo ilusión" /><span class="erizo-bubble">Hola, soy ilusión</span></div>
           </div>
           <div class="proyecto-const__pillars" data-reveal data-delay="2">
             <div class="pcard"><span class="pcard__dot on-azul"></span><b>Apoyo psicológico</b><span
@@ -399,52 +401,63 @@
       </div>
     </section>
     <!-- ===================== 9 · EL RECORRIDO ===================== -->
-    <section class="section section--ink" id="recorrido" data-screen-label="09 Nuestra experiencia">
-
-      <div class="recorrido-erizo recorrido-casa float-slow" aria-hidden="true"><img src="assets/casita-blanca.png"
-          alt="" /></div>
+    <section class="section section--ink" id="recorrido" data-screen-label="09 El recorrido">
 
       <div class="wrap" style="position:relative;z-index:2">
         <div class="section-head" data-reveal style="max-width:none">
           <p class="eyebrow eyebrow--cream">Hablemos de nuestra experiencia</p>
-          <h2 style="max-width:18ch">Volver a Casa no surge de la nada.</h2>
+          <h2 style="max-width:18ch">Volver a Casa es el resultado de un largo recorrido.</h2>
           <p class="lead" style="color: oklch(0.974 0.013 83 / .82); max-width: 62ch; font-family: Capriola">Es el
             resultado de años de experiencia, investigación, prevención y aprendizaje junto a familias, profesionales y
             organizaciones. Este es el recorrido que lo ha hecho posible.</p>
         </div>
 
-        <ol class="recorrido">
-          <li class="rec-step" data-c="verde" data-reveal data-delay="1">
-            <div class="rec-step__head"><span class="rec-step__num">01</span><span class="rec-step__stage">Origen · +15
-                años</span></div>
-            <h3>Casa Verde</h3>
-            <p>Más de 15 años trabajando con infancia, familias y salud mental para prevenir la ruptura del vínculo.</p>
-          </li>
-          <li class="rec-arrow" aria-hidden="true">→</li>
-          <li class="rec-step" data-c="naranja" data-reveal data-delay="2">
-            <div class="rec-step__head"><span class="rec-step__num">02</span><span
-                class="rec-step__stage">Investigación</span></div>
-            <h3>Más Casa</h3>
-            <p>Investigación, aprendizaje y evaluación del modelo para comprender qué funciona y cómo generar mayor
-              impacto.</p>
-          </li>
-          <li class="rec-arrow" aria-hidden="true">→</li>
-          <li class="rec-step" data-c="cream" data-reveal data-delay="3">
-            <div class="rec-step__head"><span class="rec-step__num">03</span><span class="rec-step__stage">Red
-                estatal</span></div>
-            <h3>Plataforma VIDAS</h3>
-            <p>Red de innovación social impulsada por el Ministerio de Derechos Sociales, de la que Volver a Casa forma
-              parte.</p>
-          </li>
-          <li class="rec-arrow" aria-hidden="true">→</li>
-          <li class="rec-step rec-step--hl" data-c="azul" data-reveal data-delay="4">
-            <div class="rec-step__head"><span class="rec-step__num">04</span><span class="rec-step__stage">El proyecto ·
-                Hoy</span></div>
-            <h3>Volver a Casa</h3>
-            <p>Aplicación de ese conocimiento a los procesos de reunificación familiar y al acompañamiento
-              especializado.</p>
-          </li>
-        </ol>
+        <div class="exp-wave" data-reveal>
+          <svg class="exp-wave__svg" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path class="exp-wave__path"
+              d="M 0 130 C 75 130 75 60 150 60 C 300 60 300 200 450 200 C 600 200 600 60 750 60 C 900 60 900 200 1050 200 C 1125 200 1125 130 1200 130" />
+          </svg>
+
+          <div class="exp-node" data-pos="bottom" style="--x:12.5%;--y:23.08%">
+            <span class="exp-node__dot">01</span>
+            <div class="exp-node__card">
+              <span class="exp-stage">Origen · +15 años</span>
+              <h3>Casa Verde</h3>
+              <p>Más de 15 años trabajando con infancia, familias y salud mental para prevenir la ruptura del vínculo.
+              </p>
+            </div>
+          </div>
+
+          <div class="exp-node" data-pos="top" style="--x:37.5%;--y:76.92%">
+            <span class="exp-node__dot">02</span>
+            <div class="exp-node__card">
+              <span class="exp-stage">Investigación</span>
+              <h3>Más Casa</h3>
+              <p>Investigación, aprendizaje y evaluación del modelo para comprender qué funciona y generar mayor
+                impacto.</p>
+            </div>
+          </div>
+
+          <div class="exp-node" data-pos="bottom" style="--x:62.5%;--y:23.08%">
+            <span class="exp-node__dot">03</span>
+            <div class="exp-node__card">
+              <span class="exp-stage">Red estatal</span>
+              <h3>Plataforma VIDAS</h3>
+              <p>Red de innovación social impulsada por el Ministerio de Derechos Sociales, de la que formamos parte.
+              </p>
+            </div>
+          </div>
+
+          <div class="exp-node exp-node--hl" data-pos="top" style="--x:87.5%;--y:76.92%">
+            <span class="exp-node__dot exp-node__dot--casa"><img src="assets/casita-blanca.png" alt="" /></span>
+            <div class="exp-node__card">
+              <span class="exp-stage">El proyecto · Hoy</span>
+              <h3>Volver a Casa</h3>
+              <p>Ese conocimiento aplicado a los procesos de reunificación familiar y al acompañamiento especializado.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div class="recorrido__foot" data-reveal>
           <p class="recorrido__msg">Cada paso ha sumado experiencia, evidencia y red. Volver a Casa es todo ese
@@ -454,167 +467,6 @@
         </div>
       </div>
     </section>
-    <style>
-      .recorrido {
-        list-style: none;
-        display: grid;
-        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-        align-items: stretch;
-        gap: clamp(6px, 1vw, 16px);
-        margin-bottom: clamp(40px, 5vw, 64px);
-      }
-
-      .rec-step {
-        display: grid;
-        gap: 12px;
-        align-content: start;
-        padding: clamp(22px, 2.2vw, 30px);
-        border-radius: var(--r-lg);
-        background: oklch(0.974 0.013 83 / 0.07);
-        border: 1.5px solid oklch(1 0 0 / 0.14);
-        transition: transform .45s var(--ease), background .4s;
-        position: relative;
-      }
-
-      .rec-step:hover {
-        transform: translateY(-6px);
-        background: oklch(0.974 0.013 83 / 0.12);
-      }
-
-      .rec-step__head {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .rec-step__num {
-        font-family: var(--font-display);
-        font-size: 1.02rem;
-        width: 42px;
-        height: 42px;
-        flex: none;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        color: var(--azul-deep);
-      }
-
-      .rec-step[data-c="verde"] .rec-step__num {
-        background: var(--verde);
-        color: #fff;
-      }
-
-      .rec-step[data-c="naranja"] .rec-step__num {
-        background: var(--naranja);
-        color: #fff;
-      }
-
-      .rec-step[data-c="azul"] .rec-step__num {
-        background: var(--azul);
-        color: #fff;
-      }
-
-      .rec-step[data-c="cream"] .rec-step__num {
-        background: var(--cream);
-        color: var(--azul-deep);
-      }
-
-      .rec-step__stage {
-        font-size: .7rem;
-        letter-spacing: .1em;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: oklch(0.974 0.013 83 / .7);
-      }
-
-      .rec-step h3 {
-        color: var(--cream);
-        font-size: clamp(1.35rem, 1.8vw, 1.55rem);
-      }
-
-      .rec-step p {
-        color: oklch(0.974 0.013 83 / .76);
-        font-size: var(--fs-sm);
-        line-height: 1.5;
-      }
-
-      .rec-step--hl {
-        background: var(--cream);
-        border-color: var(--cream);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .rec-step--hl h3 {
-        color: var(--azul-deep);
-      }
-
-      .rec-step--hl p {
-        color: var(--ink-soft);
-      }
-
-      .rec-step--hl .rec-step__stage {
-        color: var(--naranja-deep);
-      }
-
-      .rec-arrow {
-        align-self: center;
-        color: oklch(0.974 0.013 83 / .5);
-        font-size: 1.7rem;
-        font-weight: 700;
-        padding: 0 2px;
-      }
-
-      .recorrido__foot {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: clamp(22px, 4vw, 52px);
-        flex-wrap: wrap;
-        border-top: 1px solid oklch(0.974 0.013 83 / .16);
-        padding-top: clamp(28px, 3.5vw, 44px);
-      }
-
-      .recorrido__msg {
-        font-family: Capriola;
-        color: var(--cream);
-        font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-        line-height: 1.45;
-        max-width: 48ch;
-      }
-
-      .recorrido-erizo {
-        position: absolute;
-        z-index: 1;
-        top: clamp(78px, 10vw, 168px);
-        right: clamp(10px, 5vw, 76px);
-        width: clamp(88px, 11vw, 150px);
-        filter: drop-shadow(0 16px 20px rgba(8, 18, 38, .30));
-        pointer-events: none;
-      }
-
-      .recorrido-erizo img {
-        width: 100%;
-        height: auto;
-      }
-
-      @media (max-width: 980px) {
-        .recorrido {
-          grid-template-columns: 1fr;
-          gap: 4px;
-        }
-
-        .rec-arrow {
-          justify-self: center;
-          transform: rotate(90deg);
-          padding: 8px 0;
-        }
-
-        .recorrido-erizo {
-          width: 86px;
-          right: 16px;
-        }
-      }
-    </style>
     <!-- ===================== 10 · ACTUALIDAD ===================== -->
     <section class="section" id="actualidad" data-screen-label="10 Actualidad">
       <div class="wrap">
