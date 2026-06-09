@@ -1,0 +1,213 @@
+/* =========================================================================
+   VOLVER A CASA — Sistema visual
+   Paleta: crema · azul · verde · naranja  |  Tipos: Capriola + Calibri/Carlito
+   ========================================================================= */
+
+:root {
+  /* ---- Color (EXACT brand) ---- */
+  --cream:        #f6ecd8;            /* base crema */
+  --cream-2:      #f1e7cf;            /* deeper cream (subtle) */
+  --cream-3:      #e9dcbd;
+  --paper:        #fffdf7;            /* warm white for cards */
+
+  --ink:          #000000;           /* negro principal */
+  --ink-soft:     #000000;
+  --ink-faint:    #1a1a1a;
+
+  --azul:         #1f53a6;           /* azul brand */
+  --azul-deep:    #173f80;
+  --azul-soft:    #c4d1e2;           /* blue-grey ribbon pastel */
+
+  --verde:        #02a54b;           /* verde brand */
+  --verde-deep:   #017a38;
+  --verde-soft:   #d2e3c0;           /* green ribbon pastel */
+
+  --naranja:      #fa8d04;           /* naranja brand */
+  --naranja-deep: #d97700;
+  --naranja-soft: #f9ddb0;           /* peach ribbon pastel */
+
+  --rosa-soft:    #f4d6bb;
+
+  /* semantic */
+  --bg:           var(--cream);
+  --fg:           var(--ink);
+  --brand:        var(--azul);
+
+  /* ---- Type ---- */
+  --font-display: 'Capriola', 'Calibri', system-ui, sans-serif;
+  --font-body:    'Calibri', 'Carlito', system-ui, -apple-system, sans-serif;
+
+  /* fluid scale */
+  --fs-mega:  clamp(2.2rem, 10vw, 7rem);
+  --fs-h1:    clamp(2.6rem, 6vw, 5rem);
+  --fs-h2:    clamp(2rem, 4.2vw, 3.4rem);
+  --fs-h3:    clamp(1.4rem, 2.4vw, 2.1rem);
+  --fs-lead:  clamp(1.15rem, 1.7vw, 1.5rem);
+  --fs-body:  clamp(1.02rem, 1.15vw, 1.18rem);
+  --fs-sm:    0.94rem;
+  --fs-eyebrow: 0.82rem;
+
+  /* ---- Space & shape ---- */
+  --maxw: 1240px;
+  --gutter: clamp(20px, 5vw, 80px);
+  --sec-pad: clamp(72px, 11vh, 160px);
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 23px;
+  --r-xl: 48px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 2px 8px oklch(0.5 0.04 255 / 0.07);
+  --shadow-md: 0 14px 40px oklch(0.45 0.05 255 / 0.10);
+  --shadow-lg: 0 30px 80px oklch(0.40 0.06 255 / 0.16);
+  --shadow-color: 0 18px 50px oklch(0.61 0.118 245 / 0.22);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+/* ===================== Reset ===================== */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.62;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; line-height: 1.04; letter-spacing: -0.01em; color: var(--azul); }
+p { text-wrap: pretty; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+::selection { background: var(--naranja-soft); color: var(--ink); }
+
+/* ===================== Layout ===================== */
+.wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.section { position: relative; padding-block: var(--sec-pad); }
+.section--tint { background: var(--cream-2); }
+.section--ink { background: var(--azul); color: var(--cream); }
+.section--ink h1, .section--ink h2, .section--ink h3 { color: #fff; }
+
+/* ===================== Reusable bits ===================== */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--azul-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.eyebrow::before {
+  content: "";
+  width: 26px; height: 2px; border-radius: 2px;
+  background: currentColor; opacity: 0.6;
+}
+.eyebrow--verde { color: var(--verde-deep); }
+.eyebrow--naranja { color: var(--naranja-deep); }
+.eyebrow--cream { color: var(--naranja-soft); }
+
+/* "Hablemos de" kicker */
+.hablemos { color: var(--ink-faint); font-weight: 700; }
+.hablemos b { color: var(--azul); font-weight: 700; }
+
+.lead { font-size: var(--fs-lead); color: var(--ink-soft); line-height: 1.5; max-width: 46ch; }
+
+.btn {
+  --btn-bg: var(--azul);
+  --btn-fg: var(--paper);
+  display: inline-flex; align-items: center; gap: 0.6em;
+  padding: 0.95em 1.7em;
+  background: var(--btn-bg); color: var(--btn-fg);
+  font-weight: 700; font-size: var(--fs-sm);
+  border-radius: var(--r-pill);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .3s;
+  box-shadow: var(--shadow-color);
+  will-change: transform;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 24px 60px oklch(0.61 0.118 245 / 0.30); }
+.btn:active { transform: translateY(-1px); }
+.btn .arrow { transition: transform .35s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+.btn--ghost { --btn-bg: transparent; --btn-fg: var(--ink); box-shadow: none; border: 1.5px solid oklch(0.30 0.035 255 / 0.18); }
+.btn--ghost:hover { box-shadow: none; background: oklch(0.30 0.035 255 / 0.05); }
+.btn--verde { --btn-bg: var(--verde); box-shadow: 0 18px 50px oklch(0.66 0.115 158 / 0.24); }
+.btn--naranja { --btn-bg: var(--naranja); box-shadow: 0 18px 50px oklch(0.71 0.145 55 / 0.26); }
+.btn--cream { --btn-bg: var(--cream); --btn-fg: var(--ink); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-weight: 700; color: var(--azul-deep);
+  border-bottom: 2px solid transparent;
+  transition: gap .3s var(--ease), border-color .3s;
+}
+.link-arrow:hover { gap: 0.85em; border-color: currentColor; }
+
+/* chips / tags */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  padding: 0.5em 1em; border-radius: var(--r-pill);
+  font-size: var(--fs-sm); font-weight: 700;
+  background: var(--paper); color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+}
+.chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--azul); }
+
+/* image slots / placeholders */
+image-slot {
+  --slot-bg: var(--cream-3);
+  background:
+    repeating-linear-gradient(135deg,
+      oklch(0.88 0.02 80 / 0.55) 0 10px,
+      transparent 10px 20px),
+    var(--cream-3);
+}
+.slot-cap {
+  font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+/* organic blob backgrounds */
+.blob { position: absolute; z-index: 0; pointer-events: none; filter: blur(0.3px); }
+
+/* ===================== Reveal animations ===================== */
+/* Content is VISIBLE by default. We only hide-to-animate when <html> has .fx
+   (added in-head, then removed by JS if the environment can't run animations).
+   This guarantees content is never stuck-invisible in frozen/screenshot iframes. */
+@keyframes vac-probe { from { transform: translateX(0); } to { transform: translateX(40px); } }
+
+.fx [data-reveal] { opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.fx [data-reveal].in { opacity: 1; transform: none; }
+.fx [data-reveal="scale"] { transform: translateY(20px) scale(0.96); }
+.fx [data-reveal="scale"].in { transform: none; }
+.fx [data-delay="1"] { transition-delay: .08s; }
+.fx [data-delay="2"] { transition-delay: .16s; }
+.fx [data-delay="3"] { transition-delay: .24s; }
+.fx [data-delay="4"] { transition-delay: .32s; }
+.fx [data-delay="5"] { transition-delay: .40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* floating / breathing */
+@keyframes bob { 0%,100% { transform: translateY(0) rotate(var(--rot,0deg)); } 50% { transform: translateY(-14px) rotate(var(--rot,0deg)); } }
+@keyframes drift { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(2%, -3%) scale(1.03); } 66% { transform: translate(-2%, 2%) scale(0.98); } }
+@keyframes sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+.float { animation: bob 6s ease-in-out infinite; }
+.float-slow { animation: bob 9s ease-in-out infinite; }
+.drift { animation: drift 18s ease-in-out infinite; }
