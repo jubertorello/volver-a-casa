@@ -148,35 +148,86 @@ export default function Footer() {
         </div>
 
         <div className="footer__funders">
-          <span
-            style={{
-              fontSize: ".74rem",
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              color: "oklch(0.974 0.013 83 / .5)",
-              fontWeight: 700,
-              width: "100%",
-            }}
-          >
-            Con el impulso y la colaboración de
-          </span>
-          <span className="funder" style={{ padding: "6px 14px" }}>
+          {/* 1. Ministerio */}
+          <div className="funder">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo-mdsca.jpg"
+              alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030"
+              style={{ borderRadius: "4px" }}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          {/* 2. FSE+ */}
+          <div className="funder">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo-fse.png"
+              alt="Cofinanciado por el FSE+"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          {/* 3. Unión Europea */}
+          <div className="funder">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo-union-europea.png"
+              alt="Financiado por la Unión Europea · NextGenerationEU"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          {/* 4. Fundación Manantial */}
+          <div className="funder">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/logo-manantial.png"
               alt="Fundación Manantial"
-              style={{ height: "26px", width: "auto", filter: "brightness(0) invert(1)" }}
+              style={{ filter: "brightness(0) invert(1)" }}
               loading="lazy"
               decoding="async"
             />
-          </span>
-          <span className="funder">
-            Comunidad de Madrid · D.G. de Infancia, Familia y Fomento de la Natalidad
-          </span>
-          <span className="funder">Ministerio de Derechos Sociales, Consumo y Agenda 2030</span>
-          <span className="funder">Cofinanciado por el FSE+</span>
-          <span className="funder">Fundación Nemesio Díez</span>
-          <span className="funder">Financiado por la Unión Europea · NextGenerationEU</span>
+          </div>
+
+          {/* 5. Nemesio Díez con texto arriba */}
+          <div className="funder" style={{ flexDirection: "column", gap: "6px" }}>
+            <span
+              style={{
+                fontSize: "10px",
+                letterSpacing: ".05em",
+                color: "oklch(0.974 0.013 83 / .6)",
+                textTransform: "uppercase",
+                fontWeight: 600,
+              }}
+            >
+              Con la colaboración de
+            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo-nemesio-diez.png"
+              alt="Fundación Nemesio Díez"
+              style={{ maxHeight: "36px" }}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          {/* 6. Comunidad de Madrid */}
+          <div className="funder">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo-comunidad-madrid.png"
+              alt="Comunidad de Madrid · D.G. de Infancia, Familia y Fomento de la Natalidad"
+              style={{ borderRadius: "4px" }}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
 
         <div className="footer__legal">
