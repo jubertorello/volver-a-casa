@@ -34,14 +34,15 @@ export default function Footer() {
             <p
               style={{
                 color: "oklch(0.974 0.013 83 / .72)",
-                maxWidth: "34ch",
+                maxWidth: "36ch",
                 marginBottom: "20px",
                 fontFamily: "Capriola",
                 fontSize: "12px",
+                lineHeight: "1.5",
               }}
             >
               Reconstruyendo vínculos, acompañando familias. Un proyecto de innovación
-              social de Fundación Manantial.
+              social de <strong>Fundación Manantial</strong>, referente en prevención en salud mental en la infancia y la adolescencia.
             </p>
             <div className="social">
               <a
@@ -159,7 +160,16 @@ export default function Footer() {
           >
             Con el impulso y la colaboración de
           </span>
-          <span className="funder">Fundación Manantial</span>
+          <span className="funder" style={{ padding: "6px 14px" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo-manantial.png"
+              alt="Fundación Manantial"
+              style={{ height: "26px", width: "auto", filter: "brightness(0) invert(1)" }}
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
           <span className="funder">
             Comunidad de Madrid · D.G. de Infancia, Familia y Fomento de la Natalidad
           </span>

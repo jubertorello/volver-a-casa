@@ -11,7 +11,7 @@ export default function Proyecto() {
           </div>
           <div className="proyecto-const__intro" data-reveal="" data-delay="1">
             <p className="lead" style={{ fontFamily: "Capriola", fontSize: "18px" }}>
-              Un proyecto de innovación social que acompaña a niños, niñas y sus familias
+              Un proyecto de <a href="https://www.manantial.org" target="_blank" rel="noopener noreferrer"><strong>Fundación Manantial</strong></a>, de innovación social que acompaña a niños, niñas y sus familias
               en procesos de reunificación familiar, creando las condiciones necesarias para
               reconstruir vínculos protectores y entornos de cuidado y bienestar.
             </p>

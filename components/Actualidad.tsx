@@ -75,10 +75,16 @@ export default function Actualidad() {
           target="_blank"
           rel="noopener noreferrer"
           data-reveal=""
+          style={{ flexDirection: "column", gap: "10px", textAlign: "center" }}
         >
-          <span>Volver a Casa es un proyecto de</span>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-manantial.png" alt="Fundación Manantial" loading="lazy" decoding="async" />
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", flexWrap: "wrap" }}>
+            <span>Volver a Casa es un proyecto de</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/logo-manantial.png" alt="Fundación Manantial" loading="lazy" decoding="async" />
+          </div>
+          <span style={{ fontSize: "0.85rem", opacity: 0.8, maxWidth: "54ch", display: "block", fontFamily: "var(--font-body)", fontWeight: 700, color: "var(--ink-soft)" }}>
+            Referente en prevención en salud mental en la infancia y la adolescencia.
+          </span>
         </a>
       </div>
     </section>
