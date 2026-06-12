@@ -61,11 +61,14 @@ export default function Header({ onOpenContacto }: HeaderProps) {
         <a
           className="nav__brand"
           href="#top"
-          aria-label="Volver a Casa — inicio"
+          aria-label="Volver a Casa y Fundación Manantial — inicio"
           onClick={(e) => handleAnchorClick(e, "#top")}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="nav__logo" src="/assets/logo-volveracasa.png" alt="Volver a Casa" fetchPriority="high" loading="eager" decoding="async" />
+          <div className="nav__brand-separator" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="nav__logo-manantial" src="/assets/logo-manantial.png" alt="Fundación Manantial" fetchPriority="high" loading="eager" decoding="async" />
         </a>
         <nav className="nav__links" aria-label="Principal">
           {navLinks.map((link) => (
