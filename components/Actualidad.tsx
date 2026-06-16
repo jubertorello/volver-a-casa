@@ -69,23 +69,39 @@ export default function Actualidad() {
           </a>
         </div>
 
-        <a
-          className="manantial-credit"
-          href="https://www.fundacionmanantial.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-reveal=""
-          style={{ flexDirection: "column", gap: "10px", textAlign: "center" }}
-        >
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", flexWrap: "wrap" }}>
-            <span>Volver a Casa es un proyecto de</span>
+        <div className="manantial-banner-container" data-reveal="">
+          <a
+            className="manantial-banner"
+            href="https://www.fundacionmanantial.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/logo-manantial.png" alt="Fundación Manantial" loading="lazy" decoding="async" />
-          </div>
-          <span style={{ fontSize: "0.85rem", opacity: 0.8, maxWidth: "54ch", display: "block", fontFamily: "var(--font-body)", fontWeight: 700, color: "var(--ink-soft)" }}>
-            Referente en prevención en salud mental en la infancia y la adolescencia.
-          </span>
-        </a>
+            <img
+              src="/assets/isotipo-blanco.png"
+              alt=""
+              className="manantial-banner__bg-image"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="manantial-banner__left">
+              <span className="manantial-banner__eyebrow">Un proyecto impulsado por</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/logo-manantial.png"
+                alt="Fundación Manantial"
+                className="manantial-banner__logo"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="manantial-banner__right">
+              <span className="manantial-banner__link">
+                Visitar Fundación <span className="arrow">→</span>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   );
