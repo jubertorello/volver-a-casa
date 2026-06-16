@@ -29,7 +29,7 @@ export default function Actualidad() {
     {
       date: "Feb 2026",
       tag: "Formación",
-      title: "Sesiones con profesionales de protección a el blog",
+      title: "Sesiones con profesionales de protección a la infancia",
       href: "#",
     },
     {

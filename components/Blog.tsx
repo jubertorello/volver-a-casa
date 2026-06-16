@@ -8,7 +8,7 @@ export default function Blog() {
     { label: "Prevención", category: "prev" },
     { label: "Reunificación familiar", category: "salud" },
     { label: "Infancia", category: "crianza" },
-    { label: "Derechos de el blog", category: "prev" },
+    { label: "Derechos de la infancia", category: "prev" },
   ];
 
   return (
@@ -37,6 +37,7 @@ export default function Blog() {
               id="post-feat"
               shape="rect"
               placeholder="Foto editorial destacada"
+              alt="Foto de portada de artículo: Por qué el vínculo seguro es la mejor prevención"
               style={{ width: "100%", height: "100%" }}
             />
           </div>
@@ -49,7 +50,7 @@ export default function Blog() {
             </h3>
             <p style={{ color: "var(--ink-soft)" }}>
               Una conversación sobre cómo los primeros vínculos sostienen el desarrollo
-              emocional de el blog.
+              emocional de la infancia.
             </p>
             <div className="post__meta">
               <span>▶ 8 min</span>
@@ -69,6 +70,7 @@ export default function Blog() {
                 id="post-1"
                 shape="rect"
                 placeholder="Imagen artículo"
+                alt="Imagen de artículo: Acompañar las emociones difíciles"
                 style={{ width: "100%", height: "100%" }}
               />
             </div>
@@ -88,6 +90,7 @@ export default function Blog() {
                 id="post-2"
                 shape="rect"
                 placeholder="Imagen artículo"
+                alt="Imagen de artículo: Desinstitucionalización: hacia un nuevo modelo"
                 style={{ width: "100%", height: "100%" }}
               />
             </div>
@@ -107,6 +110,7 @@ export default function Blog() {
                 id="post-3"
                 shape="rect"
                 placeholder="Imagen artículo"
+                alt="Imagen de artículo: El interés superior del menor, en la práctica"
                 style={{ width: "100%", height: "100%" }}
               />
             </div>

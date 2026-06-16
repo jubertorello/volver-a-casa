@@ -64,6 +64,7 @@ export default function Historias() {
                   id="historia-1"
                   shape="rect"
                   placeholder="Ilustración / detalle (sin rostros de menores)"
+                  alt="Ilustración que simboliza el valor del acompañamiento continuo en la reunificación familiar"
                   style={{ width: "100%", height: "100%" }}
                 />
               </div>

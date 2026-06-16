@@ -132,6 +132,7 @@ export default function Footer() {
                 shape="rounded"
                 radius={10}
                 placeholder="QR"
+                alt="Código QR para escanear y acceder a información adicional sobre el proyecto Volver a Casa"
               />
             </div>
             <span

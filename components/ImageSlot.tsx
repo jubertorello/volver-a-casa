@@ -13,6 +13,7 @@ interface ImageSlotProps {
   src?: string;
   style?: React.CSSProperties;
   className?: string;
+  alt?: string;
 }
 
 export default function ImageSlot({
@@ -26,6 +27,7 @@ export default function ImageSlot({
   src = "",
   style,
   className = "",
+  alt = "",
 }: ImageSlotProps) {
   const [imageUrl, setImageUrl] = useState<string>("");
   const [isOver, setIsOver] = useState(false);
@@ -349,7 +351,7 @@ export default function ImageSlot({
           <img
             ref={imgRef}
             src={currentSrc}
-            alt="Slot content"
+            alt={alt || placeholder || "Imagen del proyecto"}
             draggable="false"
             onLoad={applyViewStyle}
           />
