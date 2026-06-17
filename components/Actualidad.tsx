@@ -68,22 +68,24 @@ export default function Actualidad() {
             Ver todas las noticias <span className="arrow">→</span>
           </a>
         </div>
+      </div>
 
-        <div className="manantial-banner-container" data-reveal="">
-          <a
-            className="manantial-banner"
-            href="https://www.fundacionmanantial.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/isotipo-blanco.png"
-              alt=""
-              className="manantial-banner__bg-image"
-              loading="lazy"
-              decoding="async"
-            />
+      <div className="manantial-banner-container" data-reveal="">
+        <a
+          className="manantial-banner"
+          href="https://www.fundacionmanantial.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/isotipo-blanco.png"
+            alt=""
+            className="manantial-banner__bg-image"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="wrap manantial-banner__inner">
             <div className="manantial-banner__left">
               <span className="manantial-banner__eyebrow">Un proyecto impulsado por</span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -100,8 +102,8 @@ export default function Actualidad() {
                 Visitar Fundación <span className="arrow">→</span>
               </span>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
       </div>
     </section>
   );
