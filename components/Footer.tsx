@@ -44,22 +44,6 @@ export default function Footer() {
               Reconstruyendo vínculos, acompañando familias. Un proyecto de innovación
               social de <strong>Fundación Manantial</strong>, referente en prevención en salud mental en la infancia y la adolescencia.
             </p>
-            <div className="social">
-              <a
-                href="https://instagram.com/volveracasa"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <span style={{ fontWeight: 700 }}>IG</span>
-              </a>
-              <a href="#" aria-label="LinkedIn">
-                <span style={{ fontWeight: 700 }}>in</span>
-              </a>
-              <a href="#" aria-label="YouTube">
-                <span style={{ fontWeight: 700 }}>▶</span>
-              </a>
-            </div>
           </div>
           <div className="footer__col">
             <h4>Explora</h4>
@@ -85,18 +69,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#hablemos" onClick={(e) => handleAnchorClick(e, "#hablemos")}>
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#metodo" onClick={(e) => handleAnchorClick(e, "#metodo")}>
-                  Principios
-                </a>
-              </li>
-              <li>
-                <a href="#historias" onClick={(e) => handleAnchorClick(e, "#historias")}>
-                  Historias
+                <a href="#videos" onClick={(e) => handleAnchorClick(e, "#videos")}>
+                  Vídeos
                 </a>
               </li>
             </ul>
@@ -108,19 +82,86 @@ export default function Footer() {
                 <a href="tel:+34617293880">617 293 880</a>
               </li>
               <li>
-                <a href="https://volveracasa.com" target="_blank" rel="noopener noreferrer">
-                  volveracasa.com
+                <a href="mailto:volveracasa@fundacionmanantial.org">
+                  volveracasa@fundacionmanantial.org
                 </a>
               </li>
-              <li>
-                <a href="https://instagram.com/volveracasa" target="_blank" rel="noopener noreferrer">
-                  @volveracasa
-                </a>
-              </li>
-              <li>
-                <a href="#recorrido" onClick={(e) => handleAnchorClick(e, "#recorrido")}>
-                  Experiencia
-                </a>
+              <li style={{ marginTop: "12px" }}>
+                <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                  <a
+                    href="https://instagram.com/volveracasa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      background: "var(--naranja)",
+                      color: "#fff",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "18px", height: "18px" }}>
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <circle cx="12" cy="12" r="4"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@volveracasa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      background: "var(--verde)",
+                      color: "#fff",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "18px", height: "18px" }}>
+                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@FundacionManantial"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      background: "var(--azul-deep)",
+                      color: "#fff",
+                      border: "1px solid oklch(0.974 0.013 83 / 0.15)",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "22px", height: "22px" }}>
+                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+                    </svg>
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -148,7 +189,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer__funders">
+        <p
+          style={{
+            borderTop: "1px solid oklch(0.974 0.013 83 / 0.14)",
+            borderBottom: "1px solid oklch(0.974 0.013 83 / 0.14)",
+            paddingTop: "32px",
+            paddingBottom: "32px",
+            marginTop: "32px",
+            marginBottom: "32px",
+            color: "oklch(0.974 0.013 83 / 0.65)",
+            fontSize: "0.82rem",
+            lineHeight: "1.6",
+            textAlign: "center",
+            width: "100%"
+          }}
+        >
+          Cofinanciado por la Unión Europea, el Ministerio de Trabajo y Economía Social y Fondos Europeos, y el Ministerio de Derechos Sociales, Consumo y Agenda 2030. Con la colaboración de Fundación Nemesio Díez y la Dirección General de Infancia, Familia y Fomento de la Natalidad de la Comunidad de Madrid.
+        </p>
+
+        <div className="footer__funders" style={{ borderTop: "none", paddingTop: 0 }}>
           {/* 1. Ministerio */}
           <div className="funder">
             {/* eslint-disable-next-line @next/next/no-img-element */}

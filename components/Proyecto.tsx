@@ -6,12 +6,11 @@ export default function Proyecto() {
       <div className="wrap proyecto-const">
         <div className="proyecto-const__head">
           <div data-reveal="">
-            <p className="eyebrow">Hablemos de Volver a Casa</p>
             <h2 className="proyecto-const__title">¿Qué es Volver a Casa?</h2>
           </div>
           <div className="proyecto-const__intro" data-reveal="" data-delay="1">
             <p className="lead" style={{ fontFamily: "Capriola", fontSize: "18px" }}>
-              Un proyecto de <a href="https://www.manantial.org" target="_blank" rel="noopener noreferrer"><strong>Fundación Manantial</strong></a>, de innovación social que acompaña a niños, niñas y sus familias
+              Un proyecto de <a href="https://www.manantial.org" target="_blank" rel="noopener noreferrer"><strong>Fundación Manantial</strong></a>, de innovación social que acompaña a niños y niñas institucionalizados y sus familias
               en procesos de reunificación familiar, creando las condiciones necesarias para
               reconstruir vínculos protectores y entornos de cuidado y bienestar.
             </p>
@@ -36,12 +35,12 @@ export default function Proyecto() {
             <div className="pcard">
               <span className="pcard__dot on-azul" />
               <b>Apoyo psicológico</b>
-              <span className="pcard__desc">A niños, niñas y familias.</span>
+              <span className="pcard__desc">A niños y niñas institucionalizados en centros residenciales y a sus familias de origen.</span>
             </div>
             <div className="pcard">
               <span className="pcard__dot on-verde" />
               <b>Intervención social</b>
-              <span className="pcard__desc">Fortalecer capacidades parentales.</span>
+              <span className="pcard__desc">Fortalecer capacidades parentales para lograr el retorno de los niños al hogar en condiciones de seguridad y estabilidad.</span>
             </div>
             <div className="pcard">
               <span className="pcard__dot on-naranja" />

@@ -78,7 +78,7 @@ export default function ContactoModal({ isOpen, onClose }: ContactoModalProps) {
             </span>
             <span className="contact-row__a">→</span>
           </a>
-          <a className="contact-row" href="mailto:info@volveracasa.com">
+          <a className="contact-row" href="mailto:volveracasa@fundacionmanantial.org">
             <span className="contact-row__ic" style={{ background: "var(--verde)" }}>
               <svg
                 viewBox="0 0 24 24"
@@ -95,16 +95,11 @@ export default function ContactoModal({ isOpen, onClose }: ContactoModalProps) {
             </span>
             <span className="contact-row__t">
               <b>Email</b>
-              <span>info@volveracasa.com</span>
+              <span>volveracasa@fundacionmanantial.org</span>
             </span>
             <span className="contact-row__a">→</span>
           </a>
-          <a
-            className="contact-row"
-            href="https://instagram.com/volveracasa"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="contact-row" style={{ cursor: "default" }}>
             <span className="contact-row__ic" style={{ background: "var(--naranja)" }}>
               <svg
                 viewBox="0 0 24 24"
@@ -115,17 +110,115 @@ export default function ContactoModal({ isOpen, onClose }: ContactoModalProps) {
                 strokeLinejoin="round"
                 style={{ width: "20px", height: "20px" }}
               >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1.1" fill="#fff" stroke="none" />
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
               </svg>
             </span>
-            <span className="contact-row__t">
-              <b>Instagram</b>
-              <span>@volveracasa</span>
+            <span className="contact-row__t" style={{ width: "100%" }}>
+              <b>Redes sociales</b>
+              <div style={{ display: "flex", gap: "12px", marginTop: "6px" }}>
+                <a
+                  href="https://instagram.com/volveracasa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "var(--naranja)",
+                    color: "#fff",
+                    transition: "transform 0.2s"
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ width: "16px", height: "16px" }}
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@volveracasa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "var(--verde)",
+                    color: "#fff",
+                    transition: "transform 0.2s"
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ width: "16px", height: "16px" }}
+                  >
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@FundacionManantial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    background: "var(--azul)",
+                    color: "#fff",
+                    transition: "transform 0.2s"
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ width: "16px", height: "16px" }}
+                  >
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                  </svg>
+                </a>
+              </div>
             </span>
-            <span className="contact-row__a">↗</span>
-          </a>
+          </div>
         </div>
         <p style={{ marginTop: "22px", fontSize: "var(--fs-sm)", color: "var(--ink-faint)" }}>
           Un proyecto de{" "}

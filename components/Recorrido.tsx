@@ -52,13 +52,19 @@ export default function Recorrido() {
             data-pos="bottom"
             style={{ "--x": "12.5%", "--y": "23.08%" } as React.CSSProperties}
           >
-            <span className="exp-node__dot">01</span>
+            <a
+              href="https://www.youtube.com/watch?v=BSpFhnqwOCE&pp=ygUUY2FzYSB2ZXJkZSBtYW5hbnRpYWw%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="exp-node__dot"
+            >
+              01
+            </a>
             <div className="exp-node__card">
               <span className="exp-stage">Origen · +15 años</span>
               <h3>Casa Verde</h3>
               <p>
-                Más de 15 años trabajando con infancia, familias y salud mental para
-                prevenir la ruptura del vínculo.
+                Más de 15 años trabajando en salud mental para evitar la separación de los niños con sus madres promoviendo vínculos seguros y estables.
               </p>
             </div>
           </div>
@@ -68,13 +74,19 @@ export default function Recorrido() {
             data-pos="top"
             style={{ "--x": "37.5%", "--y": "76.92%" } as React.CSSProperties}
           >
-            <span className="exp-node__dot">02</span>
+            <a
+              href="https://mascasaverde.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="exp-node__dot"
+            >
+              02
+            </a>
             <div className="exp-node__card">
               <span className="exp-stage">Investigación</span>
               <h3>Más Casa</h3>
               <p>
-                Investigación, aprendizaje y evaluación del modelo para comprender qué
-                funciona y generar mayor impacto.
+                Investigación, evaluación, impacto y retorno social de la metodología Casa Verde
               </p>
             </div>
           </div>
@@ -84,13 +96,19 @@ export default function Recorrido() {
             data-pos="bottom"
             style={{ "--x": "62.5%", "--y": "23.08%" } as React.CSSProperties}
           >
-            <span className="exp-node__dot">03</span>
+            <a
+              href="https://www.fundacionmanantial.org/servicios-de-salud-mental/prevencion-temprana-salud-mental/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="exp-node__dot"
+            >
+              03
+            </a>
             <div className="exp-node__card">
-              <span className="exp-stage">Red estatal</span>
-              <h3>Plataforma VIDAS</h3>
+              <span className="exp-stage">Creación área</span>
+              <h3>PREVENCIÓN Y BIENESTAR INFANTOJUVENIL</h3>
               <p>
-                Red de innovación social impulsada por el Ministerio de Derechos
-                Sociales, de la que formamos parte.
+                Prevención de la salud mental y promoción del bienestar emocional en niños y adolescentes
               </p>
             </div>
           </div>
@@ -102,14 +120,13 @@ export default function Recorrido() {
           >
             <span className="exp-node__dot exp-node__dot--casa">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/casita-blanca.png" alt="Ilustración de una casita blanca que representa el regreso al hogar" loading="lazy" />
+              <img src="/assets/casita-blanca.png" alt="Ilustración de una casita blanca que represents el regreso al hogar" loading="lazy" />
             </span>
             <div className="exp-node__card">
               <span className="exp-stage">El proyecto · Hoy</span>
               <h3>Volver a Casa</h3>
               <p>
-                Ese conocimiento aplicado a los procesos de reunificación familiar y al
-                acompañamiento especializado.
+                Conocimiento aplicado al acompañamiento especializado en procesos de reunificación familiar.
               </p>
             </div>
           </div>
@@ -117,8 +134,7 @@ export default function Recorrido() {
 
         <div className="recorrido__foot" data-reveal="">
           <p className="recorrido__msg">
-            Cada paso ha sumado experiencia, evidencia y red. Volver a Casa es todo ese
-            aprendizaje puesto al servicio de las familias.
+            Volver a Casa es un proyecto que forma parte de la plataforma VIDAS, un ecosistema de innovación social que conecta a diferentes actores e iniciativas que abordan los retos complejos relacionados con la desinstitucionalización.
           </p>
           <a
             href="https://plataformavidas.gob.es/"

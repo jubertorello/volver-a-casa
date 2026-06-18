@@ -4,15 +4,12 @@ import React, { useState, useEffect } from "react";
 import ScrollProgress from "@/components/ScrollProgress";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 import Proyecto from "@/components/Proyecto";
 import Camino from "@/components/Camino";
 import Objetivos from "@/components/Objetivos";
 import Recorrido from "@/components/Recorrido";
 import Actualidad from "@/components/Actualidad";
-import Blog from "@/components/Blog";
-import Principios from "@/components/Principios";
-import Historias from "@/components/Historias";
+import Videos from "@/components/Videos";
 import Footer from "@/components/Footer";
 import ContactoModal from "@/components/ContactoModal";
 
@@ -156,15 +153,12 @@ export default function Home() {
 
       <main id="top">
         <Hero />
-        <Marquee />
         <Proyecto />
         <Camino />
         <Objetivos />
         <Recorrido />
         <Actualidad />
-        <Blog />
-        <Principios />
-        <Historias />
+        <Videos />
       </main>
 
       <Footer />

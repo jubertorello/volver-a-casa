@@ -94,7 +94,6 @@ export default function Objetivos() {
     <section className="section section--tint" id="porque" data-screen-label="03 Objetivos">
       <div className="wrap">
         <div className="section-head" data-reveal="">
-          <p className="eyebrow eyebrow--naranja">Hablemos de objetivos</p>
           <h2>Crecer en familia lo cambia todo.</h2>
           <p className="lead" style={{ fontFamily: "Capriola", fontSize: "16px" }}>
             La institucionalización prolongada afecta al desarrollo emocional, social y a

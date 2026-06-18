@@ -50,9 +50,8 @@ export default function Header({ onOpenContacto }: HeaderProps) {
     { label: "Objetivos", href: "#porque" },
     { label: "Experiencia", href: "#recorrido" },
     { label: "Actualidad", href: "#actualidad" },
-    { label: "Blog", href: "#hablemos" },
-    { label: "Principios", href: "#metodo" },
-    { label: "Historias", href: "#historias" },
+    { label: "Vídeos", href: "#videos" },
+    { label: "Fundación Manantial", href: "https://www.fundacionmanantial.org/", external: true },
   ];
 
   return (
@@ -71,15 +70,30 @@ export default function Header({ onOpenContacto }: HeaderProps) {
           <img className="nav__logo-manantial" src="/assets/logo-manantial.png" alt="Fundación Manantial" fetchPriority="high" loading="eager" decoding="async" />
         </a>
         <nav className="nav__links" aria-label="Principal">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleAnchorClick(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            if (link.external) {
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
+                >
+                  {link.label} <span style={{ fontSize: "0.82em", opacity: 0.8 }}>↗</span>
+                </a>
+              );
+            }
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleAnchorClick(e, link.href)}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
         <div className="nav__cta">
           <button
@@ -104,15 +118,31 @@ export default function Header({ onOpenContacto }: HeaderProps) {
 
       <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`} id="mobileMenu">
         <div className="mobile-menu__inner">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleAnchorClick(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            if (link.external) {
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
+                >
+                  {link.label} <span style={{ fontSize: "0.82em", opacity: 0.8 }}>↗</span>
+                </a>
+              );
+            }
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleAnchorClick(e, link.href)}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <button
             type="button"
             className="btn"
