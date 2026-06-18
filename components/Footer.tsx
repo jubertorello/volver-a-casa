@@ -190,6 +190,7 @@ export default function Footer() {
         </div>
 
         <p
+          className="footer__text-cofunded"
           style={{
             borderTop: "1px solid oklch(0.974 0.013 83 / 0.14)",
             borderBottom: "1px solid oklch(0.974 0.013 83 / 0.14)",
