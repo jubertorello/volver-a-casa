@@ -154,6 +154,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 700; color: var(--azul-deep);
   border-bottom: 2px solid transparent;
   transition: gap .3s var(--ease), border-color .3s;
+  width: fit-content;
 }
 .link-arrow:hover { gap: 0.85em; border-color: currentColor; }
 
