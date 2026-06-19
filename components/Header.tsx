@@ -4,21 +4,23 @@ import React, { useState, useEffect } from "react";
 
 interface HeaderProps {
   onOpenContacto: () => void;
+  forceSolid?: boolean;
 }
 
-export default function Header({ onOpenContacto }: HeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Header({ onOpenContacto, forceSolid }: HeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(forceSolid || false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Monitor scroll to apply .scrolled class to the navbar
   useEffect(() => {
+    if (forceSolid) return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceSolid]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -33,7 +35,9 @@ export default function Header({ onOpenContacto }: HeaderProps) {
   }, [isMenuOpen]);
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    const target = document.querySelector(href);
+    const hash = href.includes("#") ? href.substring(href.indexOf("#")) : "";
+    if (!hash) return;
+    const target = document.querySelector(hash);
     if (!target) return;
     e.preventDefault();
     setIsMenuOpen(false);
@@ -46,11 +50,11 @@ export default function Header({ onOpenContacto }: HeaderProps) {
   };
 
   const navLinks = [
-    { label: "Proyecto", href: "#proyecto" },
-    { label: "Objetivos", href: "#porque" },
-    { label: "Experiencia", href: "#recorrido" },
-    { label: "Actualidad", href: "#actualidad" },
-    { label: "Vídeos", href: "#videos" },
+    { label: "Proyecto", href: "/#proyecto" },
+    { label: "Objetivos", href: "/#porque" },
+    { label: "Experiencia", href: "/#recorrido" },
+    { label: "Actualidad", href: "/actualidad" },
+    { label: "Vídeos", href: "/#videos" },
     { label: "Fundación Manantial", href: "https://www.fundacionmanantial.org/", external: true },
   ];
 
@@ -59,9 +63,9 @@ export default function Header({ onOpenContacto }: HeaderProps) {
       <header className={`nav ${isScrolled ? "scrolled" : ""}`} data-screen-label="Nav">
         <a
           className="nav__brand"
-          href="#top"
+          href="/#top"
           aria-label="Volver a Casa y Fundación Manantial — inicio"
-          onClick={(e) => handleAnchorClick(e, "#top")}
+          onClick={(e) => handleAnchorClick(e, "/#top")}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="nav__logo" src="/assets/logo-volveracasa.png" alt="Volver a Casa" fetchPriority="high" loading="eager" decoding="async" />

@@ -2277,12 +2277,16 @@
 }
 
 @keyframes bannerWatermarkDrift {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1) rotate(-15deg);
   }
+
   33% {
     transform: translate(3%, -4%) scale(1.04) rotate(-12deg);
   }
+
   66% {
     transform: translate(-3%, 3%) scale(0.96) rotate(-18deg);
   }
@@ -2365,6 +2369,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .fx .manantial-banner__left,
   .fx .manantial-banner__right {
     opacity: 1 !important;
@@ -2446,7 +2451,7 @@
     align-items: stretch;
     gap: 24px;
   }
-  
+
   .manantial-banner__right {
     flex-direction: column;
     align-items: flex-start;
@@ -2454,7 +2459,7 @@
     gap: 20px;
     flex: none;
   }
-  
+
   .manantial-banner__desc {
     max-width: 100%;
   }
@@ -2462,7 +2467,7 @@
   .manantial-banner__link {
     align-self: flex-start;
   }
-  
+
   .manantial-banner__bg-image {
     width: 180px;
     right: -20px;
@@ -2622,11 +2627,11 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
   .videos-cta__content p {
     max-width: 100%;
   }
-  
+
   .videos-cta__actions {
     width: 100%;
     justify-content: center;
@@ -2649,6 +2654,10 @@
   padding: 130px var(--gutter) 64px;
   position: relative;
   overflow: hidden;
+}
+
+.articles-hero__erizo {
+  bottom: 0;
 }
 
 
@@ -2836,19 +2845,19 @@
 
 /* Gradient fallback when no cover image */
 .article-hero--gradient {
-  background: linear-gradient(
-    135deg,
-    var(--type-color, var(--azul)) 0%,
-    color-mix(in srgb, var(--type-color, var(--azul)) 60%, #000) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--type-color, var(--azul)) 0%,
+      color-mix(in srgb, var(--type-color, var(--azul)) 60%, #000) 100%);
 }
 
 /* Decorative circles */
 .article-hero--gradient::before {
   content: "";
   position: absolute;
-  top: -80px; right: -80px;
-  width: 480px; height: 480px;
+  top: -80px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
   background: oklch(1 0 0 / 0.07);
   pointer-events: none;
@@ -2857,8 +2866,10 @@
 .article-hero--gradient::after {
   content: "";
   position: absolute;
-  bottom: -120px; left: -60px;
-  width: 360px; height: 360px;
+  bottom: -120px;
+  left: -60px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   background: oklch(1 0 0 / 0.05);
   pointer-events: none;
@@ -2881,11 +2892,9 @@
 .article-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    oklch(0.15 0.08 255 / 0.25) 0%,
-    oklch(0.12 0.06 255 / 0.88) 100%
-  );
+  background: linear-gradient(180deg,
+      oklch(0.15 0.08 255 / 0.25) 0%,
+      oklch(0.12 0.06 255 / 0.88) 100%);
   z-index: 1;
 }
 
@@ -3116,8 +3125,13 @@
 }
 
 @keyframes lb-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .article-lightbox__img {
@@ -3186,12 +3200,15 @@
   .article-lightbox {
     padding: 16px;
   }
+
   .article-lightbox__prev {
     left: 8px;
   }
+
   .article-lightbox__next {
     right: 8px;
   }
+
   .article-lightbox__prev,
   .article-lightbox__next {
     width: 40px;
@@ -3243,6 +3260,10 @@
   .articles-hero {
     padding-top: 110px;
     padding-bottom: 44px;
+  }
+
+  .articles-hero__erizo {
+    bottom: 90px;
   }
 
   .articles-toolbar {
