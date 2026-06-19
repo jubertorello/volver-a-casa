@@ -3196,6 +3196,23 @@
   transform: translateY(-50%) scale(1.05);
 }
 
+.article-lightbox__counter {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: oklch(0 0 0 / 0.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  z-index: 520;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+}
+
 @media (max-width: 640px) {
   .article-lightbox {
     padding: 16px;

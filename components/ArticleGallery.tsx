@@ -65,6 +65,11 @@ export default function ArticleGallery({ images }: ArticleGalleryProps) {
           aria-label="Imagen ampliada"
           onClick={() => setActiveIndex(null)}
         >
+          {/* Contador de fotos */}
+          <div className="article-lightbox__counter" onClick={(e) => e.stopPropagation()}>
+            {activeIndex + 1} / {images.length}
+          </div>
+
           {/* Botón Anterior */}
           <button
             className="article-lightbox__prev"
