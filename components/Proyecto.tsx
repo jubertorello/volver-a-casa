@@ -19,6 +19,9 @@ export default function Proyecto() {
               el bienestar del niño o la niña. Por eso acompañamos{" "}
               <strong>antes, durante y después</strong> del regreso.
             </p>
+            <p style={{ color: "var(--ink-soft)", fontFamily: "Capriola", fontWeight: 400, marginTop: "16px" }}>
+              Cofinanciado por la Unión Europea, el Ministerio de Trabajo y Economía Social y Fondos Europeos, y el Ministerio de Derechos Sociales, Consumo y Agenda 2030. Con la colaboración de Fundación Nemesio Díez y la Dirección General de Infancia, Familia y Fomento de la Natalidad de la Comunidad de Madrid.
+            </p>
           </div>
         </div>
         <div className="proyecto-const__body">

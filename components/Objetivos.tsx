@@ -96,9 +96,7 @@ export default function Objetivos() {
         <div className="section-head" data-reveal="">
           <h2>Crecer en familia lo cambia todo.</h2>
           <p className="lead" style={{ fontFamily: "Capriola", fontSize: "16px" }}>
-            La institucionalización prolongada afecta al desarrollo emocional, social y a
-            la salud mental. Estos son los datos que mueven el proyecto y los objetivos que lo
-            guían.
+            La institucionalización prolongada afecta al desarrollo emocional, social y familiar de los niños y niñas, pudiendo tener un impacto futuro en su salud mental. Estos son los datos que mueven el proyecto y los objetivos que lo guían.
           </p>
         </div>
         <div

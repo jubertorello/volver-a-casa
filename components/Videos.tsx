@@ -105,20 +105,30 @@ export default function Videos() {
               Instagram <span className="arrow">↗</span>
             </a>
             <a
-              href="https://www.tiktok.com/@volveracasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--verde"
-            >
-              TikTok <span className="arrow">↗</span>
-            </a>
-            <a
-              href="https://www.youtube.com/@FundacionManantial"
+              href="https://www.facebook.com/volveracasa"
               target="_blank"
               rel="noopener noreferrer"
               className="btn"
             >
-              YouTube <span className="arrow">↗</span>
+              Facebook <span className="arrow">↗</span>
+            </a>
+            <a
+              href="https://x.com/volveracasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ backgroundColor: "var(--ink)" }}
+            >
+              X <span className="arrow">↗</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/volveracasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ backgroundColor: "var(--azul-deep)" }}
+            >
+              LinkedIn <span className="arrow">↗</span>
             </a>
           </div>
         </div>

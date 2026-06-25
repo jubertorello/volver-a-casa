@@ -106,7 +106,7 @@ export default function Recorrido() {
             </a>
             <div className="exp-node__card">
               <span className="exp-stage">Creación área</span>
-              <h3>PREVENCIÓN Y BIENESTAR INFANTOJUVENIL</h3>
+              <h3>Prevención y bienestar infantojuvenil</h3>
               <p>
                 Prevención de la salud mental y promoción del bienestar emocional en niños y adolescentes
               </p>
