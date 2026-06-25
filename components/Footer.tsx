@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import ImageSlot from "@/components/ImageSlot";
 
 export default function Footer() {
@@ -300,9 +301,8 @@ export default function Footer() {
         <div className="footer__legal">
           <span>© 2026 Volver a Casa · Fundación Manantial. Todos los derechos reservados.</span>
           <span style={{ display: "flex", gap: "18px" }}>
-            <a href="#">Privacidad</a>
-            <a href="#">Aviso legal</a>
-            <a href="#">Accesibilidad</a>
+            <Link href="/politica-privacidad">Política de privacidad</Link>
+            <Link href="/aviso-legal">Aviso legal</Link>
           </span>
         </div>
       </div>
