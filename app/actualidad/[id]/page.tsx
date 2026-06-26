@@ -7,7 +7,8 @@ import {
   formatDate,
   formatDateShort,
   DEFAULT_COVER,
-  generateShortDesc
+  generateShortDesc,
+  ArticleType
 } from "@/lib/articles";
 import ArticleGallery from "@/components/ArticleGallery";
 import ImageSlot from "@/components/ImageSlot";
@@ -50,7 +51,7 @@ export default async function ArticleDetailPage({
   const article = {
     id: rawArticle.id,
     title: rawArticle.title,
-    type: rawArticle.category as any,
+    type: (rawArticle.category as ArticleType) || "Noticia",
     date: rawArticle.publication_date,
     shortDesc,
     cover: rawArticle.featured_image || DEFAULT_COVER,
