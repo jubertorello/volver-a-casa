@@ -84,17 +84,17 @@ export default async function ArticleDetailPage({
   };
 
   const allNews = await getNews();
-  const related = allNews
-    .filter(n => n.id !== article.id && new Date(n.publication_date) <= new Date())
-    .map(n => ({
-      id: n.id,
-      title: n.title,
+  const related: Array<{ id: string; title: string; type: ArticleType; date: string; shortDesc: string; cover: string }> = allNews
+    .filter((n: any) => n.id !== article.id && new Date(n.publication_date) <= new Date())
+    .map((n: any) => ({
+      id: n.id as string,
+      title: n.title as string,
       type: (n.category || "Noticia") as ArticleType,
-      date: n.publication_date,
+      date: n.publication_date as string,
       shortDesc: generateShortDesc(n.content_html),
-      cover: n.featured_image || DEFAULT_COVER
+      cover: (n.featured_image || DEFAULT_COVER) as string
     }))
-    .sort((a, b) => a.type === article.type ? -1 : 1)
+    .sort((a: { type: ArticleType }, b: { type: ArticleType }) => a.type === article.type ? -1 : 1)
     .slice(0, 3);
 
   const color = typeColor[article.type] || "var(--azul)";

@@ -8,7 +8,8 @@ import dynamic from 'next/dynamic';
 import 'react-quill-new/dist/quill.snow.css';
 import "../../../../styles/admin.css";
 
-const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false }) as any;
 
 export default function LegalEditorClient({ initialPage }: { initialPage: any }) {
   const router = useRouter();

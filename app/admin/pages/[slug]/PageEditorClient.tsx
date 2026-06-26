@@ -8,7 +8,8 @@ import "../../../../styles/admin.css";
 import dynamic from 'next/dynamic';
 import 'react-quill-new/dist/quill.snow.css';
 
-const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false }) as any;
 
 export default function PageEditorClient({ initialPage, slug }: { initialPage: any, slug: string }) {
   const router = useRouter();

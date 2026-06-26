@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import ImageSlot from "@/components/ImageSlot";
-import { typeColor, formatDateShort, Article, DEFAULT_COVER } from "@/lib/articles";
+import { typeColor, formatDateShort, DEFAULT_COVER, ArticleType } from "@/lib/articles";
 
 export default function Actualidad({ data, news }: { data?: any, news?: any[] }) {
   const title = data?.title || "Actualidad";
@@ -43,7 +43,7 @@ export default function Actualidad({ data, news }: { data?: any, news?: any[] })
               className="post__body"
               style={{ padding: "clamp(28px,3vw,44px)", gap: "14px", justifyContent: "center" }}
             >
-              <span className="post__cat" style={{ color: typeColor[featuredArticle.type] || "var(--azul)" }}>
+              <span className="post__cat" style={{ color: typeColor[(featuredArticle.type as ArticleType)] || "var(--azul)" }}>
                 {featuredArticle.type} · {formatDateShort(featuredArticle.date)}
               </span>
               <h3
@@ -81,7 +81,7 @@ export default function Actualidad({ data, news }: { data?: any, news?: any[] })
                   />
                 </div>
               <div className="post__body">
-                <span className="post__cat" style={{ color: typeColor[article.type] || "var(--azul)" }}>
+                <span className="post__cat" style={{ color: typeColor[(article.type as ArticleType)] || "var(--azul)" }}>
                   {article.type} · {formatDateShort(article.date)}
                 </span>
                 <h3 style={{ color: "var(--azul)", fontWeight: 400, fontSize: "1.25rem" }}>

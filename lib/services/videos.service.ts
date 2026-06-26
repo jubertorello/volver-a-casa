@@ -15,6 +15,18 @@ export async function getVideos() {
   return data
 }
 
+export async function getVideoById(id: string) {
+  const supabase = await createClient()
+  const { data, error } = await supabase
+    .from('videos')
+    .select('*')
+    .eq('id', id)
+    .single()
+
+  if (error || !data) return null
+  return data
+}
+
 export async function upsertVideo(videoData: any) {
   const supabase = await createClient()
   
