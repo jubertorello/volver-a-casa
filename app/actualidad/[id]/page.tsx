@@ -51,7 +51,7 @@ export default async function ArticleDetailPage({
   const article = {
     id: rawArticle.id,
     title: rawArticle.title,
-    type: (rawArticle.category as ArticleType) || "Noticia",
+    type: (rawArticle.category || "Noticia") as ArticleType,
     date: rawArticle.publication_date,
     shortDesc,
     cover: rawArticle.featured_image || DEFAULT_COVER,
@@ -65,7 +65,7 @@ export default async function ArticleDetailPage({
     .map(n => ({
       id: n.id,
       title: n.title,
-      type: (n.category as ArticleType) || "Noticia",
+      type: (n.category || "Noticia") as ArticleType,
       date: n.publication_date,
       shortDesc: generateShortDesc(n.content_html),
       cover: n.featured_image || DEFAULT_COVER
