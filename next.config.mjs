@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  serverExternalPackages: ['@supabase/supabase-js'],
   async headers() {
     return [
       {
