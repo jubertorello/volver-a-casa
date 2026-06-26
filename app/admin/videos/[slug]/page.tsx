@@ -1,9 +1,8 @@
 import { getVideoById } from "../../../../lib/services/videos.service";
 import VideoEditorClient from "./VideoEditorClient";
 
-export default async function VideoEditorPage({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
-  const resolvedParams = params instanceof Promise ? await params : params;
-  const slug = resolvedParams.slug;
+export default async function VideoEditorPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const isNew = slug === "new";
   
   let initialVideo = null;

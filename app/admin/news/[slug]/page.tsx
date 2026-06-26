@@ -1,9 +1,8 @@
 import { getNewsById } from "../../../../lib/services/news.service";
 import NewsEditorClient from "./NewsEditorClient";
 
-export default async function NewsEditorPage({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
-  const resolvedParams = params instanceof Promise ? await params : params;
-  const slug = resolvedParams.slug;
+export default async function NewsEditorPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const isNew = slug === "new";
   
   let initialNews = null;

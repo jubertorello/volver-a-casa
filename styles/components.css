@@ -1053,18 +1053,23 @@
 
 .post__body h3 {
   font-size: 1.3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post__desc {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .post--featured .post__desc {
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
 }
 
 .post__meta {
@@ -2595,6 +2600,11 @@
   color: var(--azul);
   font-weight: 400;
   line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .video-card__body p {
@@ -2602,6 +2612,11 @@
   color: var(--ink-soft);
   line-height: 1.45;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .videos-cta {
