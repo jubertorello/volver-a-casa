@@ -131,7 +131,7 @@ export default function ArticlesClient({ articles }: ArticlesClientProps) {
                   <h3 style={{ color: "var(--azul)", fontWeight: 400, fontSize: "1.18rem" }}>
                     {article.title}
                   </h3>
-                  <p style={{ fontSize: "0.92rem", color: "var(--ink-soft)" }}>
+                  <p className="post__desc" style={{ fontSize: "0.92rem", color: "var(--ink-soft)" }}>
                     {article.shortDesc}
                   </p>
                   <Link

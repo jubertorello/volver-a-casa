@@ -1,12 +1,29 @@
 import React from "react";
 
-export default function Recorrido() {
+export default function Recorrido({ data }: { data?: any }) {
+  const overhead = data?.overhead || "Hablemos de nuestra experiencia";
+  const title = data?.title || "Volver a Casa es el resultado de un largo recorrido.";
+  const description = data?.description || "Es el resultado de años de experiencia, investigación, prevención y aprendizaje junto a familias, profesionales y organizaciones. Este es el recorrido que lo ha hecho posible.";
+  
+  const hitos = data?.hitos || [
+    { sub: "Origen · +15 años", title: "Casa Verde", desc: "Más de 15 años trabajando en salud mental para evitar la separación de los niños con sus madres promoviendo vínculos seguros y estables." },
+    { sub: "Investigación", title: "Más Casa", desc: "Investigación, evaluación, impacto y retorno social de la metodología Casa Verde" },
+    { sub: "Creación área", title: "Prevención y bienestar infantojuvenil", desc: "Prevención de la salud mental y promoción del bienestar emocional en niños y adolescentes" },
+    { sub: "El proyecto · Hoy", title: "Volver a Casa", desc: "Conocimiento aplicado al acompañamiento especializado en procesos de reunificación familiar." }
+  ];
+
+  const cta = data?.cta || {
+    text: "Volver a Casa es un proyecto que forma parte de la plataforma VIDAS, un ecosistema de innovación social que conecta a diferentes actores e iniciativas que abordan los retos complejos relacionados con la desinstitucionalización.",
+    btnText: "Conocer la Plataforma VIDAS",
+    btnUrl: "https://plataformavidas.gob.es/"
+  };
+
   return (
     <section className="section section--ink" id="recorrido" data-screen-label="09 El recorrido">
       <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
         <div className="section-head" data-reveal="" style={{ maxWidth: "none" }}>
-          <p className="eyebrow eyebrow--cream">Hablemos de nuestra experiencia</p>
-          <h2 style={{ maxWidth: "18ch" }}>Volver a Casa es el resultado de un largo recorrido.</h2>
+          <p className="eyebrow eyebrow--cream">{overhead}</p>
+          <h2 style={{ maxWidth: "18ch" }}>{title}</h2>
           <p
             className="lead"
             style={{
@@ -15,9 +32,7 @@ export default function Recorrido() {
               fontFamily: "Capriola",
             }}
           >
-            Es el resultado de años de experiencia, investigación, prevención y
-            aprendizaje junto a familias, profesionales y organizaciones. Este es el
-            recorrido que lo ha hecho posible.
+            {description}
           </p>
         </div>
 
@@ -61,11 +76,9 @@ export default function Recorrido() {
               01
             </a>
             <div className="exp-node__card">
-              <span className="exp-stage">Origen · +15 años</span>
-              <h3>Casa Verde</h3>
-              <p>
-                Más de 15 años trabajando en salud mental para evitar la separación de los niños con sus madres promoviendo vínculos seguros y estables.
-              </p>
+              <span className="exp-stage">{hitos[0]?.sub}</span>
+              <h3>{hitos[0]?.title}</h3>
+              <p>{hitos[0]?.desc}</p>
             </div>
           </div>
 
@@ -83,11 +96,9 @@ export default function Recorrido() {
               02
             </a>
             <div className="exp-node__card">
-              <span className="exp-stage">Investigación</span>
-              <h3>Más Casa</h3>
-              <p>
-                Investigación, evaluación, impacto y retorno social de la metodología Casa Verde
-              </p>
+              <span className="exp-stage">{hitos[1]?.sub}</span>
+              <h3>{hitos[1]?.title}</h3>
+              <p>{hitos[1]?.desc}</p>
             </div>
           </div>
 
@@ -105,11 +116,9 @@ export default function Recorrido() {
               03
             </a>
             <div className="exp-node__card">
-              <span className="exp-stage">Creación área</span>
-              <h3>Prevención y bienestar infantojuvenil</h3>
-              <p>
-                Prevención de la salud mental y promoción del bienestar emocional en niños y adolescentes
-              </p>
+              <span className="exp-stage">{hitos[2]?.sub}</span>
+              <h3>{hitos[2]?.title}</h3>
+              <p>{hitos[2]?.desc}</p>
             </div>
           </div>
 
@@ -123,26 +132,22 @@ export default function Recorrido() {
               <img src="/assets/casita-blanca.png" alt="Ilustración de una casita blanca que represents el regreso al hogar" loading="lazy" />
             </span>
             <div className="exp-node__card">
-              <span className="exp-stage">El proyecto · Hoy</span>
-              <h3>Volver a Casa</h3>
-              <p>
-                Conocimiento aplicado al acompañamiento especializado en procesos de reunificación familiar.
-              </p>
+              <span className="exp-stage">{hitos[3]?.sub}</span>
+              <h3>{hitos[3]?.title}</h3>
+              <p>{hitos[3]?.desc}</p>
             </div>
           </div>
         </div>
 
         <div className="recorrido__foot" data-reveal="">
-          <p className="recorrido__msg">
-            Volver a Casa es un proyecto que forma parte de la plataforma VIDAS, un ecosistema de innovación social que conecta a diferentes actores e iniciativas que abordan los retos complejos relacionados con la desinstitucionalización.
-          </p>
+          <p className="recorrido__msg">{cta?.text}</p>
           <a
-            href="https://plataformavidas.gob.es/"
+            href={cta?.btnUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn--cream"
           >
-            Conocer la Plataforma VIDAS <span className="arrow">↗</span>
+            {cta?.btnText} <span className="arrow">↗</span>
           </a>
         </div>
       </div>

@@ -212,3 +212,43 @@ image-slot {
 .float { animation: bob 6s ease-in-out infinite; }
 .float-slow { animation: bob 9s ease-in-out infinite; }
 .drift { animation: drift 18s ease-in-out infinite; }
+
+/* WYSIWYG overrides for Proyecto Description */
+/* Admin overriding for rich text on frontend */
+.ql-editor {
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+}
+
+/* Proyecto intro rich text */
+.proyecto-const__intro {
+  display: grid !important;
+  gap: 18px !important;
+  max-width: none !important;
+}
+.proyecto-const__intro * {
+  font-family: var(--font-display) !important;
+  font-size: 18px !important;
+  color: var(--ink) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  text-align: left !important;
+  white-space: normal !important;
+  text-wrap: wrap !important;
+  word-break: break-word !important;
+}
+.proyecto-const__intro strong, 
+.proyecto-const__intro b,
+.proyecto-const__intro strong * {
+  font-weight: 700 !important;
+}
+.proyecto-const__intro a,
+.proyecto-const__intro a * {
+  color: var(--azul) !important;
+  text-decoration: underline !important;
+}
+.proyecto-const__intro p {
+  font-weight: 400 !important;
+}

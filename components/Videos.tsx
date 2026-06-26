@@ -3,8 +3,25 @@
 import React from "react";
 import ImageSlot from "@/components/ImageSlot";
 
-export default function Videos() {
-  const videoItems = [
+export default function Videos({ data, videos }: { data?: any, videos?: any[] }) {
+  const title = data?.title || "Multimedia";
+  const overhead = data?.overhead || "Vídeos más significativos.";
+  const description = data?.description || "Descubre más sobre nuestro trabajo, testimonios y el impacto del acompañamiento a través de nuestros vídeos.";
+
+  const videoItems = (videos && videos.length > 0) ? videos.map(v => {
+    const isYouTube = v.video_url?.includes('youtube') || v.video_url?.includes('youtu.be');
+    const isVimeo = v.video_url?.includes('vimeo');
+    
+    return {
+      id: v.id,
+      title: v.title,
+      desc: v.description,
+      tag: isYouTube ? "YouTube" : (isVimeo ? "Vimeo" : "Video"),
+      tagColor: isYouTube ? "var(--naranja)" : "var(--azul)",
+      videoUrl: v.video_url,
+      thumbnail: v.thumbnail
+    };
+  }) : [
     {
       id: "vid-1",
       title: "Presentación Volver a Casa",
@@ -12,67 +29,108 @@ export default function Videos() {
       tag: "YouTube",
       tagColor: "var(--azul)",
       videoUrl: "https://www.youtube.com/watch?v=BSpFhnqwOCE",
-    },
-    {
-      id: "vid-2",
-      title: "Entrevista sobre Acogimiento Familiar",
-      desc: "La importancia de crear entornos seguros y el impacto de la desinstitucionalización.",
-      tag: "TikTok",
-      tagColor: "var(--verde)",
-      videoUrl: "https://www.tiktok.com/@volveracasa",
-    },
-    {
-      id: "vid-3",
-      title: "El proyecto Casa Verde en marcha",
-      desc: "Prevención en salud mental infantil y el fortalecimiento de capacidades parentales.",
-      tag: "Instagram",
-      tagColor: "var(--naranja)",
-      videoUrl: "https://instagram.com/volveracasa",
-    },
+      thumbnail: ""
+    }
   ];
+
+  const getEmbedUrl = (url: string) => {
+    if (!url) return "";
+    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+    if (ytMatch && ytMatch[1]) {
+      return `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1`;
+    }
+    const vimeoMatch = url.match(/vimeo\.com\/(?:.*#|.*\/videos\/)?([0-9]+)/i);
+    if (vimeoMatch && vimeoMatch[1]) {
+      return `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`;
+    }
+    return null; 
+  };
+
+  const [activeVideo, setActiveVideo] = React.useState<string | null>(null);
 
   return (
     <section className="section section--tint" id="videos" data-screen-label="06 Vídeos">
       <div className="wrap">
         <div className="section-head" data-reveal="">
-          <p className="eyebrow eyebrow--naranja">Multimedia</p>
-          <h2>Vídeos más significativos.</h2>
+          <p className="eyebrow eyebrow--naranja">{title}</p>
+          <h2>{overhead}</h2>
           <p className="lead" style={{ fontFamily: "Capriola", fontSize: "16px" }}>
-            Descubre más sobre nuestro trabajo, testimonios y el impacto del acompañamiento a través de nuestros vídeos.
+            {description}
           </p>
         </div>
 
         <div className="grid cols-3" data-reveal="" data-delay="1">
-          {videoItems.map((vid) => (
+          {videoItems.map((vid) => {
+            const embedUrl = getEmbedUrl(vid.videoUrl);
+            return (
             <div key={vid.id} className="video-card">
-              <a
-                href={vid.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="video-card__media-wrapper"
-              >
-                <div className="video-card__media">
-                  <ImageSlot
-                    id={vid.id}
-                    shape="rect"
-                    placeholder="Miniatura del vídeo"
-                    alt={`Miniatura de: ${vid.title}`}
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                  <div className="video-card__overlay">
-                    <div className="video-card__play-btn">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        width="30"
-                        height="30"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+              {embedUrl ? (
+                <button
+                  type="button"
+                  onClick={() => setActiveVideo(embedUrl)}
+                  className="video-card__media-wrapper"
+                  style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
+                >
+                  <div className="video-card__media">
+                    {vid.thumbnail ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img 
+                        src={vid.thumbnail} 
+                        alt={`Miniatura de: ${vid.title}`} 
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                      />
+                    ) : (
+                      <ImageSlot
+                        id={vid.id}
+                        shape="rect"
+                        placeholder="Miniatura del vídeo"
+                        alt={`Miniatura de: ${vid.title}`}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    )}
+                    <div className="video-card__overlay">
+                      <div className="video-card__play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </button>
+              ) : (
+                <a
+                  href={vid.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="video-card__media-wrapper"
+                >
+                  <div className="video-card__media">
+                    {vid.thumbnail ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img 
+                        src={vid.thumbnail} 
+                        alt={`Miniatura de: ${vid.title}`} 
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                      />
+                    ) : (
+                      <ImageSlot
+                        id={vid.id}
+                        shape="rect"
+                        placeholder="Miniatura del vídeo"
+                        alt={`Miniatura de: ${vid.title}`}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    )}
+                    <div className="video-card__overlay">
+                      <div className="video-card__play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              )}
               <div className="video-card__body">
                 <span
                   className="video-card__tag"
@@ -84,7 +142,7 @@ export default function Videos() {
                 <p>{vid.desc}</p>
               </div>
             </div>
-          ))}
+          )})}
         </div>
 
         {/* CTA Banner to follow on Social Media */}
@@ -132,6 +190,49 @@ export default function Videos() {
             </a>
           </div>
         </div>
+        {/* Video Modal Overlay */}
+        {activeVideo && (
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(0,0,0,0.85)',
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '24px'
+            }}
+            onClick={() => setActiveVideo(null)}
+          >
+            <div style={{ position: 'relative', width: '100%', maxWidth: '1000px', aspectRatio: '16/9' }}>
+              <button
+                onClick={() => setActiveVideo(null)}
+                style={{
+                  position: 'absolute',
+                  top: '-40px',
+                  right: '0',
+                  background: 'none',
+                  border: 'none',
+                  color: 'white',
+                  fontSize: '24px',
+                  cursor: 'pointer'
+                }}
+              >
+                ✕
+              </button>
+              <iframe
+                src={activeVideo}
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

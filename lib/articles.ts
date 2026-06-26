@@ -52,7 +52,9 @@ export interface Article {
 // ── Helpers ─────────────────────────────────────────────────
 
 export function formatDate(iso: string): string {
-  const d = new Date(iso + "T12:00:00");
+  if (!iso) return "";
+  const dateStr = iso.includes('T') ? iso.split('T')[0] : iso;
+  const d = new Date(dateStr + "T12:00:00");
   return d.toLocaleDateString("es-ES", {
     day: "numeric",
     month: "long",
@@ -61,8 +63,22 @@ export function formatDate(iso: string): string {
 }
 
 export function formatDateShort(iso: string): string {
-  const d = new Date(iso + "T12:00:00");
-  return d.toLocaleDateString("es-ES", { month: "short", year: "numeric" });
+  if (!iso) return "";
+  const dateStr = iso.includes('T') ? iso.split('T')[0] : iso;
+  const d = new Date(dateStr + "T12:00:00");
+  return d.toLocaleDateString("es-ES", { month: "short", year: "numeric" }).toUpperCase();
+}
+
+export function generateShortDesc(html: string): string {
+  if (!html) return "";
+  let text = html
+    .replace(/<p[^>]*>/g, ' ')
+    .replace(/<br\s*\/?>/g, ' ')
+    .replace(/<[^>]*>?/gm, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return text;
 }
 
 export function getArticle(id: string): Article | undefined {

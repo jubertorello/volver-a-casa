@@ -1,11 +1,11 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { articles } from "@/lib/articles";
 import ArticlesClient from "./ArticlesClient";
 import Footer from "@/components/Footer";
-
 import ActualidadHeader from "@/components/ActualidadHeader";
+import { getNews } from "@/lib/services/news.service";
+import { DEFAULT_COVER, Article, ArticleType, generateShortDesc } from "@/lib/articles";
 
 export const metadata: Metadata = {
   title: "Actualidad — Volver a Casa",
@@ -13,7 +13,27 @@ export const metadata: Metadata = {
     "Todas las noticias, jornadas, hitos y publicaciones del proyecto Volver a Casa de Fundación Manantial.",
 };
 
-export default function ActualidadPage() {
+export const revalidate = 0;
+
+export default async function ActualidadPage() {
+  const rawNews = await getNews();
+  
+  const articles: Article[] = rawNews
+    .filter(n => new Date(n.publication_date) <= new Date())
+    .map(n => {
+      const shortDesc = generateShortDesc(n.content_html);
+      
+      return {
+        id: n.id,
+        title: n.title,
+        type: n.category as ArticleType,
+        date: n.publication_date,
+        shortDesc: shortDesc || "Sin descripción",
+        cover: n.featured_image || DEFAULT_COVER,
+        content: n.content_html || ""
+      };
+    });
+
   return (
     <div className="articles-page">
       {/* ── Nav ──────────────────────────────────────────────── */}

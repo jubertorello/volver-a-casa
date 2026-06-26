@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function Hero() {
+export default function Hero({ data }: { data?: any }) {
+  const overhead = data?.overhead || "Una infancia acompañada puede <b>cambiarlo todo</b>";
+  const titleHtml = data?.title || "Reconstruyendo <span class=\"accent\">vínculos</span>, acompañando <span class=\"accent-verde\">familias</span>.";
   return (
     <section className="hero" data-variant="b" data-screen-label="Hero">
       {/* brand squiggle background */}
@@ -8,18 +10,13 @@ export default function Hero() {
 
       <div className="wrap hero__inner">
         <div className="hero__copy">
-          <p className="hero__kicker hablemos" data-reveal="">
-            Una infancia acompañada puede <b>cambiarlo todo</b>
-          </p>
-          <h1 data-reveal="" data-delay="1">
-            Reconstruyendo <span className="accent">vínculos</span>, acompañando{" "}
-            <span className="accent-verde">familias</span>.
-          </h1>
+          <p className="hero__kicker hablemos" data-reveal="" dangerouslySetInnerHTML={{ __html: overhead }} />
+          <h1 data-reveal="" data-delay="1" dangerouslySetInnerHTML={{ __html: titleHtml }} />
         </div>
       </div>
 
       {/* erizos for variant B */}
-      <div className="hero-bandstage">
+      <div className="hero-bandstage" aria-hidden="true">
         <div
           className="erizo e2 float-slow band-erizo"
           style={{ "--rot": "5deg" } as React.CSSProperties}

@@ -89,14 +89,47 @@ function StatCounter({
   );
 }
 
-export default function Objetivos() {
+export default function Objetivos({ data }: { data?: any }) {
+  const title = data?.title || "Crecer en familia lo cambia todo.";
+  const description = data?.description || "La institucionalización prolongada afecta al desarrollo emocional, social y familiar de los niños y niñas, pudiendo tener un impacto futuro en su salud mental. Estos son los datos que mueven el proyecto y los objetivos que lo guían.";
+  
+  const items = data?.items || [
+    "Reducir el tiempo que niños y niñas pasan en centros de protección.",
+    "Acompañar reunificaciones seguras y sostenidas en el tiempo.",
+    "Fortalecer las capacidades parentales de las familias.",
+    "Contribuir a la mejora del sistema de protección mediante evidencia y conocimiento."
+  ];
+
+  const metrics = data?.metrics || [
+    { val: "-40%", desc: "tiempo medio en acogimiento", sub: "Objetivo provisional" },
+    { val: "85%", desc: "reunificaciones estables a 12 meses", sub: "Objetivo provisional" },
+    { val: "120", desc: "familias acompañadas", sub: "Dato provisional" },
+    { val: "70%", desc: "de las familias mejora con acompañamiento", sub: "Objetivo provisional" }
+  ];
+
+  const colors = ["on-verde", "on-azul", "on-naranja", "on-rosa"];
+  const statClasses = ["stat--verde", "stat--naranja", "", "stat--verde"];
+
+  // Helper to parse metric strings like "-40%" into { count: 40, prefix: "-", suffix: "%" }
+  const parseMetric = (valStr: string) => {
+    const match = valStr.match(/^([^\d]*)([\d.,]+)([^\d]*)$/);
+    if (match) {
+      return {
+        prefix: match[1],
+        count: parseFloat(match[2].replace(',', '.')),
+        suffix: match[3]
+      };
+    }
+    return { prefix: "", count: 0, suffix: valStr };
+  };
+
   return (
     <section className="section section--tint" id="porque" data-screen-label="03 Objetivos">
       <div className="wrap">
         <div className="section-head" data-reveal="">
-          <h2>Crecer en familia lo cambia todo.</h2>
+          <h2>{title}</h2>
           <p className="lead" style={{ fontFamily: "Capriola", fontSize: "16px" }}>
-            La institucionalización prolongada afecta al desarrollo emocional, social y familiar de los niños y niñas, pudiendo tener un impacto futuro en su salud mental. Estos son los datos que mueven el proyecto y los objetivos que lo guían.
+            {description}
           </p>
         </div>
         <div
@@ -110,53 +143,29 @@ export default function Objetivos() {
           <div className="porque-objetivos" data-reveal="" data-delay="1">
             <p className="porque-kicker">Nuestros objetivos</p>
             <ul className="impact-list">
-              <li>
-                <span className="on-verde" />
-                Reducir el tiempo que niños y niñas pasan en centros de protección.
-              </li>
-              <li>
-                <span className="on-azul" />
-                Acompañar reunificaciones seguras y sostenidas en el tiempo.
-              </li>
-              <li>
-                <span className="on-naranja" />
-                Fortalecer las capacidades parentales de las familias.
-              </li>
-              <li>
-                <span className="on-rosa" />
-                Contribuir a la mejora del sistema de protección mediante evidencia y
-                conocimiento.
-              </li>
+              {items.map((item: string, idx: number) => (
+                <li key={idx}>
+                  <span className={colors[idx % colors.length]} />
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="porque-stats" data-reveal="" data-delay="2">
-            <StatCounter
-              count={40}
-              prefix="−"
-              suffix="%"
-              label="tiempo medio en acogimiento"
-              provisionalLabel="Objetivo provisional"
-              className="stat--verde"
-            />
-            <StatCounter
-              count={85}
-              suffix="%"
-              label="reunificaciones estables a 12 meses"
-              provisionalLabel="Objetivo provisional"
-              className="stat--naranja"
-            />
-            <StatCounter
-              count={120}
-              label="familias acompañadas"
-              provisionalLabel="Dato provisional"
-            />
-            <StatCounter
-              count={70}
-              suffix="%"
-              label="de las familias mejora con acompañamiento"
-              provisionalLabel="Objetivo provisional"
-              className="stat--verde"
-            />
+            {metrics.map((metric: any, idx: number) => {
+              const { count, prefix, suffix } = parseMetric(metric.val);
+              return (
+                <StatCounter
+                  key={idx}
+                  count={count}
+                  prefix={prefix}
+                  suffix={suffix}
+                  label={metric.desc}
+                  provisionalLabel={metric.sub}
+                  className={statClasses[idx % statClasses.length]}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

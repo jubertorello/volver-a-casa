@@ -1,64 +1,71 @@
 import React from "react";
 import Link from "next/link";
 import ImageSlot from "@/components/ImageSlot";
-import { articles, typeColor, formatDateShort } from "@/lib/articles";
+import { typeColor, formatDateShort, Article, DEFAULT_COVER } from "@/lib/articles";
 
-export default function Actualidad() {
-  const featuredArticle = articles[0];
+export default function Actualidad({ data, news }: { data?: any, news?: any[] }) {
+  const title = data?.title || "Actualidad";
+  const overhead = data?.overhead || "Lo último del proyecto.";
+  const description = data?.description || "Noticias, jornadas, hitos y participación en congresos.";
+
+  const articles = news || [];
+  const featuredArticle = articles[0] || null;
   const gridArticles = articles.slice(1, 4);
 
   return (
     <section className="section" id="actualidad" data-screen-label="05 Actualidad">
       <div className="wrap">
         <div className="section-head" data-reveal="">
-          <p className="eyebrow eyebrow--verde">Actualidad</p>
-          <h2>Lo último del proyecto.</h2>
+          <p className="eyebrow eyebrow--verde">{title}</p>
+          <h2>{overhead}</h2>
           <p className="lead" style={{ fontFamily: "Capriola", fontSize: "16px" }}>
-            Noticias, jornadas, hitos y participación en congresos.
+            {description}
           </p>
         </div>
 
         {/* Featured article */}
-        <article
-          className="post post--featured"
-          data-reveal=""
-          data-delay="2"
-          style={{ marginBottom: "34px" }}
-        >
-          <div className="post__media">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={featuredArticle.cover}
-              alt={`Portada de ${featuredArticle.title}`}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
-          <div
-            className="post__body"
-            style={{ padding: "clamp(28px,3vw,44px)", gap: "14px", justifyContent: "center" }}
+        {featuredArticle && (
+          <article
+            className="post post--featured"
+            data-reveal=""
+            data-delay="2"
+            style={{ marginBottom: "34px" }}
           >
-            <span className="post__cat" style={{ color: typeColor[featuredArticle.type] }}>
-              {featuredArticle.type} · {formatDateShort(featuredArticle.date)}
-            </span>
-            <h3
-              style={{
-                fontSize: "clamp(1.5rem,2.6vw,2.2rem)",
-                color: "var(--azul)",
-                fontWeight: 400,
-              }}
+            <div className="post__media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={featuredArticle.cover || DEFAULT_COVER}
+                alt={`Portada de ${featuredArticle.title}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+            <div
+              className="post__body"
+              style={{ padding: "clamp(28px,3vw,44px)", gap: "14px", justifyContent: "center" }}
             >
-              {featuredArticle.title}
-            </h3>
-            <p style={{ color: "var(--ink-soft)" }}>{featuredArticle.shortDesc}</p>
-            <Link
-              href={`/actualidad/${featuredArticle.id}`}
-              className="link-arrow"
-              style={{ marginTop: "8px" }}
-            >
-              Leer más <span>→</span>
-            </Link>
-          </div>
-        </article>
+              <span className="post__cat" style={{ color: typeColor[featuredArticle.type] || "var(--azul)" }}>
+                {featuredArticle.type} · {formatDateShort(featuredArticle.date)}
+              </span>
+              <h3
+                style={{
+                  fontSize: "clamp(1.5rem,2.6vw,2.2rem)",
+                  color: "var(--azul)",
+                  fontWeight: 400,
+                }}
+              >
+                {featuredArticle.title}
+              </h3>
+              <p className="post__desc" style={{ color: "var(--ink-soft)" }}>{featuredArticle.shortDesc}</p>
+              <Link
+                href={`/actualidad/${featuredArticle.id}`}
+                className="link-arrow"
+                style={{ marginTop: "8px" }}
+              >
+                Leer más <span>→</span>
+              </Link>
+            </div>
+          </article>
+        )}
 
         {/* Grid of 3 articles */}
         <div className="grid cols-3" data-reveal="" data-delay="3">
@@ -67,20 +74,20 @@ export default function Actualidad() {
                 <div className="post__media">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={article.cover}
+                    src={article.cover || DEFAULT_COVER}
                     alt={`Portada de ${article.title}`}
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     loading="lazy"
                   />
                 </div>
               <div className="post__body">
-                <span className="post__cat" style={{ color: typeColor[article.type] }}>
+                <span className="post__cat" style={{ color: typeColor[article.type] || "var(--azul)" }}>
                   {article.type} · {formatDateShort(article.date)}
                 </span>
                 <h3 style={{ color: "var(--azul)", fontWeight: 400, fontSize: "1.25rem" }}>
                   {article.title}
                 </h3>
-                <p style={{ fontSize: "0.9rem", color: "var(--ink-soft)" }}>
+                <p className="post__desc" style={{ fontSize: "0.9rem", color: "var(--ink-soft)" }}>
                   {article.shortDesc}
                 </p>
                 <Link

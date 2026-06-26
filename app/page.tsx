@@ -1,172 +1,59 @@
-"use client";
+import { getPageBySlug } from '@/lib/services/pages.service';
+import { getNews } from '@/lib/services/news.service';
+import { getVideos } from '@/lib/services/videos.service';
+import { generateShortDesc } from '@/lib/articles';
+import HomePageClient from './HomePageClient';
 
-import React, { useState, useEffect } from "react";
-import ScrollProgress from "@/components/ScrollProgress";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Proyecto from "@/components/Proyecto";
-import Camino from "@/components/Camino";
-import Objetivos from "@/components/Objetivos";
-import Recorrido from "@/components/Recorrido";
-import Actualidad from "@/components/Actualidad";
-import Videos from "@/components/Videos";
-import Footer from "@/components/Footer";
-import ContactoModal from "@/components/ContactoModal";
+// Add revalidation if needed (e.g., revalidate = 60, or rely on on-demand revalidation)
+export const revalidate = 0; // Para ver los cambios instantaneamente durante el dev
 
-export default function Home() {
-  const [isContactoOpen, setIsContactoOpen] = useState(false);
+export default async function Page() {
+  const pageData = await getPageBySlug('home');
+  
+  // Extraer los bloques
+  const blocks = pageData?.blocks || [];
+  
+  const getBlock = (type: string) => {
+    const block = blocks.find((b: any) => b.type === type);
+    return block?.content_json || null;
+  };
 
-  useEffect(() => {
-    const root = document.documentElement;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const heroData = getBlock('hero');
+  const proyectoData = getBlock('proyecto');
+  const objetivosData = getBlock('objetivos');
+  const experienciaData = getBlock('experiencia');
+  const actualidadData = getBlock('actualidad');
+  const videosData = getBlock('videos');
 
-    let MOTION = true;
-    let armed = false;
-    
-    // Select all reveal elements on mount
-    let revealEls = Array.from(document.querySelectorAll("[data-reveal]")) as HTMLElement[];
+  const { getSettings } = await import('@/lib/services/settings.service');
+  const footerLogos = await getSettings('footer_logos') || [];
 
-    const finalCount = (el: HTMLElement) => {
-      const target = parseFloat(el.dataset.count || "0");
-      el.textContent =
-        (el.dataset.prefix || "") +
-        target.toLocaleString("es-ES") +
-        (el.dataset.suffix || "");
-      el.dataset.done = "1";
-    };
+  const rawNews = await getNews();
+  const newsList = rawNews
+    .filter(n => new Date(n.publication_date) <= new Date())
+    .map(n => ({
+      id: n.id,
+      title: n.title,
+      type: n.category,
+      date: n.publication_date,
+      shortDesc: generateShortDesc(n.content_html),
+      cover: n.featured_image || ""
+    }));
 
-    const runAllFinalCounts = () => {
-      const countEls = Array.from(document.querySelectorAll("[data-count]")) as HTMLElement[];
-      countEls.forEach(finalCount);
-    };
-
-    const updateReveals = () => {
-      const vh = window.innerHeight;
-      if (armed) {
-        for (let i = revealEls.length - 1; i >= 0; i--) {
-          const el = revealEls[i];
-          const r = el.getBoundingClientRect();
-          if (r.top < vh * 0.9 && r.bottom > -40) {
-            el.classList.add("in");
-            revealEls.splice(i, 1);
-          }
-        }
-      }
-    };
-
-    const updateParallax = () => {
-      if (MOTION && !reduce) {
-        const y = window.scrollY;
-        const parallaxEls = Array.from(document.querySelectorAll("[data-parallax]")) as HTMLElement[];
-        parallaxEls.forEach((el) => {
-          const speed = parseFloat(el.dataset.parallax || "0.2");
-          el.style.transform = `translate3d(0, ${y * speed}px, 0)`;
-        });
-      }
-    };
-
-    const handleScroll = () => {
-      updateReveals();
-      updateParallax();
-    };
-
-    // Throttle scroll
-    let last = 0;
-    let queued: NodeJS.Timeout | null = null;
-    const onScroll = () => {
-      const now = Date.now();
-      if (now - last > 60) {
-        last = now;
-        handleScroll();
-      } else {
-        if (queued) clearTimeout(queued);
-        queued = setTimeout(() => {
-          last = Date.now();
-          handleScroll();
-        }, 70);
-      }
-    };
-
-    // Probe motion-capability to handle iframe freezing
-    const detectMotion = () => {
-      if (reduce) {
-        root.classList.remove("fx");
-        revealEls.forEach((e) => e.classList.add("in"));
-        revealEls = [];
-        runAllFinalCounts();
-        return;
-      }
-
-      // Append style for motion probe keyframe animation
-      const styleNode = document.createElement("style");
-      styleNode.innerHTML = `
-        @keyframes vac-probe {
-          0% { transform: translate3d(0,0,0); }
-          100% { transform: translate3d(10px,0,0); }
-        }
-      `;
-      document.head.appendChild(styleNode);
-
-      const probe = document.createElement("div");
-      probe.style.cssText =
-        "position:fixed;left:-9999px;top:0;width:2px;height:2px;pointer-events:none;animation:vac-probe 1s linear infinite";
-      document.body.appendChild(probe);
-
-      const a = getComputedStyle(probe).transform;
-
-      setTimeout(() => {
-        const b = getComputedStyle(probe).transform;
-        probe.remove();
-        styleNode.remove();
-
-        if (a === b) {
-          // CSS animations frozen
-          MOTION = false;
-          root.classList.remove("fx");
-          revealEls.forEach((e) => e.classList.add("in"));
-          revealEls = [];
-          runAllFinalCounts();
-        } else {
-          // CSS animations active
-          armed = true;
-          handleScroll();
-          window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onScroll, { passive: true });
-          [40, 160, 380, 800].forEach((ms) => setTimeout(handleScroll, ms));
-        }
-      }, 160);
-    };
-
-    detectMotion();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (queued) clearTimeout(queued);
-    };
-  }, []);
+  const rawVideos = await getVideos();
+  const videosList = rawVideos.filter(v => v.status === 'published');
 
   return (
-    <>
-      <ScrollProgress />
-      <Header onOpenContacto={() => setIsContactoOpen(true)} />
-
-      <main id="top">
-        <Hero />
-        <Proyecto />
-        <Camino />
-        <Objetivos />
-        <Recorrido />
-        <Actualidad />
-        <Videos />
-      </main>
-
-      <Footer />
-
-      <ContactoModal
-        isOpen={isContactoOpen}
-        onClose={() => setIsContactoOpen(false)}
-      />
-    </>
+    <HomePageClient 
+      heroData={heroData}
+      proyectoData={proyectoData}
+      objetivosData={objetivosData}
+      experienciaData={experienciaData}
+      actualidadData={actualidadData}
+      videosData={videosData}
+      footerLogos={footerLogos}
+      news={newsList}
+      videos={videosList}
+    />
   );
 }

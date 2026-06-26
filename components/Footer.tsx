@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import ImageSlot from "@/components/ImageSlot";
 
-export default function Footer() {
+export default function Footer({ logos }: { logos?: any[] }) {
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const target = document.querySelector(href);
     if (!target) return;
@@ -216,86 +216,36 @@ export default function Footer() {
         </div>
 
         <div className="footer__funders" style={{ borderTop: "1px solid oklch(0.974 0.013 83 / 0.14)", paddingTop: "32px", marginTop: "32px" }}>
-          {/* 1. Ministerio */}
-          <div className="funder">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/logo-mdsca.jpg"
-              alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030"
-              style={{ borderRadius: "4px" }}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          {/* 2. FSE+ */}
-          <div className="funder">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/logo-fse.png"
-              alt="Cofinanciado por el FSE+"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          {/* 3. Unión Europea */}
-          <div className="funder">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/logo-union-europea.png"
-              alt="Financiado por la Unión Europea · NextGenerationEU"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          {/* 4. Fundación Manantial */}
-          <div className="funder">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/logo-manantial.png"
-              alt="Fundación Manantial"
-              style={{ filter: "brightness(0) invert(1)" }}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          {/* 5. Nemesio Díez con texto arriba */}
-          <div className="funder" style={{ flexDirection: "column", gap: "6px" }}>
-            <span
-              style={{
-                fontSize: "10px",
-                letterSpacing: ".05em",
-                color: "oklch(0.974 0.013 83 / .6)",
-                textTransform: "uppercase",
-                fontWeight: 600,
-              }}
-            >
-              Con la colaboración de
-            </span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/logo-nemesio-diez.png"
-              alt="Fundación Nemesio Díez"
-              style={{ maxHeight: "36px" }}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          {/* 6. Comunidad de Madrid */}
-          <div className="funder">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/logo-comunidad-madrid.png"
-              alt="Comunidad de Madrid · D.G. de Infancia, Familia y Fomento de la Natalidad"
-              style={{ borderRadius: "4px" }}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          {logos?.map((logo, idx) => (
+            <div key={idx} className="funder" style={{ flexDirection: logo.overhead ? "column" : "row", gap: logo.overhead ? "6px" : "0" }}>
+              {logo.overhead && (
+                <span
+                  style={{
+                    fontSize: "10px",
+                    letterSpacing: ".05em",
+                    color: "oklch(0.974 0.013 83 / .6)",
+                    textTransform: "uppercase",
+                    fontWeight: 600,
+                  }}
+                >
+                  {logo.overhead}
+                </span>
+              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logo.imgUrl}
+                alt={logo.alt}
+                style={{ 
+                  borderRadius: "4px",
+                  maxHeight: logo.overhead ? "70px" : "95px",
+                  maxWidth: "100%",
+                  objectFit: "contain"
+                }}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
 
         <div className="footer__legal">

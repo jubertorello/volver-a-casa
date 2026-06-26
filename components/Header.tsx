@@ -53,7 +53,7 @@ export default function Header({ onOpenContacto, forceSolid }: HeaderProps) {
     { label: "Proyecto", href: "/#proyecto" },
     { label: "Objetivos", href: "/#porque" },
     { label: "Experiencia", href: "/#recorrido" },
-    { label: "Actualidad", href: "/actualidad" },
+    { label: "Actualidad", href: "/#actualidad" },
     { label: "Vídeos", href: "/#videos" },
     { label: "Fundación Manantial", href: "https://www.fundacionmanantial.org/", external: true },
   ];

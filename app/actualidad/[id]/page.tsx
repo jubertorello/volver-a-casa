@@ -3,22 +3,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  articles,
-  getArticle,
-  getRelated,
   typeColor,
   formatDate,
   formatDateShort,
+  DEFAULT_COVER,
+  generateShortDesc
 } from "@/lib/articles";
 import ArticleGallery from "@/components/ArticleGallery";
 import ImageSlot from "@/components/ImageSlot";
 import ActualidadHeader from "@/components/ActualidadHeader";
 import Footer from "@/components/Footer";
+import { getNewsById, getNews } from "@/lib/services/news.service";
 
-// ── Static generation ─────────────────────────────────────────
-export function generateStaticParams() {
-  return articles.map((a) => ({ id: a.id }));
-}
+export const revalidate = 0;
 
 // ── SEO metadata ──────────────────────────────────────────────
 export async function generateMetadata({
@@ -27,11 +24,14 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const article = getArticle(id);
+  const article = await getNewsById(id);
   if (!article) return {};
+  
+  const shortDesc = generateShortDesc(article.content_html);
+
   return {
     title: `${article.title} — Volver a Casa`,
-    description: article.shortDesc,
+    description: shortDesc || "Sin descripción",
   };
 }
 
@@ -42,11 +42,37 @@ export default async function ArticleDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const article = getArticle(id);
-  if (!article) notFound();
+  const rawArticle = await getNewsById(id);
+  if (!rawArticle) notFound();
 
-  const related = getRelated(article.id, article.type, 3);
-  const color = typeColor[article.type];
+  const shortDesc = generateShortDesc(rawArticle.content_html);
+
+  const article = {
+    id: rawArticle.id,
+    title: rawArticle.title,
+    type: rawArticle.category as any,
+    date: rawArticle.publication_date,
+    shortDesc,
+    cover: rawArticle.featured_image || DEFAULT_COVER,
+    content: rawArticle.content_html || "",
+    gallery: rawArticle.gallery || []
+  };
+
+  const allNews = await getNews();
+  const related = allNews
+    .filter(n => n.id !== article.id && new Date(n.publication_date) <= new Date())
+    .map(n => ({
+      id: n.id,
+      title: n.title,
+      type: n.category as any,
+      date: n.publication_date,
+      shortDesc: generateShortDesc(n.content_html),
+      cover: n.featured_image || DEFAULT_COVER
+    }))
+    .sort((a, b) => a.type === article.type ? -1 : 1)
+    .slice(0, 3);
+
+  const color = typeColor[article.type] || "var(--azul)";
   const hasGallery = article.gallery && article.gallery.length > 0;
 
   return (
@@ -81,7 +107,6 @@ export default async function ArticleDetailPage({
           </div>
 
           <h1>{article.title}</h1>
-          <p className="article-hero__desc">{article.shortDesc}</p>
         </div>
       </div>
 
@@ -132,7 +157,7 @@ export default async function ArticleDetailPage({
                     >
                       {rel.title}
                     </h3>
-                    <p style={{ fontSize: "0.9rem", color: "var(--ink-soft)" }}>
+                    <p className="post__desc" style={{ fontSize: "0.9rem", color: "var(--ink-soft)" }}>
                       {rel.shortDesc}
                     </p>
                     <Link

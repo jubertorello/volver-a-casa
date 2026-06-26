@@ -18,53 +18,62 @@ const carlito = Carlito({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
-  description:
-    "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
-  alternates: {
-    canonical: "https://volveracasa.fundacionmanantial.org",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
-    description:
-      "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
-    url: "https://volveracasa.fundacionmanantial.org",
-    siteName: "Volver a Casa",
-    locale: "es_ES",
-    type: "website",
-    images: [
-      {
-        url: "https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png",
-        width: 600,
-        height: 600,
-        alt: "Logo Volver a Casa",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary",
-    title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
-    description:
-      "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
-    images: ["https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png"],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { getSettings } = await import('@/lib/services/settings.service');
+  const seo = await getSettings('seo') || {};
+  
+  const title = seo.title || "Volver a Casa — Reconstruyendo vínculos, acompañando familias";
+  const description = seo.description || "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.";
+  
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: "https://volveracasa.fundacionmanantial.org",
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      title,
+      description,
+      url: "https://volveracasa.fundacionmanantial.org",
+      siteName: "Volver a Casa",
+      locale: "es_ES",
+      type: "website",
+      images: [
+        {
+          url: "https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png",
+          width: 600,
+          height: 600,
+          alt: "Logo Volver a Casa",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+      images: ["https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png"],
+    },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   }: {
   children: React.ReactNode;
 }) {
+  const { getSettings } = await import('@/lib/services/settings.service');
+  const seo = await getSettings('seo') || {};
+  const schemaTitle = seo.title || "Volver a Casa";
+  const schemaDesc = seo.description || "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.";
   return (
     <html lang="es" className="fx">
       <body className={`${capriola.variable} ${carlito.variable}`}>
@@ -83,10 +92,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Volver a Casa",
-              "description":
-                "Volver a Casa acompaña a niños, niñas y sus familias en procesos de reunificación familiar. Un proyecto de innovación social de Fundación Manantial.",
+              "@type": "NGO",
+              "name": schemaTitle,
+              "description": schemaDesc,
               "url": "https://volveracasa.fundacionmanantial.org",
               "logo": "https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png",
               "parentOrganization": {
