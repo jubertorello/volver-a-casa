@@ -65,7 +65,7 @@ export default async function ArticleDetailPage({
     .map(n => ({
       id: n.id,
       title: n.title,
-      type: n.category as any,
+      type: (n.category as ArticleType) || "Noticia",
       date: n.publication_date,
       shortDesc: generateShortDesc(n.content_html),
       cover: n.featured_image || DEFAULT_COVER
