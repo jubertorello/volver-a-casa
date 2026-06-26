@@ -18,6 +18,30 @@ import { getNewsById, getNews } from "@/lib/services/news.service";
 
 export const revalidate = 0;
 
+/**
+ * Clean up Quill-generated HTML:
+ * 1. Replace &nbsp; with normal spaces (Quill replaces all spaces with &nbsp;)
+ * 2. Strip inline style properties that break text layout
+ */
+function sanitizeHtml(html: string): string {
+  if (!html) return '';
+  return html
+    // Replace &nbsp; with a regular space so the browser can wrap words normally
+    .replace(/&nbsp;/gi, ' ')
+    // Remove specific style properties that cause broken word wrapping
+    .replace(/style="([^"]*)"/gi, (_match, styles: string) => {
+      const cleaned = styles
+        .split(';')
+        .map((s: string) => s.trim())
+        .filter((s: string) => {
+          const prop = s.split(':')[0]?.trim().toLowerCase();
+          return prop && !['white-space', 'word-break', 'overflow-wrap', 'word-wrap'].includes(prop);
+        })
+        .join('; ');
+      return cleaned ? `style="${cleaned}"` : '';
+    });
+}
+
 // ── SEO metadata ──────────────────────────────────────────────
 export async function generateMetadata({
   params,
@@ -55,7 +79,7 @@ export default async function ArticleDetailPage({
     date: rawArticle.publication_date,
     shortDesc,
     cover: rawArticle.featured_image || DEFAULT_COVER,
-    content: rawArticle.content_html || "",
+    content: sanitizeHtml(rawArticle.content_html || ""),
     gallery: rawArticle.gallery || []
   };
 
