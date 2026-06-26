@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { saveNewsAction } from "../../../../lib/actions/admin";
 import CloudinaryUpload from "../../../../components/admin/CloudinaryUpload";
@@ -180,13 +180,13 @@ export default function NewsEditorClient({ initialNews, isNew }: { initialNews: 
 
           <div>
             <label style={{ display: "block", fontSize: "0.9rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Cuerpo de la Noticia *</label>
-            <ReactQuill 
-              theme="snow" 
-              value={formData.content_html} 
-              onChange={(val: string) => handleUpdate('content_html', val)} 
-              modules={modules}
-              ref={quillRef}
-            />
+            {React.createElement(ReactQuill, {
+              theme: "snow",
+              value: formData.content_html,
+              onChange: (val: string) => handleUpdate('content_html', val),
+              modules: modules,
+              ref: quillRef
+            })}
           </div>
           
           <div style={{ borderTop: "1px solid var(--cream-3)", paddingTop: "24px", marginTop: "16px" }}>

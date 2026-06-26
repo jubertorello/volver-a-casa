@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { savePageBlockAction, updatePageAction } from "../../../../lib/actions/admin";
 import toast from 'react-hot-toast';
@@ -298,13 +298,13 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
                       </div>
                       <div className="proyecto-editor">
                         <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Descripción Principal</label>
-                        <ReactQuill 
-                          theme="snow" 
-                          value={formData.proyecto.description} 
-                          onChange={(val: string) => handleUpdate('proyecto', 'description', val)} 
-                          modules={restrictedModules}
-                          ref={quillRef}
-                        />
+                        {React.createElement(ReactQuill, {
+                          theme: "snow",
+                          value: formData.proyecto.description,
+                          onChange: (val: string) => handleUpdate('proyecto', 'description', val),
+                          modules: restrictedModules,
+                          ref: quillRef
+                        })}
                       </div>
                     </div>
                   

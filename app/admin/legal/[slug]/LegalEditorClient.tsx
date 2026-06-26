@@ -13,8 +13,6 @@ const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false }) as a
 
 export default function LegalEditorClient({ initialPage }: { initialPage: any }) {
   const router = useRouter();
-  const quillRef = useRef<any>(null);
-  
   const [isSaving, setIsSaving] = useState(false);
   const [formData, setFormData] = useState({
     id: initialPage.id,
@@ -88,7 +86,6 @@ export default function LegalEditorClient({ initialPage }: { initialPage: any })
                 value={formData.content} 
                 onChange={(val: string) => handleUpdate('content', val)} 
                 modules={modules}
-                ref={quillRef}
               />
             </div>
           </div>
