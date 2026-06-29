@@ -147,7 +147,8 @@ export default function Recorrido({ data }: { data?: any }) {
             rel="noopener noreferrer"
             className="btn btn--cream"
           >
-            {cta?.btnText} <span className="arrow">↗</span>
+            {/* Strip any trailing arrow from btnText to avoid duplication */}
+            {String(cta?.btnText || '').replace(/\s*↗\s*$/, '')} <span className="arrow">↗</span>
           </a>
         </div>
       </div>

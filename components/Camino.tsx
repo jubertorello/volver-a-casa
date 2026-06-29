@@ -72,7 +72,7 @@ export default function Camino() {
       const Htotal = span + 90; // extra padding
       const isMobile = window.matchMedia("(max-width: 760px)").matches;
       const cx = isMobile ? 40 : 60; // centre of svg
-      
+
       let d = "";
       const isMobileWave = isMobile;
 
@@ -162,7 +162,7 @@ export default function Camino() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
-    
+
     // First trigger
     buildWave();
     update();
@@ -175,7 +175,7 @@ export default function Camino() {
   }, []);
 
   return (
-    <div className="wrap" style={{ paddingTop: "clamp(60px, 8vw, 100px)" }}>
+    <div className="wrap">
       <div className="section-head center" data-reveal="">
         <h2>
           Volver no es solo llegar.
