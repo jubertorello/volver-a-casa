@@ -4,6 +4,15 @@ export default function Proyecto({ data }: { data?: any }) {
   const title = data?.title || "¿Qué es Volver a Casa?";
   const descriptionHtml = data?.description || '<p class="lead" style="font-family: Capriola; font-size: 18px;">Un proyecto de <a href="https://www.manantial.org" target="_blank" rel="noopener noreferrer"><strong>Fundación Manantial</strong></a>, de innovación social que acompaña a niños y niñas institucionalizados y sus familias en procesos de reunificación familiar, creando las condiciones necesarias para reconstruir vínculos protectores y entornos de cuidado y bienestar.</p><p style="color: var(--ink-soft); font-family: Capriola; font-weight: 400;">No se trata solo de volver, sino de hacerlo a un entorno que pueda sostener el bienestar del niño o la niña. Por eso acompañamos <strong>antes, durante y después</strong> del regreso.</p><p style="color: var(--ink-soft); font-family: Capriola; font-weight: 400; margin-top: 16px;">Cofinanciado por la Unión Europea, el Ministerio de Trabajo y Economía Social y Fondos Europeos, y el Ministerio de Derechos Sociales, Consumo y Agenda 2030. Con la colaboración de Fundación Nemesio Díez y la Dirección General de Infancia, Familia y Fomento de la Natalidad de la Comunidad de Madrid.</p>';
 
+  const cleanHtml = (html: string) => {
+    if (!html) return "";
+
+    return html
+      .replace(/&nbsp;/gi, " ")
+      .replace(/\sstyle=(["']).*?\1/gi, "")
+      .replace(/\sclass=(["']).*?\1/gi, "");
+  };
+
   const items = data?.items || [
     { title: "Apoyo psicológico", description: "A niños y niñas institucionalizados en centros residenciales y a sus familias de origen." },
     { title: "Intervención social", description: "Fortalecer capacidades parentales para lograr el retorno de los niños al hogar en condiciones de seguridad y estabilidad." },
@@ -19,7 +28,7 @@ export default function Proyecto({ data }: { data?: any }) {
           <div data-reveal="">
             <h2 className="proyecto-const__title">{title}</h2>
           </div>
-          <div className="proyecto-const__intro" data-reveal="" data-delay="1" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+          <div className="proyecto-const__intro article-body" data-reveal="" data-delay="1" dangerouslySetInnerHTML={{ __html: cleanHtml(descriptionHtml) }} />
         </div>
         <div className="proyecto-const__body">
           <div className="proyecto__media" data-reveal="" data-reveal-mode="scale">

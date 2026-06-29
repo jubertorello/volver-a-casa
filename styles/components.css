@@ -2078,11 +2078,11 @@
 }
 
 .proyecto-const__intro {
-  display: grid;
-  gap: 18px;
-  max-width: 60ch;
+  width: 100%;
+  max-width: 64ch;
   min-width: 0;
-  overflow-wrap: anywhere;
+  margin: 0;
+  text-align: left;
 }
 
 .proyecto-const__body {
@@ -3021,7 +3021,7 @@
 }
 
 .article-body {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 1.06rem;
   line-height: 1.78;
   color: var(--ink);
