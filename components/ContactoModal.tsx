@@ -5,9 +5,10 @@ import React, { useEffect, useRef } from "react";
 interface ContactoModalProps {
   isOpen: boolean;
   onClose: () => void;
+  socialLinks?: any;
 }
 
-export default function ContactoModal({ isOpen, onClose }: ContactoModalProps) {
+export default function ContactoModal({ isOpen, onClose, socialLinks }: ContactoModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
 
@@ -120,136 +121,128 @@ export default function ContactoModal({ isOpen, onClose }: ContactoModalProps) {
             <span className="contact-row__t" style={{ width: "100%" }}>
               <b>Redes sociales</b>
               <div style={{ display: "flex", gap: "12px", marginTop: "6px" }}>
-                <a
-                  href="https://instagram.com/volveracasa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "var(--naranja)",
-                    color: "#fff",
-                    transition: "transform 0.2s"
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ width: "16px", height: "16px" }}
+                {socialLinks?.instagram && (
+                  <a
+                    href={socialLinks.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "var(--naranja)",
+                      color: "#fff",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
                   >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                </a>
-                <a
-                  href="https://www.facebook.com/volveracasa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "var(--azul)",
-                    color: "#fff",
-                    transition: "transform 0.2s"
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ width: "16px", height: "16px" }}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ width: "16px", height: "16px" }}
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  </a>
+                )}
+                {socialLinks?.facebook && (
+                  <a
+                    href={socialLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "var(--azul)",
+                      color: "#fff",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
                   >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
-                </a>
-                <a
-                  href="https://x.com/volveracasa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "var(--ink)",
-                    color: "#fff",
-                    transition: "transform 0.2s"
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ width: "14px", height: "14px" }}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ width: "16px", height: "16px" }}
+                    >
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  </a>
+                )}
+                {socialLinks?.twitter && (
+                  <a
+                    href={socialLinks.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "var(--ink)",
+                      color: "#fff",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
                   >
-                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                    <path d="M9 11L4 20" />
-                    <path d="M20 4l-5 6" />
-                  </svg>
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/volveracasa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "50%",
-                    background: "var(--azul-deep)",
-                    color: "#fff",
-                    transition: "transform 0.2s"
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ width: "15px", height: "15px" }}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "14px", height: "14px" }}>
+                      <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
+                      <path d="M9 11L4 20"/>
+                      <path d="M20 4l-5 6"/>
+                    </svg>
+                  </a>
+                )}
+                {socialLinks?.linkedin && (
+                  <a
+                    href={socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "var(--azul-deep)",
+                      color: "#fff",
+                      transition: "transform 0.2s"
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
                   >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                    <rect x="2" y="9" width="4" height="12" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </a>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "15px", height: "15px" }}>
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect x="2" y="9" width="4" height="12"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                  </a>
+                )}
               </div>
             </span>
           </div>

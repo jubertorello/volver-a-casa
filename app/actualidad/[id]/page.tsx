@@ -15,6 +15,7 @@ import ImageSlot from "@/components/ImageSlot";
 import ActualidadHeader from "@/components/ActualidadHeader";
 import Footer from "@/components/Footer";
 import { getNewsById, getNews } from "@/lib/services/news.service";
+import { getSettings } from "@/lib/services/settings.service";
 
 export const revalidate = 0;
 
@@ -201,7 +202,7 @@ export default async function ArticleDetailPage({
       )}
 
       {/* ── Footer ────────────────────────────────────────── */}
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </>
   );
 }

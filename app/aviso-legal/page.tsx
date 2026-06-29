@@ -4,6 +4,7 @@ import Link from "next/link";
 import ActualidadHeader from "@/components/ActualidadHeader";
 import Footer from "@/components/Footer";
 import { getLegalPageBySlug } from "@/lib/services/legal.service";
+import { getSettings } from "@/lib/services/settings.service";
 
 export const metadata: Metadata = {
   title: "Aviso Legal — Volver a Casa",
@@ -14,6 +15,7 @@ export const revalidate = 0;
 
 export default async function AvisoLegalPage() {
   const legalPage = await getLegalPageBySlug('aviso-legal');
+  const socialLinks = await getSettings('social') || {};
   
   return (
     <div className="articles-page">
@@ -81,7 +83,7 @@ export default async function AvisoLegalPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </div>
   );
 }

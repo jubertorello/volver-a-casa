@@ -27,6 +27,7 @@ export default async function Page() {
 
   const { getSettings } = await import('@/lib/services/settings.service');
   const footerLogos = await getSettings('footer_logos') || [];
+  const socialLinks = await getSettings('social') || {};
 
   const rawNews = await getNews();
   const newsList = rawNews
@@ -52,6 +53,7 @@ export default async function Page() {
       actualidadData={actualidadData}
       videosData={videosData}
       footerLogos={footerLogos}
+      socialLinks={socialLinks}
       news={newsList}
       videos={videosList}
     />

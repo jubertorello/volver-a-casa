@@ -3,7 +3,7 @@
 import React from "react";
 import ImageSlot from "@/components/ImageSlot";
 
-export default function Videos({ data, videos }: { data?: any, videos?: any[] }) {
+export default function Videos({ data, videos, socialLinks }: { data?: any, videos?: any[], socialLinks?: any }) {
   const title = data?.title || "Multimedia";
   const overhead = data?.overhead || "Vídeos más significativos.";
   const description = data?.description || "Descubre más sobre nuestro trabajo, testimonios y el impacto del acompañamiento a través de nuestros vídeos.";
@@ -21,17 +21,7 @@ export default function Videos({ data, videos }: { data?: any, videos?: any[] })
       videoUrl: v.video_url,
       thumbnail: v.thumbnail
     };
-  }) : [
-    {
-      id: "vid-1",
-      title: "Presentación Volver a Casa",
-      desc: "Conoce el proyecto de reunificación familiar que acompaña a niños, niñas y sus familias.",
-      tag: "YouTube",
-      tagColor: "var(--azul)",
-      videoUrl: "https://www.youtube.com/watch?v=BSpFhnqwOCE",
-      thumbnail: ""
-    }
-  ];
+  }).slice(0, 6) : [];
 
   const getEmbedUrl = (url: string) => {
     if (!url) return "";
@@ -59,10 +49,11 @@ export default function Videos({ data, videos }: { data?: any, videos?: any[] })
           </p>
         </div>
 
-        <div className="grid cols-3" data-reveal="" data-delay="1">
-          {videoItems.map((vid) => {
-            const embedUrl = getEmbedUrl(vid.videoUrl);
-            return (
+        {videoItems.length > 0 ? (
+          <div className="grid cols-3" data-reveal="" data-delay="1">
+            {videoItems.map((vid) => {
+              const embedUrl = getEmbedUrl(vid.videoUrl);
+              return (
             <div key={vid.id} className="video-card">
               {embedUrl ? (
                 <button
@@ -140,12 +131,18 @@ export default function Videos({ data, videos }: { data?: any, videos?: any[] })
                 </span>
                 <h3>{vid.title}</h3>
                 <p>{vid.desc}</p>
+                </div>
               </div>
-            </div>
-          )})}
+            );
+          })}
         </div>
+        ) : (
+          <div data-reveal="" style={{ textAlign: "center", padding: "40px 0", color: "var(--ink-faint)" }}>
+            <p style={{ fontSize: "1.2rem", fontStyle: "italic" }}>Muy pronto...</p>
+          </div>
+        )}
 
-        {/* CTA Banner to follow on Social Media */}
+        {/* Video Modal Overlay */}
         <div className="videos-cta" data-reveal="" data-delay="2">
           <div className="videos-cta__content">
             <h3>Síguenos en redes sociales</h3>
@@ -154,40 +151,48 @@ export default function Videos({ data, videos }: { data?: any, videos?: any[] })
             </p>
           </div>
           <div className="videos-cta__actions">
-            <a
-              href="https://instagram.com/volveracasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--naranja"
-            >
-              Instagram <span className="arrow">↗</span>
-            </a>
-            <a
-              href="https://www.facebook.com/volveracasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
-            >
-              Facebook <span className="arrow">↗</span>
-            </a>
-            <a
-              href="https://x.com/volveracasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
-              style={{ backgroundColor: "var(--ink)" }}
-            >
-              X <span className="arrow">↗</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/volveracasa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
-              style={{ backgroundColor: "var(--azul-deep)" }}
-            >
-              LinkedIn <span className="arrow">↗</span>
-            </a>
+            {socialLinks?.instagram && (
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--naranja"
+              >
+                Instagram <span className="arrow">↗</span>
+              </a>
+            )}
+            {socialLinks?.facebook && (
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+              >
+                Facebook <span className="arrow">↗</span>
+              </a>
+            )}
+            {socialLinks?.twitter && (
+              <a
+                href={socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{ backgroundColor: "var(--ink)" }}
+              >
+                X <span className="arrow">↗</span>
+              </a>
+            )}
+            {socialLinks?.linkedin && (
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{ backgroundColor: "var(--azul-deep)" }}
+              >
+                LinkedIn <span className="arrow">↗</span>
+              </a>
+            )}
           </div>
         </div>
         {/* Video Modal Overlay */}

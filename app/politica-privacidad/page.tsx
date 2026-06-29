@@ -4,6 +4,7 @@ import Link from "next/link";
 import ActualidadHeader from "@/components/ActualidadHeader";
 import Footer from "@/components/Footer";
 import { getLegalPageBySlug } from "@/lib/services/legal.service";
+import { getSettings } from "@/lib/services/settings.service";
 
 export const metadata: Metadata = {
   title: "Política de Privacidad — Volver a Casa",
@@ -14,6 +15,7 @@ export const revalidate = 0;
 
 export default async function PoliticaPrivacidadPage() {
   const legalPage = await getLegalPageBySlug('politica-privacidad');
+  const socialLinks = await getSettings('social') || {};
   
   return (
     <div className="articles-page">
@@ -78,7 +80,7 @@ export default async function PoliticaPrivacidadPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </div>
   );
 }

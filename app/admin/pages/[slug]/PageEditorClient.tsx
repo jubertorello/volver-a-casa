@@ -110,13 +110,10 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
       title: getBlockData('objetivos').title || "Crecer en familia lo cambia todo.",
       description: getBlockData('objetivos').description || "La institucionalización prolongada afecta...",
       items: getBlockData('objetivos').items || [
-        "Punto 1", "Punto 2", "Punto 3", "Punto 4"
-      ],
-      metrics: getBlockData('objetivos').metrics || [
-        { val: "-40%", desc: "tiempo", sub: "OBJ" },
-        { val: "85%", desc: "reunificaciones", sub: "OBJ" },
-        { val: "120", desc: "familias", sub: "DATO" },
-        { val: "70%", desc: "mejora", sub: "OBJ" }
+        "Reducir el tiempo que niños y niñas pasan en centros de protección.",
+        "Acompañar reunificaciones seguras y sostenidas en el tiempo.",
+        "Fortalecer las capacidades parentales de las familias.",
+        "Contribuir a la mejora del sistema de protección mediante evidencia y conocimiento."
       ]
     },
     experiencia: {
@@ -358,27 +355,6 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
                     </div>
                   </div>
 
-                  <hr style={{ border: "none", borderTop: "1px solid var(--cream-3)" }} />
-
-                  <div>
-                    <h3 style={{ fontSize: "1.05rem", color: "var(--azul)", marginBottom: "16px" }}>Tarjetas de Métricas (Derecha)</h3>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                      {formData.objetivos.metrics.map((card: any, idx: number) => (
-                        <div key={idx} style={{ backgroundColor: "var(--paper)", border: "1px solid var(--cream-3)", borderRadius: "var(--r-sm)", padding: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                          <label style={{ display: "block", fontSize: "0.85rem", color: "var(--ink-faint)" }}>Tarjeta {idx + 1}</label>
-                          <div>
-                            <input className="admin-input" style={{ fontWeight: "bold", fontSize: "1.1rem" }} value={card.val} onChange={e => handleUpdateArray('objetivos', 'metrics', idx, 'val', e.target.value)} placeholder="Valor principal (ej: 85%)" />
-                          </div>
-                          <div>
-                            <textarea className="admin-input" rows={2} value={card.desc} onChange={e => handleUpdateArray('objetivos', 'metrics', idx, 'desc', e.target.value)} placeholder="Descripción de la métrica" />
-                          </div>
-                          <div>
-                            <input className="admin-input" style={{ fontSize: "0.85rem", color: "var(--naranja)" }} value={card.sub} onChange={e => handleUpdateArray('objetivos', 'metrics', idx, 'sub', e.target.value)} placeholder="Sub-etiqueta (ej: DATO PROVISIONAL)" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
                 <div style={{ display: activeTab === "experiencia" ? "flex" : "none", flexDirection: "column", gap: "24px", animation: "fadeIn 0.3s ease" }}>

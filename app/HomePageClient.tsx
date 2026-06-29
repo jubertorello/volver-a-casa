@@ -21,6 +21,7 @@ export default function HomePageClient({
   actualidadData,
   videosData,
   footerLogos,
+  socialLinks,
   news = [],
   videos = []
 }: {
@@ -31,6 +32,7 @@ export default function HomePageClient({
   actualidadData: any,
   videosData: any,
   footerLogos: any[],
+  socialLinks: any,
   news?: any[],
   videos?: any[]
 }) {
@@ -178,14 +180,14 @@ export default function HomePageClient({
         <Objetivos data={objetivosData} />
         <Recorrido data={experienciaData} />
         <Actualidad data={actualidadData} news={news} />
-        <Videos data={videosData} videos={videos} />
+        <Videos data={videosData} videos={videos} socialLinks={socialLinks} />
+        <Footer logos={footerLogos} socialLinks={socialLinks} />
       </main>
-
-      <Footer logos={footerLogos} />
 
       <ContactoModal
         isOpen={isContactoOpen}
         onClose={() => setIsContactoOpen(false)}
+        socialLinks={socialLinks}
       />
     </>
   );

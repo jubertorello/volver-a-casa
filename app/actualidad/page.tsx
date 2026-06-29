@@ -5,6 +5,7 @@ import ArticlesClient from "./ArticlesClient";
 import Footer from "@/components/Footer";
 import ActualidadHeader from "@/components/ActualidadHeader";
 import { getNews } from "@/lib/services/news.service";
+import { getSettings } from "@/lib/services/settings.service";
 import { DEFAULT_COVER, Article, ArticleType, generateShortDesc } from "@/lib/articles";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export const revalidate = 0;
 
 export default async function ActualidadPage() {
   const rawNews = await getNews();
+  const socialLinks = await getSettings('social') || {};
   
   const articles: Article[] = rawNews
     .filter(n => new Date(n.publication_date) <= new Date())
@@ -73,7 +75,7 @@ export default async function ActualidadPage() {
       <ArticlesClient articles={articles} />
 
       {/* ── Footer ───────────────────────────────────────────── */}
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </div>
   );
 }

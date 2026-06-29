@@ -10,9 +10,15 @@ export default async function VideosList() {
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
         <h1 className="admin-title" style={{ marginBottom: 0 }}>Vídeos Destacados</h1>
-        <Link href="/admin/videos/new" className="admin-btn admin-btn-primary">
-          + Añadir Vídeo
-        </Link>
+        {videos.length < 6 ? (
+          <Link href="/admin/videos/new" className="admin-btn admin-btn-primary">
+            + Añadir Vídeo
+          </Link>
+        ) : (
+          <span className="admin-btn" style={{ backgroundColor: "var(--cream-3)", color: "var(--ink-soft)", cursor: "not-allowed" }} title="Límite máximo de 6 vídeos alcanzado">
+            Límite alcanzado (6/6)
+          </span>
+        )}
       </div>
       
       <p style={{ color: "var(--ink-soft)", marginBottom: "24px", maxWidth: "600px" }}>
