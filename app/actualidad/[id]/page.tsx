@@ -85,6 +85,7 @@ export default async function ArticleDetailPage({
   };
 
   const allNews = await getNews();
+  const socialLinks = await getSettings('social') || {};
   const related: Array<{ id: string; title: string; type: ArticleType; date: string; shortDesc: string; cover: string }> = allNews
     .filter((n: any) => n.id !== article.id && new Date(n.publication_date) <= new Date())
     .map((n: any) => ({
