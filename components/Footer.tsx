@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import ImageSlot from "@/components/ImageSlot";
 
-export default function Footer({ logos, socialLinks }: { logos?: any[], socialLinks?: any }) {
+export default function Footer({ logos, socialLinks, contactEmail, contactPhone }: { logos?: any[], socialLinks?: any, contactEmail?: string, contactPhone?: string }) {
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const target = document.querySelector(href);
     if (!target) return;
@@ -80,11 +80,13 @@ export default function Footer({ logos, socialLinks }: { logos?: any[], socialLi
             <h4>Contacto</h4>
             <ul>
               <li>
-                <a href="tel:+34617293880">617 293 880</a>
+                <a href={`tel:${(contactPhone || '617 293 880').startsWith('+') ? (contactPhone || '617 293 880') : '+34' + (contactPhone || '617 293 880').replace(/\s+/g, '')}`}>
+                  {contactPhone || "617 293 880"}
+                </a>
               </li>
               <li>
-                <a href="mailto:volveracasa@fundacionmanantial.org">
-                  volveracasa@fundacionmanantial.org
+                <a href={`mailto:${contactEmail || 'volveracasa@fundacionmanantial.org'}`}>
+                  {contactEmail || "volveracasa@fundacionmanantial.org"}
                 </a>
               </li>
               <li style={{ marginTop: "12px" }}>

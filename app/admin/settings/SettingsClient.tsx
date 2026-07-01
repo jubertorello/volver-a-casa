@@ -67,9 +67,13 @@ export default function SettingsClient({
               <label style={{ display: "block", fontSize: "0.9rem", color: "var(--ink-soft)", marginBottom: "4px" }}>Nombre del Proyecto</label>
               <input className="admin-input" value={general.projectName} onChange={e => setGeneral({...general, projectName: e.target.value})} />
             </div>
-            <div>
+            <div style={{ marginBottom: "16px" }}>
               <label style={{ display: "block", fontSize: "0.9rem", color: "var(--ink-soft)", marginBottom: "4px" }}>Email de Contacto</label>
               <input className="admin-input" value={general.contactEmail} onChange={e => setGeneral({...general, contactEmail: e.target.value})} />
+            </div>
+            <div>
+              <label style={{ display: "block", fontSize: "0.9rem", color: "var(--ink-soft)", marginBottom: "4px" }}>Teléfono de Contacto</label>
+              <input className="admin-input" value={general.contactPhone || ""} onChange={e => setGeneral({...general, contactPhone: e.target.value})} />
             </div>
           </div>
 

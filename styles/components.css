@@ -2103,6 +2103,7 @@
   box-shadow: var(--shadow-md);
 }
 
+
 .proyecto-const .erizo-loose {
   position: absolute;
   left: -30px;
@@ -2178,6 +2179,7 @@
   .proyecto-const__pillars {
     grid-template-columns: 1fr;
   }
+
 
   .proyecto-const .erizo-loose {
     left: auto;
@@ -3352,4 +3354,31 @@
   .article-related .grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Custom continuous numbering for legal pages due to Quill paragraph insertions */
+.legal-content {
+  counter-reset: legal-ol;
+}
+
+.legal-content .article-body ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.4em;
+}
+
+.legal-content .article-body ol li {
+  counter-increment: legal-ol;
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.55em;
+  line-height: 1.65;
+}
+
+.legal-content .article-body ol li::before {
+  content: counter(legal-ol) ".";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: var(--azul);
 }

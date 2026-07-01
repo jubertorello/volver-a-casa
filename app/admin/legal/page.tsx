@@ -35,7 +35,7 @@ export default async function LegalPagesList() {
             {legalPages.map((page) => (
               <tr key={page.id} style={{ borderBottom: "1px solid var(--cream-3)" }}>
                 <td style={{ padding: "16px 24px", fontWeight: 500 }}>
-                  <Link href={`/admin/pages/${page.slug}`} style={{ color: "var(--azul)" }}>
+                  <Link href={`/admin/legal/${page.slug}`} style={{ color: "var(--azul)" }}>
                     {page.title}
                   </Link>
                 </td>

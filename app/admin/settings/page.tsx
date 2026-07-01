@@ -2,10 +2,10 @@ import { getSettings } from "../../../lib/services/settings.service";
 import SettingsClient from "./SettingsClient";
 
 export default async function GeneralSettings() {
-  const generalInfo = await getSettings('general') || {
-    projectName: "Volver a Casa",
-    contactEmail: "contacto@volveracasa.org"
-  };
+  const generalInfo = await getSettings('general') || {};
+  if (!generalInfo.projectName) generalInfo.projectName = "Volver a Casa";
+  if (!generalInfo.contactEmail) generalInfo.contactEmail = "volveracasa@fundacionmanantial.org";
+  if (!generalInfo.contactPhone) generalInfo.contactPhone = "617 293 880";
 
   const socialLinks = await getSettings('social') || {
     instagram: "https://instagram.com/volveracasa",

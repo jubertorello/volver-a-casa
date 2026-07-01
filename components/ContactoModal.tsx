@@ -6,9 +6,11 @@ interface ContactoModalProps {
   isOpen: boolean;
   onClose: () => void;
   socialLinks?: any;
+  contactEmail?: string;
+  contactPhone?: string;
 }
 
-export default function ContactoModal({ isOpen, onClose, socialLinks }: ContactoModalProps) {
+export default function ContactoModal({ isOpen, onClose, socialLinks, contactEmail, contactPhone }: ContactoModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
 
@@ -59,7 +61,7 @@ export default function ContactoModal({ isOpen, onClose, socialLinks }: Contacto
           Cuéntanos en qué podemos acompañarte. Estamos aquí para escucharte.
         </p>
         <div className="contact-rows">
-          <a className="contact-row" href="tel:+34617293880">
+          <a className="contact-row" href={`tel:${(contactPhone || '617 293 880').startsWith('+') ? (contactPhone || '617 293 880') : '+34' + (contactPhone || '617 293 880').replace(/\s+/g, '')}`}>
             <span className="contact-row__ic" style={{ background: "var(--azul)" }}>
               <svg
                 viewBox="0 0 24 24"
@@ -75,11 +77,11 @@ export default function ContactoModal({ isOpen, onClose, socialLinks }: Contacto
             </span>
             <span className="contact-row__t">
               <b>Teléfono</b>
-              <span>617 293 880</span>
+              <span>{contactPhone || "617 293 880"}</span>
             </span>
             <span className="contact-row__a">→</span>
           </a>
-          <a className="contact-row" href="mailto:volveracasa@fundacionmanantial.org">
+          <a className="contact-row" href={`mailto:${contactEmail || 'volveracasa@fundacionmanantial.org'}`}>
             <span className="contact-row__ic" style={{ background: "var(--verde)" }}>
               <svg
                 viewBox="0 0 24 24"
@@ -96,7 +98,7 @@ export default function ContactoModal({ isOpen, onClose, socialLinks }: Contacto
             </span>
             <span className="contact-row__t">
               <b>Email</b>
-              <span>volveracasa@fundacionmanantial.org</span>
+              <span>{contactEmail || "volveracasa@fundacionmanantial.org"}</span>
             </span>
             <span className="contact-row__a">→</span>
           </a>

@@ -13,9 +13,30 @@ export const metadata: Metadata = {
 
 export const revalidate = 0;
 
+function sanitizeHtml(html: string): string {
+  if (!html) return '';
+  return html
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/style="([^"]*)"/gi, (_match, styles: string) => {
+      const cleaned = styles
+        .split(';')
+        .map((s: string) => s.trim())
+        .filter((s: string) => {
+          const prop = s.split(':')[0]?.trim().toLowerCase();
+          return prop && !['white-space', 'word-break', 'overflow-wrap', 'word-wrap'].includes(prop);
+        })
+        .join('; ');
+      return cleaned ? `style="${cleaned}"` : '';
+    });
+}
+
 export default async function AvisoLegalPage() {
   const legalPage = await getLegalPageBySlug('aviso-legal');
   const socialLinks = await getSettings('social') || {};
+  const generalSettings = await getSettings('general') || {};
+  const contactEmail = generalSettings.contactEmail || "volveracasa@fundacionmanantial.org";
+  const contactPhone = generalSettings.contactPhone || "617 293 880";
+  const footerLogos = await getSettings('footer_logos') || [];
   
   return (
     <div className="articles-page">
@@ -46,7 +67,7 @@ export default async function AvisoLegalPage() {
             {legalPage?.content ? (
               <div 
                 className="article-body" 
-                dangerouslySetInnerHTML={{ __html: legalPage.content }} 
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(legalPage.content) }} 
               />
             ) : (
               <>
@@ -83,7 +104,7 @@ export default async function AvisoLegalPage() {
         </div>
       </section>
 
-      <Footer socialLinks={socialLinks} />
+      <Footer socialLinks={socialLinks} contactEmail={contactEmail} contactPhone={contactPhone} logos={footerLogos} />
     </div>
   );
 }

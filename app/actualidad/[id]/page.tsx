@@ -86,6 +86,10 @@ export default async function ArticleDetailPage({
 
   const allNews = await getNews();
   const socialLinks = await getSettings('social') || {};
+  const generalSettings = await getSettings('general') || {};
+  const contactEmail = generalSettings.contactEmail || "volveracasa@fundacionmanantial.org";
+  const contactPhone = generalSettings.contactPhone || "617 293 880";
+  const footerLogos = await getSettings('footer_logos') || [];
   const related: Array<{ id: string; title: string; type: ArticleType; date: string; shortDesc: string; cover: string }> = allNews
     .filter((n: any) => n.id !== article.id && new Date(n.publication_date) <= new Date())
     .map((n: any) => ({
@@ -203,7 +207,7 @@ export default async function ArticleDetailPage({
       )}
 
       {/* ── Footer ────────────────────────────────────────── */}
-      <Footer socialLinks={socialLinks} />
+      <Footer socialLinks={socialLinks} contactEmail={contactEmail} contactPhone={contactPhone} logos={footerLogos} />
     </>
   );
 }

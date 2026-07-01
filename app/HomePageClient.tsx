@@ -24,7 +24,9 @@ export default function HomePageClient({
   footerLogos,
   socialLinks,
   news = [],
-  videos = []
+  videos = [],
+  contactEmail,
+  contactPhone
 }: {
   heroData: any,
   proyectoData: any,
@@ -36,7 +38,9 @@ export default function HomePageClient({
   footerLogos: any[],
   socialLinks: any,
   news?: any[],
-  videos?: any[]
+  videos?: any[],
+  contactEmail?: string,
+  contactPhone?: string
 }) {
   const [isContactoOpen, setIsContactoOpen] = useState(false);
 
@@ -183,13 +187,15 @@ export default function HomePageClient({
         <Recorrido data={experienciaData} />
         <Actualidad data={actualidadData} news={news} />
         <Videos data={videosData} videos={videos} socialLinks={socialLinks} />
-        <Footer logos={footerLogos} socialLinks={socialLinks} />
+        <Footer logos={footerLogos} socialLinks={socialLinks} contactEmail={contactEmail} contactPhone={contactPhone} />
       </main>
 
       <ContactoModal
         isOpen={isContactoOpen}
         onClose={() => setIsContactoOpen(false)}
         socialLinks={socialLinks}
+        contactEmail={contactEmail}
+        contactPhone={contactPhone}
       />
     </>
   );

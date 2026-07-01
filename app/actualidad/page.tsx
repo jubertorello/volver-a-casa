@@ -19,6 +19,10 @@ export const revalidate = 0;
 export default async function ActualidadPage() {
   const rawNews = await getNews();
   const socialLinks = await getSettings('social') || {};
+  const generalSettings = await getSettings('general') || {};
+  const contactEmail = generalSettings.contactEmail || "volveracasa@fundacionmanantial.org";
+  const contactPhone = generalSettings.contactPhone || "617 293 880";
+  const footerLogos = await getSettings('footer_logos') || [];
   
   const articles: Article[] = rawNews
     .filter(n => new Date(n.publication_date) <= new Date())
@@ -75,7 +79,7 @@ export default async function ActualidadPage() {
       <ArticlesClient articles={articles} />
 
       {/* ── Footer ───────────────────────────────────────────── */}
-      <Footer socialLinks={socialLinks} />
+      <Footer socialLinks={socialLinks} contactEmail={contactEmail} contactPhone={contactPhone} logos={footerLogos} />
     </div>
   );
 }

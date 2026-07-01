@@ -29,6 +29,9 @@ export default async function Page() {
   const { getSettings } = await import('@/lib/services/settings.service');
   const footerLogos = await getSettings('footer_logos') || [];
   const socialLinks = await getSettings('social') || {};
+  const generalSettings = await getSettings('general') || {};
+  const contactEmail = generalSettings.contactEmail || "volveracasa@fundacionmanantial.org";
+  const contactPhone = generalSettings.contactPhone || "617 293 880";
 
   const rawNews = await getNews();
   const newsList = rawNews
@@ -58,6 +61,8 @@ export default async function Page() {
       socialLinks={socialLinks}
       news={newsList}
       videos={videosList}
+      contactEmail={contactEmail}
+      contactPhone={contactPhone}
     />
   );
 }
