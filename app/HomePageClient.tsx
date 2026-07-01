@@ -16,6 +16,7 @@ import ContactoModal from "@/components/ContactoModal";
 export default function HomePageClient({ 
   heroData,
   proyectoData,
+  caminoData,
   objetivosData,
   experienciaData,
   actualidadData,
@@ -27,6 +28,7 @@ export default function HomePageClient({
 }: {
   heroData: any,
   proyectoData: any,
+  caminoData: any,
   objetivosData: any,
   experienciaData: any,
   actualidadData: any,
@@ -176,7 +178,7 @@ export default function HomePageClient({
       <main id="top">
         <Hero data={heroData} />
         <Proyecto data={proyectoData} />
-        <Camino />
+        <Camino data={caminoData} />
         <Objetivos data={objetivosData} />
         <Recorrido data={experienciaData} />
         <Actualidad data={actualidadData} news={news} />

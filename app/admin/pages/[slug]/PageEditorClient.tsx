@@ -78,6 +78,7 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
   const homeTabs = [
     { id: "hero", label: "Hero Banner" },
     { id: "proyecto", label: "Proyecto" },
+    { id: "camino", label: "El Camino" },
     { id: "objetivos", label: "Objetivos" },
     { id: "experiencia", label: "Experiencia" },
     { id: "actualidad", label: "Actualidad" },
@@ -141,6 +142,42 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
       title: getBlockData('videos').title || "Multimedia",
       overhead: getBlockData('videos').overhead || "Vídeos más significativos.",
       description: getBlockData('videos').description || "Descubre más sobre nuestro trabajo..."
+    },
+    camino: {
+      title: getBlockData('camino').title || "Volver no es solo llegar.\nEs todo lo que pasa en el camino.",
+      description: getBlockData('camino').description || "Cada reunificación es un proceso acompañado paso a paso. Así recorremos el camino junto a las familias.",
+      steps: getBlockData('camino').steps || [
+        {
+          phase: "Recepción",
+          title: "Detección de la necesidad",
+          description: "Conocemos la situación de la familia y del niño o la niña, y construimos el primer vínculo de confianza."
+        },
+        {
+          phase: "Valoración",
+          title: "Evaluación profesional",
+          description: "Equipo interdisciplinar que valora condiciones, recursos y posibilidades reales de retorno seguro."
+        },
+        {
+          phase: "Vínculo",
+          title: "Inicio del acompañamiento",
+          description: "Apoyo emocional y terapéutico para reconstruir el vínculo entre la familia y el menor."
+        },
+        {
+          phase: "Preparación",
+          title: "Construcción de un entorno seguro",
+          description: "Fortalecemos las capacidades parentales y preparamos un hogar protector y estable."
+        },
+        {
+          phase: "Retorno",
+          title: "Proceso de reunificación",
+          description: "El regreso al hogar, gradual y acompañado, cuando existen garantías de cuidado y bienestar."
+        },
+        {
+          phase: "Seguimiento",
+          title: "Seguimiento y apoyo continuo",
+          description: "Seguimos cerca para que la reunificación sea estable y sostenida en el tiempo."
+        }
+      ]
     }
   });
 
@@ -184,10 +221,11 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
       const blocksToSave = [
         { type: 'hero', json: formData.hero, order: 0 },
         { type: 'proyecto', json: formData.proyecto, order: 1 },
-        { type: 'objetivos', json: formData.objetivos, order: 2 },
-        { type: 'experiencia', json: formData.experiencia, order: 3 },
-        { type: 'actualidad', json: formData.actualidad, order: 4 },
-        { type: 'videos', json: formData.videos, order: 5 },
+        { type: 'camino', json: formData.camino, order: 2 },
+        { type: 'objetivos', json: formData.objetivos, order: 3 },
+        { type: 'experiencia', json: formData.experiencia, order: 4 },
+        { type: 'actualidad', json: formData.actualidad, order: 5 },
+        { type: 'videos', json: formData.videos, order: 6 },
       ];
 
       for (const block of blocksToSave) {
@@ -321,6 +359,49 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
                             <div>
                               <label style={{ display: "block", fontSize: "0.85rem", color: "var(--ink-faint)", marginBottom: "4px" }}>Descripción</label>
                               <textarea className="admin-input" rows={2} value={item.description} onChange={e => handleUpdateArray('proyecto', 'items', idx, 'description', e.target.value)} />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: activeTab === "camino" ? "flex" : "none", flexDirection: "column", gap: "24px", animation: "fadeIn 0.3s ease" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Título de la Sección</label>
+                      <textarea className="admin-input" rows={2} value={formData.camino.title} onChange={e => handleUpdate('camino', 'title', e.target.value)} />
+                      <p style={{ fontSize: "0.8rem", color: "var(--ink-faint)", marginTop: "4px" }}>Usa un salto de línea (pulsando Enter) para dividir el título en dos líneas.</p>
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Descripción Principal</label>
+                      <textarea className="admin-input" rows={3} value={formData.camino.description} onChange={e => handleUpdate('camino', 'description', e.target.value)} />
+                    </div>
+                  </div>
+
+                  <hr style={{ border: "none", borderTop: "1px solid var(--cream-3)" }} />
+
+                  <div>
+                    <h3 style={{ fontSize: "1.05rem", color: "var(--azul)", marginBottom: "16px" }}>Pasos del Camino (6 Etapas)</h3>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                      {formData.camino.steps.map((step: any, idx: number) => (
+                        <div key={idx} style={{ backgroundColor: "var(--paper)", border: "1px solid var(--cream-3)", borderRadius: "var(--r-sm)", padding: "16px" }}>
+                          <h4 style={{ fontSize: "0.9rem", color: "var(--ink-soft)", marginBottom: "12px", fontWeight: 600 }}>Paso {idx + 1}</h4>
+                          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                              <div>
+                                <label style={{ display: "block", fontSize: "0.85rem", color: "var(--ink-faint)", marginBottom: "4px" }}>Fase (ej: RECEPCIÓN)</label>
+                                <input className="admin-input" value={step.phase} onChange={e => handleUpdateArray('camino', 'steps', idx, 'phase', e.target.value)} />
+                              </div>
+                              <div>
+                                <label style={{ display: "block", fontSize: "0.85rem", color: "var(--ink-faint)", marginBottom: "4px" }}>Título de la Etapa</label>
+                                <input className="admin-input" value={step.title} onChange={e => handleUpdateArray('camino', 'steps', idx, 'title', e.target.value)} />
+                              </div>
+                            </div>
+                            <div>
+                              <label style={{ display: "block", fontSize: "0.85rem", color: "var(--ink-faint)", marginBottom: "4px" }}>Descripción de la Etapa</label>
+                              <textarea className="admin-input" rows={4} value={step.description} onChange={e => handleUpdateArray('camino', 'steps', idx, 'description', e.target.value)} />
                             </div>
                           </div>
                         </div>

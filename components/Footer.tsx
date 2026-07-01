@@ -199,28 +199,6 @@ export default function Footer({ logos, socialLinks }: { logos?: any[], socialLi
               </li>
             </ul>
           </div>
-          <div className="footer__col" style={{ textAlign: "center" }}>
-            <h4>¿Más info?</h4>
-            <div className="footer__qr">
-              <ImageSlot
-                id="footer-qr"
-                shape="rounded"
-                radius={10}
-                placeholder="QR"
-                alt="Código QR para escanear y acceder a información adicional sobre el proyecto Volver a Casa"
-              />
-            </div>
-            <span
-              style={{
-                fontSize: ".74rem",
-                color: "oklch(0.974 0.013 83 / .55)",
-                display: "block",
-                marginTop: "8px",
-              }}
-            >
-              Escanea el código
-            </span>
-          </div>
         </div>
 
         <div className="footer__funders" style={{ borderTop: "1px solid oklch(0.974 0.013 83 / 0.14)", paddingTop: "32px", marginTop: "32px" }}>
@@ -231,7 +209,7 @@ export default function Footer({ logos, socialLinks }: { logos?: any[], socialLi
                   style={{
                     fontSize: "10px",
                     letterSpacing: ".05em",
-                    color: "oklch(0.974 0.013 83 / .6)",
+                    color: "var(--azul)",
                     textTransform: "uppercase",
                     fontWeight: 600,
                   }}

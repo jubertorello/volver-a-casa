@@ -8,10 +8,13 @@ interface StepItem {
   description: string;
 }
 
-export default function Camino() {
+export default function Camino({ data }: { data?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const stepsData: StepItem[] = [
+  const title = data?.title || "Volver no es solo llegar.\nEs todo lo que pasa en el camino.";
+  const description = data?.description || "Cada reunificación es un proceso acompañado paso a paso. Así recorremos el camino junto a las familias.";
+
+  const stepsData: StepItem[] = data?.steps || [
     {
       phase: "Recepción",
       title: "Detección de la necesidad",
@@ -43,6 +46,7 @@ export default function Camino() {
       description: "Seguimos cerca para que la reunificación sea estable y sostenida en el tiempo.",
     },
   ];
+
 
   useEffect(() => {
     const pathEl = containerRef.current;
@@ -178,13 +182,15 @@ export default function Camino() {
     <div className="wrap">
       <div className="section-head center" data-reveal="">
         <h2>
-          Volver no es solo llegar.
-          <br />
-          Es todo lo que pasa en el camino.
+          {title.split("\n").map((line: string, i: number) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < title.split("\n").length - 1 && <br />}
+            </React.Fragment>
+          ))}
         </h2>
         <p className="lead" style={{ marginInline: "auto", textAlign: "center" }}>
-          Cada reunificación es un proceso acompañado paso a paso. Así recorremos el camino
-          junto a las familias.
+          {description}
         </p>
       </div>
 

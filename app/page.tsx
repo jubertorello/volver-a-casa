@@ -20,6 +20,7 @@ export default async function Page() {
 
   const heroData = getBlock('hero');
   const proyectoData = getBlock('proyecto');
+  const caminoData = getBlock('camino');
   const objetivosData = getBlock('objetivos');
   const experienciaData = getBlock('experiencia');
   const actualidadData = getBlock('actualidad');
@@ -48,6 +49,7 @@ export default async function Page() {
     <HomePageClient 
       heroData={heroData}
       proyectoData={proyectoData}
+      caminoData={caminoData}
       objetivosData={objetivosData}
       experienciaData={experienciaData}
       actualidadData={actualidadData}
