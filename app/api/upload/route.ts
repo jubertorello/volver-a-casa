@@ -2,9 +2,13 @@ import { NextResponse } from 'next/server';
 import { uploadImage } from '@/lib/services/cloudinary.service';
 import { createClient } from '@/lib/supabase/server';
 
+const MAX_SIZE_MB = 2;
+const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
+const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
+
 export async function POST(request: Request) {
   try {
-    // Verificar autenticación (opcional pero recomendado)
+    // Verificar autenticación
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     
@@ -18,6 +22,21 @@ export async function POST(request: Request) {
 
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
+    }
+
+    // Validar tipo de archivo
+    if (!ALLOWED_TYPES.includes(file.type)) {
+      return NextResponse.json({ 
+        error: `Formato no permitido. Solo se aceptan: JPG, PNG, WebP, GIF y SVG.` 
+      }, { status: 400 });
+    }
+
+    // Validar tamaño (máx. 4 MB)
+    if (file.size > MAX_SIZE_BYTES) {
+      const sizeMB = (file.size / 1024 / 1024).toFixed(1);
+      return NextResponse.json({ 
+        error: `La imagen pesa ${sizeMB} MB. El tamaño máximo permitido es ${MAX_SIZE_MB} MB.` 
+      }, { status: 400 });
     }
 
     // Convert file to Buffer
