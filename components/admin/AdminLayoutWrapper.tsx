@@ -12,6 +12,7 @@ const navItems = [
   { name: "Vídeos", href: "/admin/videos", icon: "🎬" },
   { name: "Media", href: "/admin/media", icon: "🖼️" },
   { name: "Ajustes", href: "/admin/settings", icon: "⚙️" },
+  { name: "Footer", href: "/admin/footer", icon: "🧩" },
   { name: "Avisos Legales", href: "/admin/legal", icon: "⚖️" }
 ];
 

@@ -56,8 +56,8 @@ export async function generateMetadata({
   const shortDesc = generateShortDesc(article.content_html);
 
   return {
-    title: `${article.title} — Volver a Casa`,
-    description: shortDesc || "Sin descripción",
+    title: article.seo_meta?.title || `${article.title} | Volver a casa`,
+    description: article.seo_meta?.description || shortDesc || "Sin descripción",
   };
 }
 

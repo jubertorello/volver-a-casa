@@ -27,13 +27,21 @@ export default function NewsEditorClient({ initialNews, isNew }: { initialNews: 
     gallery: initialNews.gallery || [],
     content_html: initialNews.content_html || "",
     publication_date: initialNews.publication_date ? initialNews.publication_date.split('T')[0] : new Date().toISOString().split('T')[0],
-    status: initialNews.status || "published"
+    status: initialNews.status || "published",
+    seo_meta: initialNews.seo_meta || { title: "", description: "" }
   });
 
   const categories = ["Jornada", "Hito", "Congreso", "Alianza", "Formación", "Publicación", "Noticia"];
 
   const handleUpdate = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleUpdateSeo = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      seo_meta: { ...(prev.seo_meta || {}), [field]: value }
+    }));
   };
 
   const handleGalleryAdd = (url: string) => {
@@ -121,10 +129,24 @@ export default function NewsEditorClient({ initialNews, isNew }: { initialNews: 
         .replace(/\-\-+/g, '-');
     };
 
+    const generateShortDescLocal = (html: string) => {
+      if (!html) return "Sin descripción";
+      const text = html.replace(/<[^>]*>?/gm, '').trim();
+      return text.length > 120 ? text.substring(0, 117) + "..." : text;
+    };
+
+    const autoSeoTitle = formData.seo_meta?.title?.trim() ? formData.seo_meta.title : `${formData.title} | Volver a casa`;
+    const autoSeoDesc = formData.seo_meta?.description?.trim() ? formData.seo_meta.description : generateShortDescLocal(formData.content_html);
+
+    const finalSeoMeta = { title: autoSeoTitle, description: autoSeoDesc };
+
     const payload = {
       ...formData,
+      seo_meta: finalSeoMeta,
       slug: formData.slug || generateSlug(formData.title)
     };
+    
+    setFormData(prev => ({ ...prev, seo_meta: finalSeoMeta }));
     
     const res = await saveNewsAction(payload);
     
@@ -243,6 +265,41 @@ export default function NewsEditorClient({ initialNews, isNew }: { initialNews: 
                 <img src={formData.featured_image} alt="Portada" style={{ width: "100%", height: "auto", display: "block" }} />
               </div>
             )}
+          </div>
+
+          <div className="admin-card">
+            <h3 style={{ fontSize: "1rem", color: "var(--ink-soft)", marginBottom: "16px" }}>SEO (Opcional)</h3>
+            <div style={{ marginBottom: "16px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
+                <label style={{ fontSize: "0.85rem", color: "var(--ink-faint)" }}>Título SEO</label>
+                <span style={{ fontSize: "0.75rem", color: (formData.seo_meta?.title?.length || 0) >= 60 ? "var(--rojo)" : "var(--ink-faint)" }}>
+                  {formData.seo_meta?.title?.length || 0} / 60
+                </span>
+              </div>
+              <input 
+                className="admin-input" 
+                value={formData.seo_meta?.title || ""} 
+                onChange={e => handleUpdateSeo('title', e.target.value)} 
+                maxLength={60}
+                placeholder="Ej. Noticia | Volver a casa" 
+              />
+            </div>
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
+                <label style={{ fontSize: "0.85rem", color: "var(--ink-faint)" }}>Descripción SEO</label>
+                <span style={{ fontSize: "0.75rem", color: (formData.seo_meta?.description?.length || 0) >= 160 ? "var(--rojo)" : "var(--ink-faint)" }}>
+                  {formData.seo_meta?.description?.length || 0} / 160
+                </span>
+              </div>
+              <textarea 
+                className="admin-input" 
+                rows={3} 
+                value={formData.seo_meta?.description || ""} 
+                onChange={e => handleUpdateSeo('description', e.target.value)} 
+                maxLength={160}
+                placeholder="Descripción para buscadores..." 
+              />
+            </div>
           </div>
         </div>
       </form>

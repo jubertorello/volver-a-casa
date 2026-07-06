@@ -14,7 +14,6 @@ export default async function GeneralSettings() {
     linkedin: "https://linkedin.com/company/volveracasa"
   };
 
-  const footerLogos = await getSettings('footer_logos') || [];
 
   const seo = await getSettings('seo') || {
     title: "Volver a Casa — Reconstruyendo vínculos, acompañando familias",
@@ -24,7 +23,6 @@ export default async function GeneralSettings() {
   return <SettingsClient 
     initialGeneral={generalInfo} 
     initialSocial={socialLinks} 
-    initialFooterLogos={footerLogos} 
     initialSeo={seo}
   />;
 }

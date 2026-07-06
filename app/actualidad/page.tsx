@@ -6,13 +6,19 @@ import Footer from "@/components/Footer";
 import ActualidadHeader from "@/components/ActualidadHeader";
 import { getNews } from "@/lib/services/news.service";
 import { getSettings } from "@/lib/services/settings.service";
+import { getPageBySlug } from "@/lib/services/pages.service";
 import { DEFAULT_COVER, Article, ArticleType, generateShortDesc } from "@/lib/articles";
 
-export const metadata: Metadata = {
-  title: "Actualidad — Volver a Casa",
-  description:
-    "Todas las noticias, jornadas, hitos y publicaciones del proyecto Volver a Casa de Fundación Manantial.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getPageBySlug('actualidad');
+  const seoTitle = pageData?.seo_meta?.title || "Actualidad y Noticias | Volver a Casa - Fundación Manantial";
+  const seoDesc = pageData?.seo_meta?.description || "Descubre las últimas noticias, jornadas, hitos y publicaciones del proyecto Volver a Casa. Acompañamos a familias en el proceso de reunificación familiar.";
+
+  return {
+    title: seoTitle,
+    description: seoDesc,
+  };
+}
 
 export const revalidate = 0;
 
@@ -23,6 +29,11 @@ export default async function ActualidadPage() {
   const contactEmail = generalSettings.contactEmail || "volveracasa@fundacionmanantial.org";
   const contactPhone = generalSettings.contactPhone || "617 293 880";
   const footerLogos = await getSettings('footer_logos') || [];
+  
+  const pageData = await getPageBySlug('actualidad');
+  const heroData = pageData?.blocks?.find((b: any) => b.type === 'hero')?.content_json || {};
+  const heroTitle = heroData.title || "Actualidad";
+  const heroDescription = heroData.description || "Noticias, jornadas, hitos y publicaciones del proyecto.";
   
   const articles: Article[] = rawNews
     .filter(n => new Date(n.publication_date) <= new Date())
@@ -70,8 +81,8 @@ export default async function ActualidadPage() {
           <Link href="/" className="articles-hero__back">
             ← Inicio
           </Link>
-          <h1>Actualidad</h1>
-          <p>Noticias, jornadas, hitos y publicaciones del proyecto.</p>
+          <h1>{heroTitle}</h1>
+          <p>{heroDescription}</p>
         </div>
       </section>
 

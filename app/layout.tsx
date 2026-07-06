@@ -57,6 +57,9 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: ["https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png"],
     },
+    verification: {
+      google: "kfJ7g7WObAc71-yGSSGXhj9w67vLHYh5787TimWbOGc",
+    },
   };
 }
 

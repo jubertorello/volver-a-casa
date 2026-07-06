@@ -95,8 +95,9 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
     title: initialPage.title || '',
     description: initialPage.description || '',
     hero: {
-      overhead: getBlockData('hero').overhead || "Una infancia acompañada puede cambiarlo todo",
-      title: getBlockData('hero').title || "Reconstruyendo vínculos,\nacompañando familias."
+      overhead: getBlockData('hero').overhead || (slug === 'home' ? "Una infancia acompañada puede cambiarlo todo" : ""),
+      title: getBlockData('hero').title || (slug === 'actualidad' ? "Actualidad" : "Reconstruyendo vínculos,\nacompañando familias."),
+      description: getBlockData('hero').description || (slug === 'actualidad' ? "Noticias, jornadas, hitos y publicaciones del proyecto." : "")
     },
     proyecto: {
       title: getBlockData('proyecto').title || "¿Qué es Volver a Casa?",
@@ -231,6 +232,14 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
       for (const block of blocksToSave) {
         await savePageBlockAction(initialPage.id, block.type, block.json, block.order);
       }
+    } else if (slug === 'actualidad') {
+      const blocksToSave = [
+        { type: 'hero', json: formData.hero, order: 0 }
+      ];
+
+      for (const block of blocksToSave) {
+        await savePageBlockAction(initialPage.id, block.type, block.json, block.order);
+      }
     }
 
     setIsSaving(false);
@@ -264,20 +273,6 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
       <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: "24px", alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           
-          <div className="admin-card">
-            <h2 style={{ fontSize: "1.2rem", color: "var(--azul)", marginBottom: "16px" }}>Información General</h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div>
-                <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Título de la página/sección</label>
-                <input className="admin-input" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
-              </div>
-              <div>
-                <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Descripción general</label>
-                <textarea className="admin-input" rows={3} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} />
-              </div>
-            </div>
-          </div>
-
           {slug === "home" ? (
             <div className="admin-card" style={{ padding: "0" }}>
               <div style={{ padding: "24px 24px 0 24px" }}>
@@ -542,8 +537,21 @@ export default function PageEditorClient({ initialPage, slug }: { initialPage: a
 
               </div>
             </div>
+          ) : slug === "actualidad" ? (
+            <div className="admin-card">
+              <h2 style={{ fontSize: "1.2rem", color: "var(--azul)", marginBottom: "16px" }}>Sección Hero</h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Título Principal</label>
+                  <input className="admin-input" value={formData.hero.title} onChange={e => handleUpdate('hero', 'title', e.target.value)} />
+                </div>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.95rem", color: "var(--ink-soft)", marginBottom: "8px", fontWeight: 600 }}>Descripción Principal</label>
+                  <textarea className="admin-input" rows={3} value={formData.hero.description} onChange={e => handleUpdate('hero', 'description', e.target.value)} />
+                </div>
+              </div>
+            </div>
           ) : null}
-
         </div>
 
         <div className="admin-card" style={{ position: "sticky", top: "96px" }}>
