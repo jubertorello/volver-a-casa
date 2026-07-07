@@ -12,6 +12,7 @@ import Actualidad from "@/components/Actualidad";
 import Videos from "@/components/Videos";
 import Footer from "@/components/Footer";
 import ContactoModal from "@/components/ContactoModal";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function HomePageClient({ 
   heroData,
@@ -176,6 +177,7 @@ export default function HomePageClient({
 
   return (
     <>
+      <LoadingScreen />
       <ScrollProgress />
       <Header onOpenContacto={() => setIsContactoOpen(true)} />
 
