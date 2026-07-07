@@ -108,6 +108,35 @@ export default async function ArticleDetailPage({
 
   return (
     <>
+      {/* ── JSON-LD Structured Data ──────────────────────── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": article.title,
+            "image": [article.cover],
+            "datePublished": article.date,
+            "dateModified": rawArticle.updated_at || article.date,
+            "author": [{
+              "@type": "Organization",
+              "name": "Fundación Manantial",
+              "url": "https://www.fundacionmanantial.org"
+            }],
+            "publisher": {
+              "@type": "Organization",
+              "name": "Fundación Manantial",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://volveracasa.fundacionmanantial.org/assets/logo-volveracasa.png"
+              }
+            },
+            "description": article.shortDesc || "Artículo del proyecto Volver a Casa de la Fundación Manantial."
+          })
+        }}
+      />
+
       {/* ── Floating nav ─────────────────────────────────── */}
       <ActualidadHeader />
 
@@ -195,6 +224,7 @@ export default async function ArticleDetailPage({
                       href={`/actualidad/${rel.id}`}
                       className="link-arrow"
                       style={{ marginTop: "auto", paddingTop: "8px" }}
+                      aria-label={`Leer artículo: ${rel.title}`}
                     >
                       Leer más <span>→</span>
                     </Link>

@@ -60,6 +60,7 @@ export default function Actualidad({ data, news }: { data?: any, news?: any[] })
                 href={`/actualidad/${featuredArticle.id}`}
                 className="link-arrow"
                 style={{ marginTop: "8px" }}
+                aria-label={`Leer artículo completo: ${featuredArticle.title}`}
               >
                 Leer más <span>→</span>
               </Link>
@@ -94,6 +95,7 @@ export default function Actualidad({ data, news }: { data?: any, news?: any[] })
                   href={`/actualidad/${article.id}`}
                   className="link-arrow"
                   style={{ marginTop: "auto", paddingTop: "8px" }}
+                  aria-label={`Leer artículo: ${article.title}`}
                 >
                   Leer más <span>→</span>
                 </Link>

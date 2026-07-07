@@ -49,11 +49,13 @@ export default function NewsEditorClient({ initialNews, isNew }: { initialNews: 
   };
 
   const handleGalleryRemove = (index: number) => {
-    setFormData(prev => {
-      const newGallery = [...prev.gallery];
-      newGallery.splice(index, 1);
-      return { ...prev, gallery: newGallery };
-    });
+    if (confirm("¿Estás seguro de que deseas quitar esta imagen de la galería?")) {
+      setFormData(prev => {
+        const newGallery = [...prev.gallery];
+        newGallery.splice(index, 1);
+        return { ...prev, gallery: newGallery };
+      });
+    }
   };
 
   const imageHandler = () => {

@@ -210,7 +210,7 @@ export default function Camino({ data }: { data?: any }) {
               </div>
               <div className="step__card">
                 <span className="step__phase">{step.phase}</span>
-                <h4>{step.title}</h4>
+                <h3>{step.title}</h3>
                 <p style={{ fontFamily: "Capriola", fontSize: "16px" }}>{step.description}</p>
               </div>
             </div>

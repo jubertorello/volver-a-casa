@@ -25,9 +25,11 @@ export default function FooterClient({
   };
 
   const handleRemoveLogo = (idx: number) => {
-    const newLogos = [...footerLogos];
-    newLogos.splice(idx, 1);
-    setFooterLogos(newLogos);
+    if (confirm("¿Estás seguro de que deseas quitar este logo del pie de página?")) {
+      const newLogos = [...footerLogos];
+      newLogos.splice(idx, 1);
+      setFooterLogos(newLogos);
+    }
   };
 
   const handleSave = async (e: React.FormEvent) => {

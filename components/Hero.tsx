@@ -10,6 +10,15 @@ export default function Hero({ data }: { data?: any }) {
 
       <div className="wrap hero__inner">
         <div className="hero__copy">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667034/LOGOSVOLVERACASA_Mesa_de_trabajo_1_eh3gyo.png"
+            alt="Logo Volver a Casa"
+            className="hero-mobile-logo"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
           <p className="hero__kicker hablemos" data-reveal="" dangerouslySetInnerHTML={{ __html: overhead }} />
           <h1 data-reveal="" data-delay="1" dangerouslySetInnerHTML={{ __html: titleHtml }} />
         </div>
