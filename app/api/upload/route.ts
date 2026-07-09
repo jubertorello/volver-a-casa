@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { uploadImage } from '@/lib/services/cloudinary.service';
 import { createClient } from '@/lib/supabase/server';
 
-const MAX_SIZE_MB = 2;
+const MAX_SIZE_MB = 3;
 const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
 const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
 
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
       }, { status: 400 });
     }
 
-    // Validar tamaño (máx. 4 MB)
+    // Validar tamaño (máx. 3 MB)
     if (file.size > MAX_SIZE_BYTES) {
       const sizeMB = (file.size / 1024 / 1024).toFixed(1);
       return NextResponse.json({ 
