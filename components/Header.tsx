@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface HeaderProps {
   onOpenContacto: () => void;
@@ -68,10 +69,10 @@ export default function Header({ onOpenContacto, forceSolid }: HeaderProps) {
           onClick={(e) => handleAnchorClick(e, "/#top")}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="nav__logo" src="/assets/logo-volveracasa.png" alt="Volver a Casa" fetchPriority="high" loading="eager" decoding="async" />
+          <Image className="nav__logo" src="/assets/logo-volveracasa.png" alt="Volver a Casa" width={180} height={50} priority />
           <div className="nav__brand-separator" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="nav__logo-manantial" src="/assets/logo-manantial.png" alt="Fundación Manantial" fetchPriority="high" loading="eager" decoding="async" />
+          <Image className="nav__logo-manantial" src="/assets/logo-manantial.png" alt="Fundación Manantial" width={200} height={50} priority />
         </a>
         <nav className="nav__links" aria-label="Principal">
           {navLinks.map((link) => {

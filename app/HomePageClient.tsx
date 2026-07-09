@@ -4,14 +4,16 @@ import React, { useState, useEffect } from "react";
 import ScrollProgress from "@/components/ScrollProgress";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Proyecto from "@/components/Proyecto";
-import Camino from "@/components/Camino";
-import Objetivos from "@/components/Objetivos";
-import Recorrido from "@/components/Recorrido";
-import Actualidad from "@/components/Actualidad";
-import Videos from "@/components/Videos";
-import Footer from "@/components/Footer";
-import ContactoModal from "@/components/ContactoModal";
+import dynamic from "next/dynamic";
+
+const Proyecto = dynamic(() => import("@/components/Proyecto"));
+const Camino = dynamic(() => import("@/components/Camino"));
+const Objetivos = dynamic(() => import("@/components/Objetivos"));
+const Recorrido = dynamic(() => import("@/components/Recorrido"));
+const Actualidad = dynamic(() => import("@/components/Actualidad"));
+const Videos = dynamic(() => import("@/components/Videos"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const ContactoModal = dynamic(() => import("@/components/ContactoModal"));
 import LoadingScreen from "@/components/LoadingScreen";
 
 export default function HomePageClient({ 

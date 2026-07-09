@@ -1,12 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Proyecto({ data }: { data?: any }) {
   const title = data?.title || "¿Qué es Volver a Casa?";
   const descriptionHtml = data?.description || '<p class="lead" style="font-family: Capriola; font-size: 18px;">Un proyecto de <a href="https://www.manantial.org" target="_blank" rel="noopener noreferrer"><strong>Fundación Manantial</strong></a>, de innovación social que acompaña a niños y niñas institucionalizados y sus familias en procesos de reunificación familiar, creando las condiciones necesarias para reconstruir vínculos protectores y entornos de cuidado y bienestar.</p><p style="color: var(--ink-soft); font-family: Capriola; font-weight: 400;">No se trata solo de volver, sino de hacerlo a un entorno que pueda sostener el bienestar del niño o la niña. Por eso acompañamos <strong>antes, durante y después</strong> del regreso.</p><p style="color: var(--ink-soft); font-family: Capriola; font-weight: 400; margin-top: 16px;">Cofinanciado por la Unión Europea, el Ministerio de Trabajo y Economía Social y Fondos Europeos, y el Ministerio de Derechos Sociales, Consumo y Agenda 2030. Con la colaboración de Fundación Nemesio Díez y la Dirección General de Infancia, Familia y Fomento de la Natalidad de la Comunidad de Madrid.</p>';
 
   const cleanHtml = (html: string) => {
-    if (!html) return "";
-
     return html
       .replace(/&nbsp;/gi, " ")
       .replace(/\sstyle=(["']).*?\1/gi, "")
@@ -33,10 +32,18 @@ export default function Proyecto({ data }: { data?: any }) {
         <div className="proyecto-const__body">
           <div className="proyecto__media" data-reveal="" data-reveal-mode="scale">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/foto-editorial.png" alt="Niñas y niños dibujando juntos" loading="lazy" decoding="async" />
+            <Image 
+              src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780686482/BRANDING_FINAL_2_zmqohn.png" 
+              alt="Niñas y niños dibujando juntos" 
+              width={1200} 
+              height={800} 
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy" 
+              decoding="async" 
+            />
             <div className="float-slow erizo-loose band-erizo" aria-hidden="true">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/erizos/ilusion.png" alt="Ilustración de erizo que representa la emoción de la ilusión" loading="lazy" decoding="async" />
+              <Image src="/assets/erizos/ilusion.png" alt="Ilustración de erizo que representa la emoción de la ilusión" width={150} height={150} loading="lazy" decoding="async" />
               <span className="erizo-bubble">Hola, soy ilusión</span>
             </div>
           </div>

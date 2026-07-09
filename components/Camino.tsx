@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface StepItem {
   phase: string;
@@ -205,7 +206,7 @@ export default function Camino({ data }: { data?: any }) {
             <div className="step__group">
               <div className="step__home">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="step__home-img" src="/assets/casita-azul.png" alt={`Ilustración de casita azul que representa la etapa ${idx + 1} del proceso de reunificación: ${step.phase}`} loading="lazy" />
+                <Image className="step__home-img" src="/assets/casita-azul.png" alt={`Ilustración de casita azul que representa la etapa ${idx + 1} del proceso de reunificación: ${step.phase}`} width={60} height={60} loading="lazy" />
                 <span className="step__n">{idx + 1}</span>
               </div>
               <div className="step__card">

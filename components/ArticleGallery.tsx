@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface ArticleGalleryProps {
   images: string[];
@@ -51,7 +52,7 @@ export default function ArticleGallery({ images }: ArticleGalleryProps) {
               aria-label={`Ver imagen ${i + 1} en grande`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt={`Galería imagen ${i + 1}`} loading="lazy" decoding="async" />
+              <Image src={src} alt={`Galería imagen ${i + 1}`} fill style={{ objectFit: "cover" }} loading="lazy" />
             </button>
           ))}
         </div>

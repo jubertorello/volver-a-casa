@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import ImageSlot from "@/components/ImageSlot";
 
 export default function Videos({ data, videos, socialLinks }: { data?: any, videos?: any[], socialLinks?: any }) {
@@ -65,10 +66,11 @@ export default function Videos({ data, videos, socialLinks }: { data?: any, vide
                   <div className="video-card__media">
                     {vid.thumbnail ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
-                      <img 
+                      <Image 
                         src={vid.thumbnail} 
                         alt={`Miniatura de: ${vid.title}`} 
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                        fill
+                        style={{ objectFit: "cover" }} 
                       />
                     ) : (
                       <ImageSlot
@@ -98,10 +100,11 @@ export default function Videos({ data, videos, socialLinks }: { data?: any, vide
                   <div className="video-card__media">
                     {vid.thumbnail ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
-                      <img 
+                      <Image 
                         src={vid.thumbnail} 
                         alt={`Miniatura de: ${vid.title}`} 
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                        fill
+                        style={{ objectFit: "cover" }} 
                       />
                     ) : (
                       <ImageSlot

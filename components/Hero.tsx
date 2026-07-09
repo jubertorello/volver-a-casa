@@ -12,9 +12,11 @@ export default function Hero({ data }: { data?: any }) {
         <div className="hero__copy">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667034/LOGOSVOLVERACASA_Mesa_de_trabajo_1_eh3gyo.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto/v1780667034/LOGOSVOLVERACASA_Mesa_de_trabajo_1_eh3gyo.png"
             alt="Logo Volver a Casa"
             className="hero-mobile-logo"
+            width={240}
+            height={80}
             fetchPriority="high"
             loading="eager"
             decoding="async"
@@ -35,6 +37,8 @@ export default function Hero({ data }: { data?: any }) {
             src="/assets/erizos/ansiedad.png"
             alt="Ilustración de erizo que representa la emoción de la ansiedad"
             style={{ transform: "scaleX(-1)" }}
+            width={150}
+            height={150}
             fetchPriority="high"
             loading="eager"
             decoding="async"
@@ -49,6 +53,8 @@ export default function Hero({ data }: { data?: any }) {
           <img
             src="/assets/erizos/alegria.png"
             alt="Ilustración de erizo que representa la emoción de la alegría"
+            width={150}
+            height={150}
             fetchPriority="high"
             loading="eager"
             decoding="async"

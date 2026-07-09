@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Recorrido({ data }: { data?: any }) {
   const overhead = data?.overhead || "Hablemos de nuestra experiencia";
@@ -128,8 +129,7 @@ export default function Recorrido({ data }: { data?: any }) {
             style={{ "--x": "87.5%", "--y": "76.92%" } as React.CSSProperties}
           >
             <span className="exp-node__dot exp-node__dot--casa">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/casita-blanca.png" alt="Ilustración de una casita blanca que represents el regreso al hogar" loading="lazy" />
+              <Image src="/assets/casita-blanca.png" alt="Ilustración de una casita blanca que represents el regreso al hogar" width={24} height={24} loading="lazy" />
             </span>
             <div className="exp-node__card">
               <span className="exp-stage">{hitos[3]?.sub}</span>

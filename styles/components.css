@@ -1570,6 +1570,7 @@
     display: block;
     position: static;
     width: 130px;
+    height: auto;
     margin: 0 auto 16px;
   }
 

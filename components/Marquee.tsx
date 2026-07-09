@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Marquee() {
   const marqueeItems = [
@@ -18,7 +19,7 @@ export default function Marquee() {
         <React.Fragment key={idx}>
           <span>{item}</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="star" src="/assets/sep-icon.png" alt="" />
+          <Image className="star" src="/assets/sep-icon.png" alt="" width={32} height={32} />
         </React.Fragment>
       ))}
     </span>

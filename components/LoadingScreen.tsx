@@ -7,19 +7,18 @@ export default function LoadingScreen() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Start fade-out once the window is fully loaded (fonts + images)
+    // Hide as soon as the document is fully loaded
     const hide = () => {
       setFadeOut(true);
       setTimeout(() => setVisible(false), 650);
     };
 
     if (document.readyState === "complete") {
-      // Already loaded (fast connection / cache)
-      setTimeout(hide, 400);
+      hide();
     } else {
-      window.addEventListener("load", () => setTimeout(hide, 300), { once: true });
-      // Safety fallback: hide after 4 seconds regardless
-      const fallback = setTimeout(hide, 4000);
+      window.addEventListener("load", hide, { once: true });
+      // Fallback just in case load event never fires
+      const fallback = setTimeout(hide, 5000);
       return () => clearTimeout(fallback);
     }
   }, []);
@@ -50,6 +49,8 @@ export default function LoadingScreen() {
         <img
           src="/assets/erizo-azul.gif"
           alt=""
+          width={100}
+          height={100}
           style={{
             width: "clamp(72px, 15vw, 110px)",
             height: "auto",
@@ -60,6 +61,8 @@ export default function LoadingScreen() {
         <img
           src="/assets/erizo-naranja.gif"
           alt=""
+          width={80}
+          height={80}
           style={{
             width: "clamp(56px, 11vw, 84px)",
             height: "auto",
@@ -73,6 +76,8 @@ export default function LoadingScreen() {
       <img
         src="/assets/logo-volveracasa.png"
         alt="Volver a Casa"
+        width={180}
+        height={60}
         style={{
           width: "clamp(120px, 30vw, 180px)",
           height: "auto",
