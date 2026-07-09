@@ -34,7 +34,7 @@ export default function Hero({ data }: { data?: any }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/erizos/ansiedad.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667171/ELEMENTOSGRA%CC%81FICOSI-05_avyp6m.png"
             alt="Ilustración de erizo que representa la emoción de la ansiedad"
             style={{ transform: "scaleX(-1)" }}
             width={150}
@@ -51,7 +51,7 @@ export default function Hero({ data }: { data?: any }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/erizos/alegria.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667171/ELEMENTOSGRA%CC%81FICOSI_Mesa_de_trabajo_1_gp9noj.png"
             alt="Ilustración de erizo que representa la emoción de la alegría"
             width={150}
             height={150}
@@ -67,7 +67,7 @@ export default function Hero({ data }: { data?: any }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/erizos/miedo.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780690160/ELEMENTOSGRA%CC%81FICOSI-04_zvviok.png"
             alt="Ilustración de erizo que representa la emoción del miedo"
             style={{ transform: "scaleX(-1)" }}
             fetchPriority="high"

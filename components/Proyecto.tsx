@@ -32,18 +32,18 @@ export default function Proyecto({ data }: { data?: any }) {
         <div className="proyecto-const__body">
           <div className="proyecto__media" data-reveal="" data-reveal-mode="scale">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <Image 
-              src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780686482/BRANDING_FINAL_2_zmqohn.png" 
-              alt="Niñas y niños dibujando juntos" 
-              width={1200} 
-              height={800} 
+            <Image
+              src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780686482/BRANDING_FINAL_2_zmqohn.png"
+              alt="Niñas y niños dibujando juntos"
+              width={1200}
+              height={800}
               sizes="(max-width: 768px) 100vw, 50vw"
-              loading="lazy" 
-              decoding="async" 
+              loading="lazy"
+              decoding="async"
             />
             <div className="float-slow erizo-loose band-erizo" aria-hidden="true">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <Image src="/assets/erizos/ilusion.png" alt="Ilustración de erizo que representa la emoción de la ilusión" width={150} height={150} loading="lazy" decoding="async" />
+              <Image src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667171/ELEMENTOSGRA%CC%81FICOSI-02_hy1rcv.png" alt="Ilustración de erizo que representa la emoción de la ilusión" width={150} height={150} loading="lazy" decoding="async" />
               <span className="erizo-bubble">Hola, soy ilusión</span>
             </div>
           </div>
