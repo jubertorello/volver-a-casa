@@ -237,7 +237,17 @@ export default function Footer({ logos, socialLinks, contactEmail, contactPhone 
         </div>
 
         <div className="footer__legal">
-          <span>© 2026 Volver a Casa · Fundación Manantial. Todos los derechos reservados.</span>
+          <span>
+            © 2026 Volver a Casa · Fundación Manantial. Todos los derechos reservados. | Diseñado y Desarrollado By{" "}
+            <a 
+              href="https://wa.me/34660104026" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "underline" }}
+            >
+              Honest Tech Factory
+            </a>
+          </span>
           <span style={{ display: "flex", gap: "18px" }}>
             <Link href="/politica-privacidad">Política de privacidad</Link>
             <Link href="/aviso-legal">Aviso legal</Link>
