@@ -31,12 +31,12 @@ export default function Hero({ data }: { data?: any }) {
           style={{ "--rot": "5deg" } as React.CSSProperties}
         >
           <Image
-            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667171/ELEMENTOSGRA%CC%81FICOSI-05_avyp6m.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_400/v1780667171/ELEMENTOSGRA%CC%81FICOSI-05_avyp6m.png"
             alt="Ilustración de erizo que representa la emoción de la ansiedad"
             style={{ transform: "scaleX(-1)" }}
             width={150}
             height={150}
-            loading="lazy"
+            priority
           />
           <span className="erizo-bubble">Hola, soy ansiedad</span>
         </div>
@@ -45,7 +45,7 @@ export default function Hero({ data }: { data?: any }) {
           style={{ "--rot": "3deg" } as React.CSSProperties}
         >
           <Image
-            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780667171/ELEMENTOSGRA%CC%81FICOSI_Mesa_de_trabajo_1_gp9noj.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_400/v1780667171/ELEMENTOSGRA%CC%81FICOSI_Mesa_de_trabajo_1_gp9noj.png"
             alt="Ilustración de erizo que representa la emoción de la alegría"
             width={150}
             height={150}
@@ -58,7 +58,7 @@ export default function Hero({ data }: { data?: any }) {
           style={{ "--rot": "-5deg" } as React.CSSProperties}
         >
           <Image
-            src="https://res.cloudinary.com/djqtkbyez/image/upload/v1780690160/ELEMENTOSGRA%CC%81FICOSI-04_zvviok.png"
+            src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_400/v1780690160/ELEMENTOSGRA%CC%81FICOSI-04_zvviok.png"
             alt="Ilustración de erizo que representa la emoción del miedo"
             width={150}
             height={150}
