@@ -5,7 +5,7 @@ import { generateShortDesc } from '@/lib/articles';
 import HomePageClient from './HomePageClient';
 
 // Add revalidation if needed (e.g., revalidate = 60, or rely on on-demand revalidation)
-export const revalidate = 0; // Para ver los cambios instantaneamente durante el dev
+export const revalidate = 3600; // Caché de 1 hora para Vercel CDN (baja radicalmente el TTFB)
 
 export default async function Page() {
   const pageData = await getPageBySlug('home');
