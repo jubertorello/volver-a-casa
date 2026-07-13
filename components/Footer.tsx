@@ -26,7 +26,7 @@ export default function Footer({ logos, socialLinks, contactEmail, contactPhone 
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="footer__logo"
-                src="/assets/logo-volveracasa-blanco.png"
+                src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_384/v1780685493/LOGOSVOLVERACASA-05_u9b62r.png"
                 alt="Logo Volver a Casa en blanco"
                 loading="lazy"
                 decoding="async"

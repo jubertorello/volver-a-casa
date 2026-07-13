@@ -228,7 +228,7 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(100deg, rgba(246, 236, 216, .55), rgba(246, 236, 216, .22) 45%, rgba(246, 236, 216, 0) 74%), url('/assets/hero-bg.png') center/cover no-repeat;
+  background: linear-gradient(100deg, rgba(246, 236, 216, .55), rgba(246, 236, 216, .22) 45%, rgba(246, 236, 216, 0) 74%), url('https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto/v1780689368/Copia_de_PPT_aambgq.png') center/cover no-repeat;
 }
 
 .hero__inner {
@@ -1527,6 +1527,8 @@
     height: 100svh;
     padding-top: 76px;
     padding-bottom: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .hero__inner {
@@ -1551,9 +1553,14 @@
   .hero-bandstage .e2 {
     width: 82px;
     top: 23%;
-    right: 0%;
+    right: 4%;
     left: auto !important;
     bottom: auto !important;
+  }
+
+  /* Ocultar globitos en mobile — el hover/tap no funciona bien en táctil */
+  .erizo-bubble {
+    display: none;
   }
 
   /* Verde (alegría) -> más abajo a la izquierda */
@@ -1578,7 +1585,7 @@
   .hero-bandstage .e4 {
     width: 86px;
     bottom: 26%;
-    right: 0%;
+    right: 4%;
     left: auto !important;
     top: auto !important;
   }

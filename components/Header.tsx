@@ -69,7 +69,7 @@ export default function Header({ onOpenContacto, forceSolid }: HeaderProps) {
           onClick={(e) => handleAnchorClick(e, "/#top")}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <Image className="nav__logo" src="/assets/logo-volveracasa.png" alt="Volver a Casa" width={180} height={50} priority />
+          <Image className="nav__logo" src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_384/v1783939639/LOGOSVOLVERACASA-04_lfru81.png" alt="Volver a Casa" width={180} height={50} priority />
           <div className="nav__brand-separator" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <Image className="nav__logo-manantial" src="/assets/logo-manantial.png" alt="Fundación Manantial" width={200} height={50} priority />

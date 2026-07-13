@@ -47,7 +47,7 @@ export default function LoadingScreen() {
       <div style={{ display: "flex", gap: "20px", alignItems: "flex-end" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/erizo-azul.gif"
+          src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_120/v1783939309/_PST_GIF_18_d7b945.gif"
           alt=""
           width={100}
           height={100}
@@ -59,7 +59,7 @@ export default function LoadingScreen() {
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/erizo-naranja.gif"
+          src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_100/v1783939309/_PST_GIF_19_vh4q8t.gif"
           alt=""
           width={80}
           height={80}
@@ -74,7 +74,7 @@ export default function LoadingScreen() {
       {/* Logo */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/assets/logo-volveracasa.png"
+        src="https://res.cloudinary.com/djqtkbyez/image/upload/f_auto,q_auto,w_384/v1783939639/LOGOSVOLVERACASA-04_lfru81.png"
         alt="Volver a Casa"
         width={180}
         height={60}
